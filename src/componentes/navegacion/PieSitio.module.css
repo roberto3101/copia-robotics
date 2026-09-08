@@ -1,5 +1,6 @@
 .pie {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   background: var(--superficie-cabecera);
   border-top: 1px solid var(--linea-suave);
@@ -154,7 +155,14 @@ a.enlace:hover {
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 0.9;
-  color: rgba(201, 219, 236, 0.07);
+  color: transparent;
+  background-image: url('/images/humo.webp'), url('/images/humo.webp'), var(--humo-tintes);
+  background-size: 320% auto, 165% auto, 100% 100%;
+  background-position: 8% 28%, 78% 66%, 0 0;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-blend-mode: soft-light, overlay, normal;
+  -webkit-background-clip: text;
+  background-clip: text;
   pointer-events: none;
 }
 

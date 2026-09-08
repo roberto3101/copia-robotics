@@ -20,6 +20,22 @@
   --superficie-vidrio: rgba(10, 26, 38, 0.62);
   --superficie-tenue: rgba(255, 255, 255, 0.03);
 
+  --humo-tintes: linear-gradient(
+    101deg,
+    #eef4fa 0%,
+    #c4d3e2 10%,
+    #8ba7c4 20%,
+    #4f81b8 31%,
+    #2c5a90 42%,
+    #22405f 53%,
+    #2b3a4d 63%,
+    #3b3646 73%,
+    #6f2d3b 82%,
+    #a5333f 90%,
+    #5a3239 96%,
+    #37424e 100%
+  );
+
   --linea: rgba(126, 178, 214, 0.16);
   --linea-suave: rgba(126, 178, 214, 0.1);
   --linea-fuerte: rgba(126, 178, 214, 0.28);
@@ -106,6 +122,21 @@
   --superficie-4: #e8eef4;
   --superficie-vidrio: rgba(255, 255, 255, 0.78);
   --superficie-tenue: rgba(9, 32, 51, 0.04);
+
+  --humo-tintes: linear-gradient(
+    101deg,
+    #b9c6d4 0%,
+    #8d9fb2 10%,
+    #5b7ea6 20%,
+    #2f5c92 31%,
+    #1c4574 42%,
+    #14314e 53%,
+    #2a2c3a 63%,
+    #5e2632 74%,
+    #8d2734 83%,
+    #4e2a31 91%,
+    #4a5866 100%
+  );
 
   --linea: rgba(19, 58, 88, 0.16);
   --linea-suave: rgba(19, 58, 88, 0.09);
