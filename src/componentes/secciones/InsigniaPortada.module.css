@@ -14,6 +14,21 @@
   text-align: left;
 }
 
+.flotante {
+  position: absolute;
+  left: var(--insignia-izquierda);
+  top: var(--insignia-arriba);
+  z-index: 1;
+  margin: 0;
+}
+
+@media (max-width: 1049.98px) {
+  .flotante {
+    position: static;
+    align-self: flex-start;
+  }
+}
+
 @media (max-width: 899.98px) {
   .insignia {
     align-self: flex-start;

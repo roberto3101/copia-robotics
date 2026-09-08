@@ -3,10 +3,18 @@ import estilos from './InsigniaPortada.module.css';
 
 interface Props {
   texto: string;
+  izquierda?: number;
+  arriba?: number;
   clase?: string;
 }
 
-const { texto, clase } = Astro.props;
+const { texto, izquierda, arriba, clase } = Astro.props;
+const flotante = izquierda !== undefined && arriba !== undefined;
 ---
 
-<p class={[estilos.insignia, clase].filter(Boolean).join(' ')}>{texto}</p>
+<p
+  class={[estilos.insignia, flotante && estilos.flotante, clase].filter(Boolean).join(' ')}
+  style={flotante ? `--insignia-izquierda:${izquierda}%;--insignia-arriba:${arriba}%` : undefined}
+>
+  {texto}
+</p>

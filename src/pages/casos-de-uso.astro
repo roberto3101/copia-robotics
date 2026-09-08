@@ -7,7 +7,6 @@ import CasoDestacado from '../componentes/secciones/casos/CasoDestacado.astro';
 import Testimonios from '../componentes/secciones/casos/Testimonios.astro';
 import BandaLlamada from '../componentes/secciones/BandaLlamada.astro';
 import InsigniaPortada from '../componentes/secciones/InsigniaPortada.astro';
-import MiniaturasPortada from '../componentes/secciones/MiniaturasPortada.astro';
 import { contenido } from '../nucleo/idiomas';
 
 const idioma = 'es' as const;
@@ -32,8 +31,7 @@ const pestanas = contenido(idioma, 'casos-de-uso/pestanas');
     posicionImagen="50% 50%"
     mostrarSello={false}
   >
-    <MiniaturasPortada slot="escenario" elementos={portada.miniaturas} />
-    <InsigniaPortada slot="insignia" texto={portada.insignia} />
+    <InsigniaPortada slot="insignia" texto={portada.insignia} izquierda={60.2} arriba={49} />
   </PortadaSeccion>
   <BarraFiltros rotulo={pestanas.rotulo} elementos={pestanas.elementos} />
   <CatalogoCasos idioma={idioma} />
