@@ -3,17 +3,19 @@
 Réplica en Astro de los siete diseños de referencia, bilingüe (español / inglés), con textos
 externalizados en JSON modular y estilos en módulos CSS por componente.
 
-[![Desplegar con Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FTU-USUARIO%2Fai-robotics-peru)
+[![Desplegar con Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Froberto3101%2Fcopia-robotics)
 
 ## Publicar
 
-```bash
-git remote add origin https://github.com/TU-USUARIO/ai-robotics-peru.git
-git push -u origin main
-```
+Repositorio: <https://github.com/roberto3101/copia-robotics>
 
-En Vercel: **Add New → Project → Import** el repositorio. Detecta Astro por `vercel.json`
-y publica sin configuración extra. Salida estática en `dist/`, Node 20 (`.nvmrc`).
+Pulsa el botón de arriba, o en Vercel: **Add New → Project → Import** el repositorio.
+Detecta Astro por `vercel.json` y publica sin configuración extra. Salida estática en
+`dist/`, Node 20 (`.nvmrc`).
+
+```bash
+git push
+```
 
 ## Puesta en marcha
 
