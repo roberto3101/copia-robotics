@@ -1,0 +1,32 @@
+{
+  "titulo": "How it works",
+  "subtitulo": "Connect → Analyze → Respond",
+  "pasos": [
+    {
+      "numero": "01",
+      "etiqueta": "WE CONNECT",
+      "iconos": [
+        "camara",
+        "dron",
+        "sensor"
+      ],
+      "texto": "We integrate cameras, drones, sensors and existing infrastructure."
+    },
+    {
+      "numero": "02",
+      "etiqueta": "WE ANALYZE",
+      "iconos": [
+        "cerebro"
+      ],
+      "texto": "AI processes the information in real time and generates intelligent alerts."
+    },
+    {
+      "numero": "03",
+      "etiqueta": "WE RESPOND",
+      "iconos": [
+        "dronVuelo"
+      ],
+      "texto": "We coordinate aerial units and deliver operational insight for an effective response."
+    }
+  ]
+}

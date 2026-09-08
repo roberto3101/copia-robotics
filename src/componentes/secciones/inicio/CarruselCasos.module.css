@@ -1,0 +1,135 @@
+.seccion {
+  background: var(--superficie-base);
+  border-bottom: 1px solid var(--linea-suave);
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 318px) minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  padding-block: 2px 2px;
+}
+
+.encabezado {
+  padding-left: var(--sangria-bloque);
+  padding-top: 17px;
+}
+
+.titulo {
+  font-size: var(--texto-h2);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.subtitulo {
+  margin-top: 4px;
+  font-size: var(--texto-h3);
+  color: var(--marca-300);
+  line-height: 1.34;
+}
+
+.controles {
+  display: flex;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.control {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--texto-1);
+  transition:
+    color var(--duracion) var(--curva),
+    transform var(--duracion) var(--curva);
+}
+
+.control:hover {
+  color: var(--marca-400);
+  transform: scale(1.1);
+}
+
+.pista {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.pista::-webkit-scrollbar {
+  display: none;
+}
+
+.diapositiva {
+  scroll-snap-align: start;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--linea-suave);
+  border-radius: var(--radio-md);
+  overflow: hidden;
+  background: var(--superficie-1);
+  transition:
+    border-color var(--duracion) var(--curva),
+    transform var(--duracion) var(--curva);
+}
+
+.tarjeta:hover {
+  border-color: var(--linea-marca);
+  transform: translateY(-3px);
+}
+
+.imagen {
+  width: 100%;
+  aspect-ratio: 253 / 72;
+  object-fit: cover;
+}
+
+.cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 12px 11px;
+}
+
+.nombre {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 17px;
+  color: var(--texto-1);
+  white-space: pre-line;
+}
+
+.detalle {
+  font-size: 12.5px;
+  color: var(--texto-2);
+  line-height: 16px;
+}
+
+.enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 7px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--marca-400);
+}
+
+@media (max-width: 1023.98px) {
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pista {
+    grid-auto-columns: min(260px, 78vw);
+  }
+}

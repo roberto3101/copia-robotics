@@ -1,0 +1,12 @@
+{
+  "titulo": "Our team",
+  "subtitulo": "Peruvian talent, global vision",
+  "texto": "We have a multidisciplinary team of engineers, developers, AI specialists, security experts and operations professionals, committed to delivering high-impact solutions for our clients.",
+  "accion": "Meet our team",
+  "textoAlternativo": "AI Robotics Perú team in the operations center",
+  "complemento": {
+    "titulo": "Technology built in\nPeru for the world",
+    "texto": "We design solutions taking into account the real conditions, needs and challenges of Latin America. Our technology reflects the talent and capacity for innovation that exists in the region.",
+    "insignia": "PROUDLY\nPERUVIAN"
+  }
+}

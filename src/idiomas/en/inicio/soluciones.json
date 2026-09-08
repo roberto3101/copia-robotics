@@ -1,0 +1,42 @@
+{
+  "titulo": "Our solutions",
+  "subtitulo": "One platform. Multiple capabilities.",
+  "elementos": [
+    {
+      "icono": "camara",
+      "familia": "CERBERUS",
+      "producto": "VISION",
+      "descripcion": "AI video analytics"
+    },
+    {
+      "icono": "dron",
+      "familia": "CERBERUS",
+      "producto": "DRONE",
+      "descripcion": "Intelligent aerial surveillance"
+    },
+    {
+      "icono": "puesto",
+      "familia": "CERBERUS",
+      "producto": "COMMAND",
+      "descripcion": "Operations center"
+    },
+    {
+      "icono": "chip",
+      "familia": "CERBERUS",
+      "producto": "EDGE",
+      "descripcion": "AI at the edge"
+    },
+    {
+      "icono": "integracion",
+      "familia": "CERBERUS",
+      "producto": "INTEGRATION",
+      "descripcion": "Full integration"
+    },
+    {
+      "icono": "engranaje",
+      "familia": "CERBERUS",
+      "producto": "OPERATIONS",
+      "descripcion": "Deployment and support"
+    }
+  ]
+}

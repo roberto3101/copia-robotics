@@ -1,0 +1,41 @@
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--texto-1);
+}
+
+.disco {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1.5px solid var(--texto-1);
+  border-radius: 50%;
+  flex: none;
+  transition:
+    background-color var(--duracion) var(--curva),
+    color var(--duracion) var(--curva),
+    transform var(--duracion) var(--curva);
+}
+
+.boton:hover .disco {
+  background: var(--texto-1);
+  color: var(--superficie-base);
+  transform: scale(1.06);
+}
+
+.leyenda {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  font-size: 15px;
+  line-height: 1.28;
+  color: var(--texto-1);
+  text-align: left;
+}
+
+.detalle {
+  color: var(--texto-2);
+}

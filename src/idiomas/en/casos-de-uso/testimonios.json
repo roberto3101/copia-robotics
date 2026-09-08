@@ -1,0 +1,26 @@
+{
+  "titulo": "What our clients say",
+  "elementos": [
+    {
+      "emblema": "municipal",
+      "organizacion": "Municipality of Los Olivos",
+      "cita": "“CERBERUS has given us a safer city, with a faster and more efficient response to incidents.”",
+      "autor": "Carlos Méndez",
+      "cargo": "Public Safety Manager"
+    },
+    {
+      "emblema": "minero",
+      "organizacion": "Compañía Minera Andina",
+      "cita": "“The combination of AI and drones gives us a complete view of our operations and greater control of our facilities.”",
+      "autor": "María Torres",
+      "cargo": "Head of Asset Security"
+    },
+    {
+      "emblema": "logistico",
+      "organizacion": "Logística del Sur S.A.",
+      "cita": "“We have reduced risk on our routes and improved traceability of our fleet. It is a key tool for our business.”",
+      "autor": "Javier Rojas",
+      "cargo": "Operations Manager"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+.barra {
+  background: var(--superficie-1);
+  border-bottom: 1px solid var(--linea-suave);
+}
+
+.pista {
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.pista::-webkit-scrollbar {
+  display: none;
+}
+
+.pestana {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  flex: 1 1 0;
+  min-width: max-content;
+  padding: 19px 20px;
+  font-size: 15px;
+  color: var(--texto-2);
+  white-space: nowrap;
+  transition:
+    color var(--duracion) var(--curva),
+    background-color var(--duracion) var(--curva);
+}
+
+.pestana::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--marca-400);
+  transform: scaleX(0);
+  transition: transform var(--duracion) var(--curva);
+}
+
+.pestana + .pestana::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 1px;
+  background: var(--linea-suave);
+}
+
+.pestana:hover {
+  color: var(--texto-1);
+}
+
+.pestana[aria-selected='true'] {
+  color: var(--texto-1);
+  background: linear-gradient(180deg, rgba(19, 92, 148, 0.55) 0%, rgba(11, 52, 84, 0.28) 100%);
+}
+
+.pestana[aria-selected='true']::after {
+  transform: scaleX(1);
+}
+
+.icono {
+  flex: none;
+  color: currentColor;
+}
+
+@media (max-width: 1023.98px) {
+  .pestana {
+    flex: 0 0 auto;
+    padding: 15px 16px;
+    font-size: var(--texto-sm);
+  }
+}
+
+.busqueda {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex: 0 0 300px;
+  margin-left: 28px;
+  align-self: center;
+  height: 42px;
+  padding-inline: 15px;
+  border: 1px solid var(--linea-suave);
+  border-radius: var(--radio-sm);
+  background: var(--superficie-base);
+  color: var(--texto-3);
+}
+
+.busqueda input {
+  width: 100%;
+  border: 0;
+  background: none;
+  outline: none;
+  font-size: 14.5px;
+  color: var(--texto-1);
+}
+
+.busqueda input::placeholder {
+  color: var(--texto-3);
+}
+
+@media (max-width: 1023.98px) {
+  .busqueda {
+    display: none;
+  }
+}

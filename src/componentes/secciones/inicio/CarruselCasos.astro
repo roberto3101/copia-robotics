@@ -1,0 +1,74 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import estilos from './CarruselCasos.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const casos = contenido(idioma, 'inicio/casos');
+const acciones = contenido(idioma, 'comunes/acciones');
+const destino = ruta('casos', idioma);
+---
+
+<section class={estilos.seccion}>
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.encabezado}>
+      <h2 class={estilos.titulo}>{casos.titulo}</h2>
+      <p class={estilos.subtitulo}>{casos.subtitulo}</p>
+      <div class={estilos.controles}>
+        <button class={estilos.control} type="button" aria-label={acciones.anterior} data-desplazar="-1">
+          <Icono nombre="chevronIzquierda" tamano={20} grosor={1.5} />
+        </button>
+        <button class={estilos.control} type="button" aria-label={acciones.siguiente} data-desplazar="1">
+          <Icono nombre="chevronDerecha" tamano={20} grosor={1.5} />
+        </button>
+      </div>
+    </div>
+
+    <ul class={estilos.pista} data-pista-casos>
+      {
+        casos.elementos.map((caso: { imagen: string; titulo: string; detalle: string }) => (
+          <li class={estilos.diapositiva}>
+            <a class={estilos.tarjeta} href={destino}>
+              <img
+                class={estilos.imagen}
+                src={`/images/${caso.imagen}.webp`}
+                alt={caso.titulo.split('\n').join(' ')}
+                width="900"
+                height="560"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class={estilos.cuerpo}>
+                <span class={estilos.nombre}>{caso.titulo}</span>
+                <span class={estilos.detalle}>{caso.detalle}</span>
+                <span class={estilos.enlace}>
+                  {acciones.verCaso}
+                  <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
+                </span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Contenedor>
+</section>
+
+<script>
+  const pista = document.querySelector('[data-pista-casos]');
+  if (pista instanceof HTMLElement) {
+    document.querySelectorAll('[data-desplazar]').forEach((boton) => {
+      boton.addEventListener('click', () => {
+        const sentido = Number((boton as HTMLElement).dataset.desplazar);
+        const paso = pista.firstElementChild?.getBoundingClientRect().width ?? 300;
+        pista.scrollBy({ left: sentido * (paso + 14), behavior: 'smooth' });
+      });
+    });
+  }
+</script>

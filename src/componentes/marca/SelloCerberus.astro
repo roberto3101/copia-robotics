@@ -1,0 +1,26 @@
+---
+import estilos from './SelloCerberus.module.css';
+
+interface Props {
+  producto: string;
+  lema: string;
+  compacto?: boolean;
+  centrado?: boolean;
+  clase?: string;
+}
+
+const { producto, lema, compacto = false, centrado = false, clase } = Astro.props;
+const clases = [
+  estilos.sello,
+  compacto ? estilos.compacto : null,
+  centrado ? estilos.centrado : null,
+  clase,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<div class={clases}>
+  <span class={estilos.nombre}>{producto}</span>
+  <span class={estilos.lema}>{lema}</span>
+</div>

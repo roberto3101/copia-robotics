@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /*?buscar=
+Disallow: /*?filtro=
+
+Sitemap: https://www.airobotics.pe/sitemap-index.xml

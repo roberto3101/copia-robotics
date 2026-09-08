@@ -1,0 +1,22 @@
+{
+  "titulo": "Nuestra historia",
+  "subtitulo": "De una visión local a un impacto real",
+  "texto": "AI Robotics Perú nace de la convicción de que Latinoamérica necesita soluciones tecnológicas propias, adaptadas a su realidad. Uniendo experiencia en software, inteligencia artificial, electrónica y operaciones, iniciamos el desarrollo de plataformas para seguridad, gestión y automatización.",
+  "accion": "Conocer nuestra historia",
+  "textoAlternativo": "Sede de AI Robotics Perú",
+  "palabrasSede": [
+    "IDEAS",
+    "SOLUCIONES",
+    "IMPACTO"
+  ],
+  "mision": {
+    "icono": "diana",
+    "titulo": "Nuestra misión",
+    "texto": "Desarrollar y ofrecer soluciones tecnológicas innovadoras, confiables y accesibles, basadas en inteligencia artificial, para mejorar la seguridad, la eficiencia y la calidad de vida en nuestra región."
+  },
+  "vision": {
+    "icono": "ojo",
+    "titulo": "Nuestra visión",
+    "texto": "Ser la empresa líder en Latinoamérica en soluciones de IA, robótica y sistemas autónomos, reconocida por su impacto positivo en la sociedad y por el desarrollo de tecnología con identidad regional."
+  }
+}

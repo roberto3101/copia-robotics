@@ -1,0 +1,56 @@
+{
+  "antetitulo": "CERBERUS",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Inteligencia artificial"
+      }
+    ],
+    [
+      {
+        "texto": "para un Perú más seguro"
+      }
+    ]
+  ],
+  "entradilla": "Integramos cámaras, drones, sensores y analítica avanzada en una plataforma de inteligencia operacional para anticipar, detectar y responder ante incidentes de seguridad.",
+  "accionPrincipal": "solicitarDemostracion",
+  "accionSecundaria": "conocerPlataforma",
+  "atributos": [
+    {
+      "icono": "ciudad",
+      "lineas": [
+        "CIUDADES",
+        "MÁS SEGURAS"
+      ]
+    },
+    {
+      "icono": "reloj",
+      "lineas": [
+        "RESPUESTA",
+        "MÁS RÁPIDA"
+      ]
+    },
+    {
+      "icono": "grafico",
+      "lineas": [
+        "DECISIONES",
+        "BASADAS EN DATOS"
+      ]
+    },
+    {
+      "icono": "escudoIa",
+      "lineas": [
+        "TECNOLOGÍA",
+        "PERUANA"
+      ]
+    }
+  ],
+  "palabrasLaterales": [
+    "OBSERVA",
+    "ANALIZA",
+    "CONECTA",
+    "PROTEGE."
+  ],
+  "notaLateral": "Tecnología peruana\npara un futuro más seguro.",
+  "textoAlternativo": "Tres unidades robóticas CERBERUS sobre una ciudad nocturna"
+}

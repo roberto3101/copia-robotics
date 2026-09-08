@@ -1,0 +1,119 @@
+---
+import Icono from '../../base/Icono.astro';
+import Boton from '../../base/Boton.astro';
+import estilos from './PanelLateral.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const panel = contenido(idioma, 'recursos/panel-lateral');
+const acciones = contenido(idioma, 'comunes/acciones');
+const destino = ruta('recursos', idioma);
+---
+
+<aside class={estilos.panel}>
+  <section class={estilos.tarjeta}>
+    <div class={estilos.boletin}>
+      <Icono nombre={panel.boletin.icono} tamano={44} grosor={1.2} clase={estilos.iconoBoletin} />
+      <div>
+        <h2 class={estilos.titulo}>{panel.boletin.titulo}</h2>
+        <p class={estilos.texto}>{panel.boletin.texto}</p>
+      </div>
+    </div>
+    <form class={estilos.formulario}>
+      <label class="solo-lectores" for="correo-boletin">{panel.boletin.rotulo}</label>
+      <input
+        class={estilos.campo}
+        id="correo-boletin"
+        type="email"
+        name="correo"
+        placeholder={panel.boletin.marcador}
+        required
+      />
+      <Boton texto={acciones[panel.boletin.accion]} tipo="submit" clase={estilos.enviar} />
+    </form>
+  </section>
+
+  <section class={estilos.tarjeta}>
+    <h2 class={estilos.titulo}>{panel.destacado.titulo}</h2>
+    <div class={estilos.reproductor}>
+      <img
+        class={estilos.imagen}
+        src={`/images/${panel.destacado.imagen}.webp`}
+        alt={panel.destacado.textoAlternativo}
+        width="900"
+        height="520"
+        loading="lazy"
+        decoding="async"
+      />
+      <span class={estilos.distintivo}>{panel.destacado.distintivo}</span>
+      <button class={estilos.reproducir} type="button" aria-label={panel.destacado.nombre}>
+        <Icono nombre="reproducir" tamano={20} grosor={1} />
+      </button>
+    </div>
+    <h3 class={estilos.nombreDestacado}>{panel.destacado.nombre}</h3>
+    <p class={estilos.texto}>{panel.destacado.texto}</p>
+    <a class={estilos.enlace} href={destino}>
+      {acciones[panel.destacado.accion]}
+      <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
+    </a>
+  </section>
+
+  <section class={estilos.tarjeta}>
+    <header class={estilos.cabeza}>
+      <h2 class={estilos.titulo}>
+        <Icono nombre={panel.eventos.icono} tamano={22} grosor={1.3} clase={estilos.iconoTitulo} />
+        {panel.eventos.titulo}
+      </h2>
+      <a class={estilos.enlace} href={destino}>
+        {acciones[panel.eventos.verTodos]}
+        <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
+      </a>
+    </header>
+    <ul class={estilos.agenda}>
+      {
+        panel.eventos.elementos.map(
+          (evento: { dia: string; mes: string; titulo: string; hora: string }) => (
+            <li class={estilos.evento}>
+              <span class={estilos.fecha}>
+                <span class={estilos.dia}>{evento.dia}</span>
+                <span class={estilos.mes}>{evento.mes}</span>
+              </span>
+              <span class={estilos.detalleEvento}>
+                <span class={estilos.tituloEvento}>{evento.titulo}</span>
+                <span class={estilos.hora}>{evento.hora}</span>
+              </span>
+            </li>
+          )
+        )
+      }
+    </ul>
+  </section>
+
+  <section class={estilos.tarjeta}>
+    <header class={estilos.cabeza}>
+      <h2 class={estilos.titulo}>{panel.noticias.titulo}</h2>
+      <a class={estilos.enlace} href={destino}>
+        {acciones[panel.noticias.verTodas]}
+        <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
+      </a>
+    </header>
+    <ul class={estilos.agenda}>
+      {
+        panel.noticias.elementos.map((noticia: { dia: string; mes: string; titulo: string }) => (
+          <li class={estilos.evento}>
+            <span class={estilos.fecha}>
+              <span class={estilos.dia}>{noticia.dia}</span>
+              <span class={estilos.mes}>{noticia.mes}</span>
+            </span>
+            <span class={estilos.tituloEvento}>{noticia.titulo}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</aside>

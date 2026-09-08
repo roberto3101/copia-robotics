@@ -1,0 +1,138 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import EncabezadoSeccion from '../EncabezadoSeccion.astro';
+import PanelLateral from './PanelLateral.astro';
+import estilos from './BibliotecaRecursos.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const articulos = contenido(idioma, 'recursos/articulos');
+const videos = contenido(idioma, 'recursos/videos');
+const documentos = contenido(idioma, 'recursos/documentos');
+const acciones = contenido(idioma, 'comunes/acciones');
+const destino = ruta('recursos', idioma);
+---
+
+<section class={estilos.seccion}>
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.columna}>
+      <article class={estilos.bloque}>
+        <EncabezadoSeccion
+          titulo={articulos.titulo}
+          subtitulo={articulos.subtitulo}
+          enlace={articulos.verTodos}
+          destinoEnlace={destino}
+        />
+        <ul class={estilos.tercios}>
+          {
+            articulos.elementos.map(
+              (a: { distintivo: string; imagen: string; fecha: string; titulo: string; texto: string }) => (
+                <li>
+                  <article class={estilos.tarjeta}>
+                    <div class={estilos.lienzo}>
+                      <img
+                        class={estilos.imagen}
+                        src={`/images/${a.imagen}.webp`}
+                        alt={a.titulo.split('\n').join(' ')}
+                        width="900"
+                        height="520"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span class={estilos.distintivo}>{a.distintivo}</span>
+                    </div>
+                    <div class={estilos.cuerpo}>
+                      <span class={estilos.fecha}>{a.fecha}</span>
+                      <h3 class={estilos.nombre}>{a.titulo}</h3>
+                      <p class={estilos.texto}>{a.texto}</p>
+                      <a class={estilos.enlace} href={destino}>
+                        {acciones.leerMas}
+                        <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
+                      </a>
+                    </div>
+                  </article>
+                </li>
+              )
+            )
+          }
+        </ul>
+      </article>
+
+      <article class={estilos.bloque}>
+        <EncabezadoSeccion
+          titulo={videos.titulo}
+          subtitulo={videos.subtitulo}
+          enlace={videos.verTodos}
+          destinoEnlace={destino}
+        />
+        <ul class={estilos.tercios}>
+          {
+            videos.elementos.map(
+              (v: { distintivo: string; imagen: string; duracion: string; titulo: string; texto: string }) => (
+                <li>
+                  <article class={estilos.tarjeta}>
+                    <div class={estilos.lienzo}>
+                      <img
+                        class={estilos.imagen}
+                        src={`/images/${v.imagen}.webp`}
+                        alt={v.titulo}
+                        width="900"
+                        height="520"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span class={estilos.distintivo}>{v.distintivo}</span>
+                      <span class={estilos.duracion}>{v.duracion}</span>
+                      <button class={estilos.reproducir} type="button" aria-label={v.titulo}>
+                        <Icono nombre="reproducir" tamano={19} grosor={1} />
+                      </button>
+                    </div>
+                    <div class={estilos.cuerpo}>
+                      <h3 class={estilos.nombre}>{v.titulo}</h3>
+                      <p class={estilos.texto}>{v.texto}</p>
+                    </div>
+                  </article>
+                </li>
+              )
+            )
+          }
+        </ul>
+      </article>
+
+      <article class={estilos.bloque}>
+        <EncabezadoSeccion
+          titulo={documentos.titulo}
+          subtitulo={documentos.subtitulo}
+          enlace={documentos.verTodos}
+          destinoEnlace={destino}
+        />
+        <ul class={estilos.tercios}>
+          {
+            documentos.elementos.map(
+              (d: { formato: string; distintivo: string; titulo: string; peso: string }) => (
+                <li>
+                  <a class={estilos.documento} href={destino}>
+                    <span class={[estilos.ficha, estilos[d.formato]].join(' ')}>{d.formato.toUpperCase()}</span>
+                    <span class={estilos.datos}>
+                      <span class={estilos.distintivoDoc}>{d.distintivo}</span>
+                      <span class={estilos.nombreDoc}>{d.titulo}</span>
+                      <span class={estilos.peso}>{d.peso}</span>
+                    </span>
+                  </a>
+                </li>
+              )
+            )
+          }
+        </ul>
+      </article>
+    </div>
+
+    <PanelLateral idioma={idioma} />
+  </Contenedor>
+</section>

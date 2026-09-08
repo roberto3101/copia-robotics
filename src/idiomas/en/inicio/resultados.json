@@ -1,0 +1,24 @@
+{
+  "titulo": "Results that build trust",
+  "subtitulo": "Technology in the service of security, with measurable results.",
+  "cita": "“Technology does not replace people, it makes them more effective.”",
+  "cifras": [
+    {
+      "valor": "-40%",
+      "etiqueta": "Response time"
+    },
+    {
+      "valor": "+90%",
+      "etiqueta": "Event detection"
+    },
+    {
+      "valor": "24/7",
+      "etiqueta": "Continuous monitoring"
+    },
+    {
+      "valor": "100%",
+      "etiqueta": "Adaptable to your infrastructure"
+    }
+  ],
+  "textoAlternativo": "Night view of a city with mountains in the background"
+}

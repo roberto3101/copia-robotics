@@ -1,0 +1,29 @@
+{
+  "rotulo": "Filtrar soluciones por entorno",
+  "elementos": [
+    {
+      "icono": "rejilla",
+      "etiqueta": "Todas las soluciones"
+    },
+    {
+      "icono": "ciudadEscudo",
+      "etiqueta": "Seguridad urbana"
+    },
+    {
+      "icono": "edificio",
+      "etiqueta": "Seguridad empresarial"
+    },
+    {
+      "icono": "infraestructura",
+      "etiqueta": "Infraestructura crítica"
+    },
+    {
+      "icono": "mineria",
+      "etiqueta": "Industria y minería"
+    },
+    {
+      "icono": "cajaLogistica",
+      "etiqueta": "Logística y transporte"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+.seccion {
+  background: var(--superficie-base);
+  padding-block: 13px 27px;
+  border-bottom: 1px solid var(--linea-suave);
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--radio-md);
+  overflow: hidden;
+  background: var(--superficie-1);
+  transition: transform var(--duracion) var(--curva);
+}
+
+.tarjeta:hover {
+  transform: translateY(-3px);
+}
+
+.imagen {
+  width: 100%;
+  aspect-ratio: 232 / 109;
+  object-fit: cover;
+}
+
+.pie {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 2px 2px;
+}
+
+.cabeza {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.icono {
+  flex: none;
+  color: var(--marca-400);
+}
+
+.nombre {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--texto-1);
+}
+
+.descripcion {
+  font-size: 12.5px;
+  line-height: 16px;
+  color: var(--texto-2);
+}
+
+@media (max-width: 1023.98px) {
+  .rejilla {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 599.98px) {
+  .rejilla {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

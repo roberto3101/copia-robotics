@@ -1,0 +1,29 @@
+{
+  "rotulo": "Filter solutions by environment",
+  "elementos": [
+    {
+      "icono": "rejilla",
+      "etiqueta": "All solutions"
+    },
+    {
+      "icono": "ciudadEscudo",
+      "etiqueta": "Urban security"
+    },
+    {
+      "icono": "edificio",
+      "etiqueta": "Enterprise security"
+    },
+    {
+      "icono": "infraestructura",
+      "etiqueta": "Critical infrastructure"
+    },
+    {
+      "icono": "mineria",
+      "etiqueta": "Industry and mining"
+    },
+    {
+      "icono": "cajaLogistica",
+      "etiqueta": "Logistics and transport"
+    }
+  ]
+}

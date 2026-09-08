@@ -1,0 +1,42 @@
+{
+  "titulo": "Soluciones para cada sector",
+  "subtitulo": "Aplicamos tecnología a los desafíos reales de cada industria.",
+  "elementos": [
+    {
+      "icono": "municipio",
+      "imagen": "sector-municipality",
+      "nombre": "Municipalidades",
+      "descripcion": "Seguridad urbana inteligente"
+    },
+    {
+      "icono": "escudo",
+      "imagen": "sector-security",
+      "nombre": "Seguridad Privada",
+      "descripcion": "Protección de instalaciones"
+    },
+    {
+      "icono": "industria",
+      "imagen": "sector-industry",
+      "nombre": "Industria",
+      "descripcion": "Seguridad perimetral"
+    },
+    {
+      "icono": "mineria",
+      "imagen": "sector-mining",
+      "nombre": "Minería",
+      "descripcion": "Vigilancia de grandes extensiones"
+    },
+    {
+      "icono": "construccion",
+      "imagen": "sector-construction",
+      "nombre": "Construcción",
+      "descripcion": "Monitoreo de obras"
+    },
+    {
+      "icono": "logistica",
+      "imagen": "sector-logistics",
+      "nombre": "Logística",
+      "descripcion": "Seguridad en transporte y almacenes"
+    }
+  ]
+}

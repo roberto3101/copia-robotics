@@ -1,0 +1,170 @@
+.seccion {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--superficie-1);
+  border-bottom: 1px solid var(--linea-suave);
+}
+
+.fondo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.imagen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% 50%;
+  opacity: 0.9;
+}
+
+.velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #041220 0%,
+    rgba(4, 18, 32, 0.95) 24%,
+    rgba(4, 18, 32, 0.45) 44%,
+    rgba(4, 18, 32, 0.28) 68%,
+    rgba(4, 18, 32, 0.86) 100%
+  );
+}
+
+.rejilla {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 420px) minmax(0, 300px);
+  align-items: center;
+  gap: 30px;
+  padding-block: 8px 10px;
+}
+
+.discurso {
+  padding-left: var(--sangria-bloque);
+}
+
+.insignia {
+  display: inline-block;
+  padding: 6px 15px;
+  border: 1px solid var(--linea-marca);
+  border-radius: var(--radio-pastilla);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  color: var(--marca-300);
+}
+
+.titulo {
+  margin-top: 8px;
+  font-size: var(--texto-h2);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.texto {
+  margin-top: 8px;
+  max-width: 470px;
+  font-size: var(--texto-cuerpo);
+  line-height: 22px;
+  color: var(--texto-2);
+}
+
+.accion {
+  margin-top: 14px;
+}
+
+.cifras {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cifra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 10px 12px;
+  border: 1px solid var(--linea-suave);
+  border-radius: var(--radio-md);
+  background: rgba(4, 18, 32, 0.58);
+  backdrop-filter: blur(3px);
+  text-align: center;
+}
+
+.valor {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--texto-1);
+}
+
+.etiqueta {
+  font-size: 13px;
+  line-height: 1.25;
+  color: var(--texto-2);
+}
+
+.testimonio {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cita {
+  margin: 0;
+  font-size: 15.5px;
+  font-style: italic;
+  line-height: 22px;
+  color: var(--texto-1);
+}
+
+.regla {
+  width: 40px;
+  height: 1px;
+  background: var(--linea-marca);
+}
+
+.firma {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.autor {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--texto-1);
+}
+
+.cargo {
+  font-size: 14px;
+  color: var(--texto-2);
+}
+
+@media (max-width: 1199.98px) {
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+  }
+
+  .testimonio {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .velo {
+    background: linear-gradient(180deg, rgba(4, 18, 32, 0.9) 0%, rgba(4, 18, 32, 0.95) 100%);
+  }
+}

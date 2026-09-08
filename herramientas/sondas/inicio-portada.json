@@ -1,0 +1,17 @@
+{
+  "mio": "inicio",
+  "ref": "ref:inicio",
+  "sondas": [
+    { "nombre": "logo marca",     "caja": [20, 8, 105, 62],     "umbral": 90 },
+    { "nombre": "logo texto",     "caja": [105, 8, 300, 62],    "umbral": 120 },
+    { "nombre": "antetitulo",     "caja": [20, 100, 300, 136],  "umbral": 110 },
+    { "nombre": "h1 linea 1",     "caja": [20, 138, 640, 186],  "umbral": 175 },
+    { "nombre": "h1 linea 2",     "caja": [20, 188, 640, 240],  "umbral": 175 },
+    { "nombre": "entradilla L1",  "caja": [20, 242, 780, 272],  "umbral": 120 },
+    { "nombre": "entradilla L2",  "caja": [20, 272, 780, 296],  "umbral": 120 },
+    { "nombre": "entradilla L3",  "caja": [20, 296, 780, 326],  "umbral": 120 },
+    { "nombre": "boton primario", "caja": [20, 330, 300, 392],  "umbral": 95 },
+    { "nombre": "atributo 1",     "caja": [20, 396, 250, 462],  "umbral": 110 },
+    { "nombre": "atributo 4",     "caja": [780, 396, 1010, 462],"umbral": 110 }
+  ]
+}

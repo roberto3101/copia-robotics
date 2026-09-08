@@ -1,0 +1,12 @@
+---
+import estilos from './InsigniaPortada.module.css';
+
+interface Props {
+  texto: string;
+  clase?: string;
+}
+
+const { texto, clase } = Astro.props;
+---
+
+<p class={[estilos.insignia, clase].filter(Boolean).join(' ')}>{texto}</p>

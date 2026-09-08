@@ -1,0 +1,28 @@
+{
+  "titulo": "Artículos destacados",
+  "subtitulo": "Análisis, tendencias y experiencias sobre seguridad inteligente.",
+  "verTodos": "Ver todos los artículos",
+  "elementos": [
+    {
+      "distintivo": "SEGURIDAD URBANA",
+      "imagen": "article-city-ai",
+      "fecha": "12 Ago 2026",
+      "titulo": "Cómo la IA está transformando\nla seguridad en las ciudades",
+      "texto": "Conoce cómo la inteligencia artificial permite detectar eventos en tiempo real y mejorar la respuesta operativa."
+    },
+    {
+      "distintivo": "DRONES",
+      "imagen": "article-drone",
+      "fecha": "05 Ago 2026",
+      "titulo": "Drones de vigilancia: una nueva\ndimensión en la seguridad",
+      "texto": "Ventajas, casos de uso y consideraciones para implementar drones en operaciones de seguridad urbana e industrial."
+    },
+    {
+      "distintivo": "CENTRO DE OPERACIONES",
+      "imagen": "article-operations",
+      "fecha": "28 Jul 2026",
+      "titulo": "Del dato a la decisión:\nel rol del centro de operaciones",
+      "texto": "Cómo integrar cámaras, sensores y drones en una plataforma única para una gestión de incidentes más eficiente."
+    }
+  ]
+}

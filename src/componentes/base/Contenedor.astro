@@ -1,0 +1,15 @@
+---
+import estilos from './Contenedor.module.css';
+
+interface Props {
+  etiqueta?: string;
+  ancho?: boolean;
+  clase?: string;
+}
+
+const { etiqueta = 'div', ancho = false, clase } = Astro.props;
+const Etiqueta = etiqueta as any;
+const clases = [estilos.contenedor, ancho ? estilos.ancho : null, clase].filter(Boolean).join(' ');
+---
+
+<Etiqueta class={clases}><slot /></Etiqueta>

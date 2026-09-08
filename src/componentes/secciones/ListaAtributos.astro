@@ -1,0 +1,41 @@
+---
+import Icono from '../base/Icono.astro';
+import estilos from './ListaAtributos.module.css';
+
+interface Atributo {
+  icono: string;
+  lineas?: string[];
+  titulo?: string;
+  subtitulo?: string;
+}
+
+interface Props {
+  atributos: Atributo[];
+  variante?: 'compacto' | 'amplio';
+  clase?: string;
+}
+
+const { atributos, variante = 'compacto', clase } = Astro.props;
+---
+
+<ul class={[estilos.lista, estilos[variante], clase].filter(Boolean).join(' ')}>
+  {
+    atributos.map((atributo) => (
+      <li class={estilos.atributo}>
+        <Icono nombre={atributo.icono} tamano={variante === "amplio" ? 36 : 34} grosor={1.2} clase={estilos.icono} />
+        {atributo.lineas ? (
+          <span class={estilos.etiquetas}>
+            {atributo.lineas.map((linea) => (
+              <span class={estilos.etiqueta}>{linea}</span>
+            ))}
+          </span>
+        ) : (
+          <span class={estilos.etiquetas}>
+            <span class={estilos.titulo}>{atributo.titulo}</span>
+            <span class={estilos.subtitulo}>{atributo.subtitulo}</span>
+          </span>
+        )}
+      </li>
+    ))
+  }
+</ul>

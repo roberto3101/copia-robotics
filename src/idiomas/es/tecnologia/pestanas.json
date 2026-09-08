@@ -1,0 +1,33 @@
+{
+  "rotulo": "Explorar áreas tecnológicas",
+  "elementos": [
+    {
+      "icono": "ojo",
+      "etiqueta": "Visión general"
+    },
+    {
+      "icono": "cerebro",
+      "etiqueta": "Inteligencia artificial"
+    },
+    {
+      "icono": "dronVuelo",
+      "etiqueta": "Drones y robótica"
+    },
+    {
+      "icono": "senal",
+      "etiqueta": "Comunicaciones"
+    },
+    {
+      "icono": "puesto",
+      "etiqueta": "Plataforma y software"
+    },
+    {
+      "icono": "infraestructura",
+      "etiqueta": "Infraestructura"
+    },
+    {
+      "icono": "candadoEscudo",
+      "etiqueta": "Ciberseguridad"
+    }
+  ]
+}

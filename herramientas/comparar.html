@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Comparador</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #111; font: 12px ui-monospace, monospace; color: #cfe; }
+      #barra {
+        position: fixed; inset: 0 0 auto 0; height: 34px; z-index: 10;
+        display: flex; align-items: center; gap: 12px; padding: 0 12px;
+        background: #05121c; border-bottom: 1px solid #1d3a4d;
+      }
+      #barra label { display: flex; align-items: center; gap: 5px; }
+      #lienzo { position: relative; margin-top: 34px; width: 1440px; }
+      #marco { width: 1440px; border: 0; display: block; background: #030f19; }
+      #ref {
+        position: absolute; top: 0; left: 0; width: 1440px; pointer-events: none;
+        opacity: .5; mix-blend-mode: normal;
+      }
+      #reglas { position: absolute; inset: 0; pointer-events: none; }
+      .guia { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,0,120,.55); }
+      select, input[type=range] { background: #0d2233; color: #cfe; border: 1px solid #1d3a4d; }
+    </style>
+  </head>
+  <body>
+    <div id="barra">
+      <select id="pagina"></select>
+      <label>opacidad <input id="op" type="range" min="0" max="100" value="50" /></label>
+      <label>modo
+        <select id="modo">
+          <option value="normal">normal</option>
+          <option value="difference">diferencia</option>
+        </select>
+      </label>
+      <label>desfase Y <input id="dy" type="range" min="-200" max="200" value="0" /><span id="dyv">0</span></label>
+      <label>escala <input id="sc" type="range" min="90" max="110" value="100" /><span id="scv">100%</span></label>
+      <label><input id="guias" type="checkbox" /> guías</label>
+      <span id="info"></span>
+    </div>
+    <div id="lienzo">
+      <iframe id="marco" src="/" height="2200"></iframe>
+      <img id="ref" src="/_referencia/inicio.png" alt="" />
+      <div id="reglas"></div>
+    </div>
+
+    <script>
+      const paginas = [
+        ['inicio', '/'],
+        ['soluciones', '/soluciones/'],
+        ['tecnologia', '/tecnologia/'],
+        ['sectores', '/sectores/'],
+        ['casos-de-uso', '/casos-de-uso/'],
+        ['nosotros', '/nosotros/'],
+        ['recursos', '/recursos/'],
+      ];
+      const sel = document.getElementById('pagina');
+      paginas.forEach(([nombre, ruta]) => {
+        const o = document.createElement('option');
+        o.value = nombre; o.dataset.ruta = ruta; o.textContent = nombre;
+        sel.append(o);
+      });
+      const marco = document.getElementById('marco');
+      const ref = document.getElementById('ref');
+      const info = document.getElementById('info');
+
+      const aplicar = () => {
+        const o = sel.selectedOptions[0];
+        marco.src = o.dataset.ruta;
+        ref.src = `/_referencia/${o.value}.png`;
+      };
+      sel.addEventListener('change', aplicar);
+
+      document.getElementById('op').addEventListener('input', (e) => {
+        ref.style.opacity = e.target.value / 100;
+      });
+      document.getElementById('modo').addEventListener('change', (e) => {
+        ref.style.mixBlendMode = e.target.value;
+        document.body.style.background = e.target.value === 'difference' ? '#000' : '#111';
+      });
+      document.getElementById('dy').addEventListener('input', (e) => {
+        ref.style.top = e.target.value + 'px';
+        document.getElementById('dyv').textContent = e.target.value;
+      });
+      document.getElementById('sc').addEventListener('input', (e) => {
+        const v = Number(e.target.value);
+        ref.style.width = 1440 * (v / 100) + 'px';
+        document.getElementById('scv').textContent = v + '%';
+      });
+      document.getElementById('guias').addEventListener('change', (e) => {
+        const caja = document.getElementById('reglas');
+        caja.innerHTML = '';
+        if (!e.target.checked) return;
+        [48, 1392, 720].forEach((x) => {
+          const g = document.createElement('div');
+          g.className = 'guia'; g.style.left = x + 'px';
+          caja.append(g);
+        });
+      });
+
+      marco.addEventListener('load', () => {
+        try {
+          const d = marco.contentDocument;
+          const alto = d.documentElement.scrollHeight;
+          marco.height = alto;
+          document.getElementById('lienzo').style.height = alto + 'px';
+          info.textContent = `alto real ${alto}px · referencia ${Math.round(ref.naturalHeight / ref.naturalWidth * 1440)}px`;
+        } catch (err) {
+          info.textContent = 'sin acceso al marco';
+        }
+      });
+    </script>
+  </body>
+</html>

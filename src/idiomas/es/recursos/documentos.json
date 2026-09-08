@@ -1,0 +1,25 @@
+{
+  "titulo": "Documentos y guías",
+  "subtitulo": "Material técnico para una implementación exitosa.",
+  "verTodos": "Ver todos los documentos",
+  "elementos": [
+    {
+      "formato": "pdf",
+      "distintivo": "GUÍA",
+      "titulo": "Guía de implementación\nCERBERUS",
+      "peso": "2.4 MB"
+    },
+    {
+      "formato": "pdf",
+      "distintivo": "CASO DE USO",
+      "titulo": "Caso de éxito - Municipalidad\nde Los Olivos",
+      "peso": "1.8 MB"
+    },
+    {
+      "formato": "xls",
+      "distintivo": "PLANTILLA",
+      "titulo": "Plantilla de evaluación\nde riesgos",
+      "peso": "950 KB"
+    }
+  ]
+}

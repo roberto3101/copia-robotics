@@ -1,0 +1,24 @@
+{
+  "titulo": "Resultados que generan confianza",
+  "subtitulo": "La tecnología al servicio de la seguridad, con resultados medibles.",
+  "cita": "“La tecnología no reemplaza a las personas, las hace más efectivas.”",
+  "cifras": [
+    {
+      "valor": "-40%",
+      "etiqueta": "Tiempo de respuesta"
+    },
+    {
+      "valor": "+90%",
+      "etiqueta": "Detección de eventos"
+    },
+    {
+      "valor": "24/7",
+      "etiqueta": "Monitoreo continuo"
+    },
+    {
+      "valor": "100%",
+      "etiqueta": "Adaptable a su infraestructura"
+    }
+  ],
+  "textoAlternativo": "Vista nocturna de una ciudad con cerros al fondo"
+}

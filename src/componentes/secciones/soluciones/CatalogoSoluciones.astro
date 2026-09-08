@@ -1,0 +1,70 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import EncabezadoSeccion from '../EncabezadoSeccion.astro';
+import estilos from './CatalogoSoluciones.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const catalogo = contenido(idioma, 'soluciones/catalogo');
+const acciones = contenido(idioma, 'comunes/acciones');
+const destino = ruta('tecnologia', idioma);
+---
+
+<section class={estilos.seccion}>
+  <Contenedor>
+    <EncabezadoSeccion
+      titulo={catalogo.titulo}
+      subtitulo={catalogo.subtitulo}
+      nota={catalogo.nota}
+    />
+    <ul class={estilos.rejilla}>
+      {
+        catalogo.elementos.map(
+          (elemento: {
+            distintivo: string;
+            icono: string;
+            imagen: string;
+            nombre: string;
+            subtitulo: string;
+            texto: string;
+          }) => (
+            <li>
+              <article class={estilos.tarjeta}>
+                <div class={estilos.lienzo}>
+                  <img
+                    class={estilos.imagen}
+                    src={`/images/${elemento.imagen}.webp`}
+                    alt={elemento.nombre}
+                    width="900"
+                    height="560"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class={estilos.distintivo}>{elemento.distintivo}</span>
+                  <span class={estilos.medallon}>
+                    <Icono nombre={elemento.icono} tamano={30} grosor={1.25} />
+                  </span>
+                </div>
+                <div class={estilos.cuerpo}>
+                  <h3 class={estilos.nombre}>{elemento.nombre}</h3>
+                  <p class={estilos.subtitulo}>{elemento.subtitulo}</p>
+                  <p class={estilos.texto}>{elemento.texto}</p>
+                  <a class={estilos.enlace} href={destino}>
+                    {acciones.conocerMas}
+                    <Icono nombre="flechaDerecha" tamano={15} grosor={1.6} />
+                  </a>
+                </div>
+              </article>
+            </li>
+          )
+        )
+      }
+    </ul>
+  </Contenedor>
+</section>

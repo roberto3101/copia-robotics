@@ -1,0 +1,43 @@
+---
+import PlantillaBase from '../../plantillas/PlantillaBase.astro';
+import PortadaSeccion from '../../componentes/secciones/PortadaSeccion.astro';
+import CatalogoSectores from '../../componentes/secciones/sectores/CatalogoSectores.astro';
+import BeneficiosSectores from '../../componentes/secciones/sectores/BeneficiosSectores.astro';
+import CasoExito from '../../componentes/secciones/sectores/CasoExito.astro';
+import BandaLlamada from '../../componentes/secciones/BandaLlamada.astro';
+import InsigniaPortada from '../../componentes/secciones/InsigniaPortada.astro';
+import { contenido } from '../../nucleo/idiomas';
+
+const idioma = 'en' as const;
+const metadatos = contenido(idioma, 'sectores/metadatos');
+const portada = contenido(idioma, 'sectores/portada');
+---
+
+<PlantillaBase
+  idioma={idioma}
+  seccion="sectores"
+  titulo={metadatos.titulo}
+  descripcion={metadatos.descripcion}
+  palabrasClave={metadatos.palabrasClave}
+  imagenPrincipal="/images/control-room.webp"
+>
+  <PortadaSeccion
+    idioma={idioma}
+    alturaMinima={364}
+    paquete="sectores"
+    imagen="/images/control-room.webp"
+    posicionImagen="64% 42%"
+  >
+    <InsigniaPortada slot="insignia" texto={portada.insignia} />
+  </PortadaSeccion>
+  <CatalogoSectores idioma={idioma} />
+  <BeneficiosSectores idioma={idioma} />
+  <CasoExito idioma={idioma} />
+  <BandaLlamada
+    idioma={idioma}
+    paquete="sectores"
+    imagen="/images/engineer-drone-sunset.webp"
+    posicionImagen="50% 40%"
+    disposicion="palabras"
+  />
+</PlantillaBase>

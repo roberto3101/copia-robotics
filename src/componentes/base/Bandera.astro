@@ -1,0 +1,51 @@
+---
+interface Props {
+  codigo: string;
+  titulo: string;
+  clase?: string;
+}
+
+const { codigo, titulo, clase } = Astro.props;
+
+const franjasPeru = [
+  { x: 0, ancho: 9, color: '#d91023' },
+  { x: 9, ancho: 4, color: '#ffffff' },
+  { x: 13, ancho: 9, color: '#d91023' },
+];
+
+const aspasReinoUnido = [
+  { color: '#ffffff', grosor: 3 },
+  { color: '#c8102e', grosor: 1.6 },
+];
+
+const cruzReinoUnido = [
+  { color: '#ffffff', grosor: 4.8 },
+  { color: '#c8102e', grosor: 2.6 },
+];
+---
+
+<svg class={clase} viewBox="0 0 22 14" role="img" aria-label={titulo}>
+  {
+    codigo === 'gb' ? (
+      <>
+        <rect width="22" height="14" fill="#012169" />
+        {aspasReinoUnido.map((aspa) => (
+          <>
+            <line x1="0" y1="0" x2="22" y2="14" stroke={aspa.color} stroke-width={aspa.grosor} />
+            <line x1="22" y1="0" x2="0" y2="14" stroke={aspa.color} stroke-width={aspa.grosor} />
+          </>
+        ))}
+        {cruzReinoUnido.map((brazo) => (
+          <>
+            <line x1="11" y1="0" x2="11" y2="14" stroke={brazo.color} stroke-width={brazo.grosor} />
+            <line x1="0" y1="7" x2="22" y2="7" stroke={brazo.color} stroke-width={brazo.grosor} />
+          </>
+        ))}
+      </>
+    ) : (
+      franjasPeru.map((franja) => (
+        <rect x={franja.x} y="0" width={franja.ancho} height="14" fill={franja.color} />
+      ))
+    )
+  }
+</svg>

@@ -1,0 +1,63 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Boton from '../../base/Boton.astro';
+import estilos from './CasoExito.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const caso = contenido(idioma, 'sectores/caso-exito');
+const acciones = contenido(idioma, 'comunes/acciones');
+---
+
+<section class={estilos.seccion}>
+  <div class={estilos.fondo}>
+    <img
+      class={estilos.imagen}
+      src="/images/video-detection.webp"
+      alt={caso.textoAlternativo}
+      width="900"
+      height="520"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class={estilos.velo}></span>
+  </div>
+
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <span class={estilos.insignia}>{caso.insignia}</span>
+      <h2 class={estilos.titulo}>{caso.titulo}</h2>
+      <p class={estilos.texto}>{caso.texto}</p>
+      <Boton
+        texto={acciones[caso.accion]}
+        destino={ruta('casos', idioma)}
+        clase={estilos.accion}
+      />
+    </div>
+
+    <ul class={estilos.cifras}>
+      {
+        caso.cifras.map((cifra: { valor: string; etiqueta: string }) => (
+          <li class={estilos.cifra}>
+            <span class={estilos.valor}>{cifra.valor}</span>
+            <span class={estilos.etiqueta}>{cifra.etiqueta}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <figure class={estilos.testimonio}>
+      <blockquote class={estilos.cita}>{caso.cita}</blockquote>
+      <span class={estilos.regla}></span>
+      <figcaption class={estilos.firma}>
+        <span class={estilos.autor}>{caso.autor}</span>
+        <span class={estilos.cargo}>{caso.cargo}</span>
+      </figcaption>
+    </figure>
+  </Contenedor>
+</section>

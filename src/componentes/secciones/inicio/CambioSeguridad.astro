@@ -1,0 +1,36 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import estilos from './CambioSeguridad.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const cambio = contenido(idioma, 'inicio/cambio');
+---
+
+<section class={estilos.seccion}>
+  <div class={estilos.fondo}>
+    <img
+      class={estilos.imagen}
+      src="/images/control-room-wide.webp"
+      alt={cambio.textoAlternativo}
+      width="1600"
+      height="700"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class={estilos.velo}></span>
+  </div>
+
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <h2 class={estilos.titulo}>{cambio.titulo}</h2>
+      <p class={estilos.subtitulo}>{cambio.subtitulo}</p>
+      <p class={estilos.texto}>{cambio.texto}</p>
+    </div>
+    <p class={estilos.insignia}>{cambio.insignia}</p>
+  </Contenedor>
+</section>

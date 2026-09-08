@@ -1,0 +1,41 @@
+{
+  "titulo": "Cifras que respaldan nuestro compromiso",
+  "elementos": [
+    {
+      "icono": "grafico",
+      "valor": "+30",
+      "etiqueta": "Proyectos\nimplementados"
+    },
+    {
+      "icono": "personas",
+      "valor": "+50",
+      "etiqueta": "Clientes públicos\ny privados"
+    },
+    {
+      "icono": "escudoPin",
+      "valor": "+10",
+      "etiqueta": "Ciudades\nen Perú"
+    },
+    {
+      "icono": "globo",
+      "valor": "3",
+      "etiqueta": "Países en\nLatinoamérica"
+    },
+    {
+      "icono": "engranaje",
+      "valor": "+15",
+      "etiqueta": "Especialistas\nen nuestro equipo"
+    },
+    {
+      "icono": "calendario",
+      "valor": "24/7",
+      "etiqueta": "Soporte y\nacompañamiento"
+    }
+  ],
+  "palabrasLaterales": [
+    "SOLUCIONES HOY",
+    "PARA UN MAÑANA",
+    "MÁS SEGURO."
+  ],
+  "textoAlternativo": "Dron sobre la cordillera al anochecer"
+}

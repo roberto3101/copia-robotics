@@ -1,0 +1,31 @@
+---
+import estilos from './MiniaturasPortada.module.css';
+
+interface Miniatura {
+  imagen: string;
+  textoAlternativo: string;
+}
+
+interface Props {
+  elementos: Miniatura[];
+}
+
+const { elementos } = Astro.props;
+---
+
+<ul class={estilos.miniaturas}>
+  {
+    elementos.map((elemento) => (
+      <li>
+        <img
+          src={`/images/${elemento.imagen}.webp`}
+          alt={elemento.textoAlternativo}
+          width="900"
+          height="560"
+          loading="lazy"
+          decoding="async"
+        />
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,34 @@
+{
+  "titulo": "Nuestros valores",
+  "subtitulo": "Principios que guían cada paso que damos",
+  "elementos": [
+    {
+      "icono": "bombilla",
+      "nombre": "Innovación",
+      "texto": "Buscamos constantemente nuevas formas de resolver problemas reales."
+    },
+    {
+      "icono": "escudo",
+      "nombre": "Integridad",
+      "texto": "Actuamos con ética, transparencia y responsabilidad."
+    },
+    {
+      "icono": "personas",
+      "nombre": "Compromiso",
+      "texto": "Trabajamos con pasión por generar un impacto positivo."
+    },
+    {
+      "icono": "engranaje",
+      "nombre": "Colaboración",
+      "texto": "Creemos en el trabajo en equipo y en alianzas estratégicas."
+    },
+    {
+      "icono": "hoja",
+      "nombre": "Impacto social",
+      "texto": "Desarrollamos tecnología para un futuro más seguro, inclusivo y sostenible."
+    }
+  ],
+  "cita": "“La tecnología no reemplaza a las personas, las hace más seguras y les da más oportunidades.”",
+  "autorCita": "AI ROBOTICS PERÚ",
+  "textoAlternativoCita": "Cordillera al amanecer sobre la ciudad"
+}

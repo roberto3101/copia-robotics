@@ -1,0 +1,202 @@
+---
+import '../estilos/tokens.css';
+import '../estilos/tipografias.css';
+import '../estilos/base.css';
+
+import { ClientRouter, fade } from 'astro:transitions';
+import Cabecera from '../componentes/navegacion/Cabecera.astro';
+import PieSitio from '../componentes/navegacion/PieSitio.astro';
+import { contenido, etiquetaHtml, idiomas, type Idioma } from '../nucleo/idiomas';
+import { mapaRutas, ruta, type ClaveSeccion } from '../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+  seccion: ClaveSeccion;
+  titulo: string;
+  descripcion: string;
+  palabrasClave?: string;
+  imagenSocial?: string;
+  textoAlternativoSocial?: string;
+  imagenPrincipal?: string;
+}
+
+const {
+  idioma,
+  seccion,
+  titulo,
+  descripcion,
+  palabrasClave,
+  imagenSocial = '/social/portada.jpg',
+  textoAlternativoSocial = 'AI Robotics Perú — CERBERUS AI Defense Platform',
+  imagenPrincipal,
+} = Astro.props;
+
+const organizacion = contenido(idioma, 'comunes/organizacion');
+const navegacion = contenido(idioma, 'comunes/navegacion');
+const origen = Astro.site ?? new URL('https://www.airobotics.pe');
+const canonica = new URL(ruta(seccion, idioma), origen).href;
+const urlImagenSocial = new URL(imagenSocial, origen).href;
+const alternas = mapaRutas[seccion];
+const etiquetaSeccion =
+  navegacion.elementos.find((elemento: { clave: string }) => elemento.clave === seccion)?.etiqueta ??
+  organizacion.nombreSitio;
+
+const datosOrganizacion = {
+  '@type': 'Organization',
+  '@id': `${origen.origin}/#organizacion`,
+  name: organizacion.nombreSitio,
+  legalName: organizacion.razonSocial,
+  url: origen.origin,
+  logo: { '@type': 'ImageObject', url: new URL('/social/logotipo.png', origen).href },
+  description: organizacion.descripcion,
+  email: organizacion.correo,
+  telephone: organizacion.telefono,
+  areaServed: organizacion.ambitoAtendido,
+  foundingLocation: organizacion.ciudadFundacion,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lima',
+    addressCountry: 'PE',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    email: organizacion.correo,
+    telephone: organizacion.telefono,
+    availableLanguage: ['es', 'en'],
+  },
+  sameAs: ['https://www.linkedin.com/', 'https://www.youtube.com/', 'https://www.instagram.com/'],
+};
+
+const datosSitio = {
+  '@type': 'WebSite',
+  '@id': `${origen.origin}/#sitio`,
+  url: origen.origin,
+  name: organizacion.nombreSitio,
+  inLanguage: etiquetaHtml[idioma],
+  publisher: { '@id': `${origen.origin}/#organizacion` },
+};
+
+const datosPagina = {
+  '@type': 'WebPage',
+  '@id': `${canonica}#pagina`,
+  url: canonica,
+  name: titulo,
+  description: descripcion,
+  inLanguage: etiquetaHtml[idioma],
+  isPartOf: { '@id': `${origen.origin}/#sitio` },
+  about: { '@id': `${origen.origin}/#organizacion` },
+  primaryImageOfPage: { '@type': 'ImageObject', url: urlImagenSocial },
+};
+
+const migas = {
+  '@type': 'BreadcrumbList',
+  '@id': `${canonica}#migas`,
+  itemListElement:
+    seccion === 'inicio'
+      ? [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: organizacion.nombreSitio,
+            item: new URL(ruta('inicio', idioma), origen).href,
+          },
+        ]
+      : [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: organizacion.nombreSitio,
+            item: new URL(ruta('inicio', idioma), origen).href,
+          },
+          { '@type': 'ListItem', position: 2, name: etiquetaSeccion, item: canonica },
+        ],
+};
+
+const grafo = {
+  '@context': 'https://schema.org',
+  '@graph': [datosOrganizacion, datosSitio, datosPagina, migas],
+};
+---
+
+<!doctype html>
+<html lang={etiquetaHtml[idioma]} data-tema="oscuro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    {palabrasClave && <meta name="keywords" content={palabrasClave} />}
+    <link rel="canonical" href={canonica} />
+
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content={organizacion.razonSocial} />
+    <meta name="publisher" content={organizacion.razonSocial} />
+    <meta name="theme-color" content="#000e18" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="generator" content={Astro.generator} />
+
+    {
+      idiomas.map((codigo) => (
+        <link
+          rel="alternate"
+          hreflang={etiquetaHtml[codigo]}
+          href={new URL(alternas[codigo], origen).href}
+        />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(alternas.es, origen).href} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={organizacion.nombreSitio} />
+    <meta property="og:locale" content={organizacion.configuracionRegional} />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:image" content={urlImagenSocial} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={textoAlternativoSocial} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={organizacion.redSocial} />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={urlImagenSocial} />
+    <meta name="twitter:image:alt" content={textoAlternativoSocial} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icono-apple.png" />
+    <link rel="manifest" href="/manifiesto.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/tipografias/figtree-latin.woff2"
+      crossorigin
+    />
+    {imagenPrincipal && <link rel="preload" as="image" href={imagenPrincipal} fetchpriority="high" />}
+
+    <script type="application/ld+json" set:html={JSON.stringify(grafo)} is:inline />
+
+    {import.meta.env.PROD && <ClientRouter />}
+  </head>
+
+  <body>
+    <a class="salto-contenido" href="#contenido-principal">
+      {idioma === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
+    </a>
+    <Cabecera idioma={idioma} seccion={seccion} transition:persist="cabecera" />
+    <main id="contenido-principal" transition:animate={fade({ duration: '0.32s' })}>
+      <slot />
+    </main>
+    <PieSitio idioma={idioma} transition:persist="pie" />
+    <script>
+      import '../nucleo/desplazamiento';
+    </script>
+  </body>
+</html>

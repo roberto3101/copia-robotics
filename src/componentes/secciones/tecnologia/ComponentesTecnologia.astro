@@ -1,0 +1,57 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import EncabezadoSeccion from '../EncabezadoSeccion.astro';
+import estilos from './ComponentesTecnologia.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const componentes = contenido(idioma, 'tecnologia/componentes');
+const acciones = contenido(idioma, 'comunes/acciones');
+const destino = ruta('soluciones', idioma);
+---
+
+<section class={estilos.seccion}>
+  <Contenedor>
+    <EncabezadoSeccion
+      titulo={componentes.titulo}
+      subtitulo={componentes.subtitulo}
+      nota={componentes.nota}
+    />
+    <ul class={estilos.rejilla}>
+      {
+        componentes.elementos.map(
+          (elemento: { icono: string; imagen: string; nombre: string; texto: string }) => (
+            <li>
+              <a class={estilos.tarjeta} href={destino}>
+                <img
+                  class={estilos.imagen}
+                  src={`/images/${elemento.imagen}.webp`}
+                  alt={elemento.nombre}
+                  width="900"
+                  height="560"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class={estilos.cuerpo}>
+                  <Icono nombre={elemento.icono} tamano={32} grosor={1.2} clase={estilos.icono} />
+                  <span class={estilos.nombre}>{elemento.nombre}</span>
+                  <span class={estilos.texto}>{elemento.texto}</span>
+                  <span class={estilos.enlace}>
+                    {acciones.conocerMas}
+                    <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
+                  </span>
+                </span>
+              </a>
+            </li>
+          )
+        )
+      }
+    </ul>
+  </Contenedor>
+</section>

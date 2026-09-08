@@ -1,0 +1,148 @@
+{
+  "lema": "Inteligencia artificial al servicio de la seguridad y la autonomía operativa.",
+  "columnas": [
+    {
+      "titulo": "Soluciones",
+      "enlaces": [
+        {
+          "etiqueta": "CERBERUS Vision",
+          "destino": "soluciones"
+        },
+        {
+          "etiqueta": "CERBERUS Drone",
+          "destino": "soluciones"
+        },
+        {
+          "etiqueta": "CERBERUS Command",
+          "destino": "soluciones"
+        },
+        {
+          "etiqueta": "CERBERUS Edge",
+          "destino": "soluciones"
+        },
+        {
+          "etiqueta": "Integración",
+          "destino": "soluciones"
+        },
+        {
+          "etiqueta": "Operaciones",
+          "destino": "soluciones"
+        }
+      ]
+    },
+    {
+      "titulo": "Sectores",
+      "enlaces": [
+        {
+          "etiqueta": "Municipalidades",
+          "destino": "sectores"
+        },
+        {
+          "etiqueta": "Empresas",
+          "destino": "sectores"
+        },
+        {
+          "etiqueta": "Industria",
+          "destino": "sectores"
+        },
+        {
+          "etiqueta": "Minería",
+          "destino": "sectores"
+        },
+        {
+          "etiqueta": "Construcción",
+          "destino": "sectores"
+        },
+        {
+          "etiqueta": "Logística",
+          "destino": "sectores"
+        }
+      ]
+    },
+    {
+      "titulo": "Recursos",
+      "enlaces": [
+        {
+          "etiqueta": "Blog",
+          "destino": "recursos"
+        },
+        {
+          "etiqueta": "Documentación",
+          "destino": "recursos"
+        },
+        {
+          "etiqueta": "Casos de uso",
+          "destino": "casos"
+        },
+        {
+          "etiqueta": "Eventos",
+          "destino": "recursos"
+        },
+        {
+          "etiqueta": "Webinars",
+          "destino": "recursos"
+        }
+      ]
+    },
+    {
+      "titulo": "Nosotros",
+      "enlaces": [
+        {
+          "etiqueta": "Nuestra historia",
+          "destino": "nosotros"
+        },
+        {
+          "etiqueta": "Equipo",
+          "destino": "nosotros"
+        },
+        {
+          "etiqueta": "Alianzas",
+          "destino": "nosotros"
+        },
+        {
+          "etiqueta": "Noticias",
+          "destino": "recursos"
+        },
+        {
+          "etiqueta": "Trabaja con nosotros",
+          "destino": "nosotros"
+        }
+      ]
+    }
+  ],
+  "contacto": {
+    "titulo": "Contacto",
+    "ubicacion": "Lima, Perú",
+    "correo": "comercial@airobotics.pe",
+    "telefono": "+51 900 000 000",
+    "telefonoEnlace": "+51900000000"
+  },
+  "redes": [
+    {
+      "red": "linkedin",
+      "etiqueta": "LinkedIn",
+      "destino": "https://www.linkedin.com/"
+    },
+    {
+      "red": "youtube",
+      "etiqueta": "YouTube",
+      "destino": "https://www.youtube.com/"
+    },
+    {
+      "red": "instagram",
+      "etiqueta": "Instagram",
+      "destino": "https://www.instagram.com/"
+    },
+    {
+      "red": "x",
+      "etiqueta": "X",
+      "destino": "https://x.com/"
+    }
+  ],
+  "aviso": "© 2024 AI Robotics Perú SAC. Todos los derechos reservados.",
+  "nombrePlataforma": "CERBERUS AI DEFENSE PLATFORM",
+  "lemaPlataforma": "Tecnología peruana para un futuro más seguro.",
+  "rotuloRedes": "Redes",
+  "accionContacto": "Contáctanos",
+  "marcaGrande": "AIROBOTICS"
+}

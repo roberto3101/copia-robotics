@@ -1,0 +1,26 @@
+.bloque {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.titulo {
+  font-size: var(--texto-h2);
+  font-weight: 700;
+  color: var(--texto-1);
+  line-height: 1.18;
+  letter-spacing: -0.018em;
+}
+
+.subtitulo {
+  font-size: var(--texto-h3);
+  font-weight: 400;
+  color: var(--marca-300);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+.centrado {
+  align-items: center;
+  text-align: center;
+}

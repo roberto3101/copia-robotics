@@ -1,0 +1,67 @@
+{
+  "titulo": "Visión general",
+  "subtitulo": "Una arquitectura tecnológica integrada",
+  "texto": "CERBERUS combina hardware, software, inteligencia artificial y comunicaciones en una arquitectura modular y escalable, que permite adaptarse a diferentes entornos y necesidades operativas.",
+  "accion": "Ver arquitectura completa",
+  "esquema": {
+    "entradas": [
+      {
+        "icono": "camara",
+        "etiqueta": "CÁMARAS"
+      },
+      {
+        "icono": "dron",
+        "etiqueta": "DRONES"
+      },
+      {
+        "icono": "sensor",
+        "etiqueta": "SENSORES"
+      },
+      {
+        "icono": "sistemas",
+        "etiqueta": "SISTEMAS EXISTENTES"
+      }
+    ],
+    "nucleo": {
+      "nombre": "CERBERUS AI",
+      "subtitulo": "PLATAFORMA INTELIGENTE"
+    },
+    "salidas": [
+      {
+        "icono": "alerta",
+        "etiqueta": "DETECCIÓN\nY ALERTAS"
+      },
+      {
+        "icono": "analisis",
+        "etiqueta": "ANÁLISIS\nY CONTEXTO"
+      },
+      {
+        "icono": "gestion",
+        "etiqueta": "GESTIÓN\nOPERACIONAL"
+      },
+      {
+        "icono": "respuesta",
+        "etiqueta": "RESPUESTA\nCOORDINADA"
+      }
+    ],
+    "tituloResultados": "RESULTADOS",
+    "resultados": [
+      {
+        "icono": "red",
+        "etiqueta": "Ciudades más seguras"
+      },
+      {
+        "icono": "reloj",
+        "etiqueta": "Respuesta más rápida"
+      },
+      {
+        "icono": "engranaje",
+        "etiqueta": "Mejor uso de recursos"
+      },
+      {
+        "icono": "grafico",
+        "etiqueta": "Decisiones basadas en datos"
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "titulo": "Casos de uso destacados",
+  "subtitulo": "Soluciones aplicadas a situaciones reales, con resultados medibles.",
+  "marcadorBusqueda": "Buscar casos de uso...",
+  "rotuloFiltro": "Todos los sectores",
+  "opcionesFiltro": [
+    "Todos los sectores",
+    "Seguridad urbana",
+    "Minería",
+    "Construcción",
+    "Logística",
+    "Industria",
+    "Emergencias",
+    "Seguridad empresarial"
+  ],
+  "elementos": [
+    {
+      "distintivo": "SEGURIDAD URBANA",
+      "imagen": "case-urban",
+      "titulo": "Reducción de robos en\nzona comercial",
+      "ubicacion": "Los Olivos, Lima",
+      "texto": "La IA detecta comportamientos sospechosos y genera alertas en tiempo real. Los drones verifican incidentes y apoyan a las unidades de serenazgo."
+    },
+    {
+      "distintivo": "MINERÍA",
+      "imagen": "sector-mining",
+      "titulo": "Monitoreo perimetral\nen mina a tajo abierto",
+      "ubicacion": "Cajamarca, Perú",
+      "texto": "Vigilancia 24/7 con cámaras térmicas y drones para detectar intrusiones en zonas críticas. Integración con el centro de operaciones del cliente."
+    },
+    {
+      "distintivo": "CONSTRUCCIÓN",
+      "imagen": "sector-construction",
+      "titulo": "Control de accesos\nen obras de gran escala",
+      "ubicacion": "Lima, Perú",
+      "texto": "Detección de personal no autorizado, seguimiento de vehículos y control de ingreso mediante analítica de video e integración con sistemas existentes."
+    },
+    {
+      "distintivo": "LOGÍSTICA",
+      "imagen": "sector-logistics",
+      "titulo": "Seguridad en rutas\nde transporte",
+      "ubicacion": "Panamericana Sur, Perú",
+      "texto": "Monitoreo en tiempo real de flotas, detección de paradas no programadas y apoyo aéreo en situaciones de riesgo."
+    },
+    {
+      "distintivo": "INDUSTRIA",
+      "imagen": "sector-industry",
+      "titulo": "Vigilancia inteligente\nen planta industrial",
+      "ubicacion": "Arequipa, Perú",
+      "texto": "Detección de intrusiones, control de perímetros y monitoreo de zonas críticas con IA y drones autónomos."
+    },
+    {
+      "distintivo": "TURISMO Y EVENTOS",
+      "imagen": "case-beach-city",
+      "titulo": "Ciudades más seguras\ndurante eventos masivos",
+      "ubicacion": "Verano 2025, Lima",
+      "texto": "Monitoreo aéreo y terrestre para la gestión de multitudes, control de accesos y respuesta rápida ante incidentes."
+    },
+    {
+      "distintivo": "EMERGENCIAS",
+      "imagen": "case-emergency",
+      "titulo": "Apoyo en la gestión\nde desastres naturales",
+      "ubicacion": "Lurín, Lima",
+      "texto": "Drones con cámaras térmicas para evaluar zonas afectadas, identificar focos de incendio y apoyar a los equipos de emergencia."
+    },
+    {
+      "distintivo": "SEGURIDAD EMPRESARIAL",
+      "imagen": "case-warehouse",
+      "titulo": "Protección de almacenes\ny centros logísticos",
+      "ubicacion": "Callao, Perú",
+      "texto": "Detección de intrusiones, control de inventario en zonas críticas y monitoreo nocturno con IA y cámaras térmicas."
+    }
+  ]
+}

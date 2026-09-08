@@ -1,0 +1,20 @@
+{
+  "rotulo": "Language",
+  "actual": "English",
+  "opciones": [
+    {
+      "codigo": "es",
+      "etiqueta": "Español",
+      "abreviatura": "ES",
+      "bandera": "pe",
+      "textoAlternativo": "Flag of Peru"
+    },
+    {
+      "codigo": "en",
+      "etiqueta": "English",
+      "abreviatura": "EN",
+      "bandera": "gb",
+      "textoAlternativo": "Flag of the United Kingdom"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import estilos from './CifrasEmpresa.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const cifras = contenido(idioma, 'nosotros/cifras');
+---
+
+<section class={estilos.seccion}>
+  <div class={estilos.fondo}>
+    <img
+      class={estilos.imagen}
+      src="/images/mountains-city-dusk.webp"
+      alt={cifras.textoAlternativo}
+      width="1600"
+      height="700"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class={estilos.velo}></span>
+  </div>
+
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <h2 class={estilos.titulo}>{cifras.titulo}</h2>
+      <ul class={estilos.lista}>
+        {
+          cifras.elementos.map((cifra: { icono: string; valor: string; etiqueta: string }) => (
+            <li class={estilos.cifra}>
+              <Icono nombre={cifra.icono} tamano={38} grosor={1.15} clase={estilos.icono} />
+              <span class={estilos.valor}>{cifra.valor}</span>
+              <span class={estilos.etiqueta}>{cifra.etiqueta}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <ul class={estilos.palabras}>
+      {cifras.palabrasLaterales.map((palabra: string) => <li>{palabra}</li>)}
+    </ul>
+  </Contenedor>
+</section>

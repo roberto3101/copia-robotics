@@ -1,0 +1,41 @@
+{
+  "titulo": "Numbers behind our commitment",
+  "elementos": [
+    {
+      "icono": "grafico",
+      "valor": "+30",
+      "etiqueta": "Projects\ndelivered"
+    },
+    {
+      "icono": "personas",
+      "valor": "+50",
+      "etiqueta": "Public and private\nclients"
+    },
+    {
+      "icono": "escudoPin",
+      "valor": "+10",
+      "etiqueta": "Cities\nin Peru"
+    },
+    {
+      "icono": "globo",
+      "valor": "3",
+      "etiqueta": "Countries in\nLatin America"
+    },
+    {
+      "icono": "engranaje",
+      "valor": "+15",
+      "etiqueta": "Specialists\non our team"
+    },
+    {
+      "icono": "calendario",
+      "valor": "24/7",
+      "etiqueta": "Support and\nguidance"
+    }
+  ],
+  "palabrasLaterales": [
+    "SOLUTIONS TODAY",
+    "FOR A SAFER",
+    "TOMORROW."
+  ],
+  "textoAlternativo": "Drone over the mountain range at dusk"
+}

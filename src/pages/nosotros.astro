@@ -1,0 +1,56 @@
+---
+import PlantillaBase from '../plantillas/PlantillaBase.astro';
+import PortadaSeccion from '../componentes/secciones/PortadaSeccion.astro';
+import HistoriaEmpresa from '../componentes/secciones/nosotros/HistoriaEmpresa.astro';
+import ValoresEmpresa from '../componentes/secciones/nosotros/ValoresEmpresa.astro';
+import EquipoEmpresa from '../componentes/secciones/nosotros/EquipoEmpresa.astro';
+import CifrasEmpresa from '../componentes/secciones/nosotros/CifrasEmpresa.astro';
+import AlianzasEmpresa from '../componentes/secciones/nosotros/AlianzasEmpresa.astro';
+import BandaLlamada from '../componentes/secciones/BandaLlamada.astro';
+import { contenido } from '../nucleo/idiomas';
+
+const idioma = 'es' as const;
+const metadatos = contenido(idioma, 'nosotros/metadatos');
+---
+
+<PlantillaBase
+  idioma={idioma}
+  seccion="nosotros"
+  titulo={metadatos.titulo}
+  descripcion={metadatos.descripcion}
+  palabrasClave={metadatos.palabrasClave}
+  imagenPrincipal="/images/hero-city-night.webp"
+>
+  <PortadaSeccion
+    idioma={idioma}
+    alturaMinima={408}
+    paquete="nosotros"
+    imagen="/images/hero-city-night.webp"
+    posicionImagen="50% 42%"
+    mostrarSello={false}
+    altura="alta"
+  >
+    <img
+      slot="escenario"
+      class="portada-unidades"
+      src="/images/cerberus-unidades.webp"
+      alt=""
+      width="1402"
+      height="882"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </PortadaSeccion>
+  <HistoriaEmpresa idioma={idioma} />
+  <ValoresEmpresa idioma={idioma} />
+  <EquipoEmpresa idioma={idioma} />
+  <CifrasEmpresa idioma={idioma} />
+  <AlianzasEmpresa idioma={idioma} />
+  <BandaLlamada
+    idioma={idioma}
+    paquete="nosotros"
+    imagen="/images/engineer-drone-sunset.webp"
+    posicionImagen="50% 42%"
+    disposicion="palabras"
+  />
+</PlantillaBase>

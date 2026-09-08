@@ -1,0 +1,59 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import EncabezadoSeccion from '../EncabezadoSeccion.astro';
+import estilos from './CatalogoSectores.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const catalogo = contenido(idioma, 'sectores/catalogo');
+const acciones = contenido(idioma, 'comunes/acciones');
+const destino = ruta('soluciones', idioma);
+---
+
+<section class={estilos.seccion}>
+  <Contenedor>
+    <EncabezadoSeccion
+      titulo={catalogo.titulo}
+      subtitulo={catalogo.subtitulo}
+      nota={catalogo.nota}
+    />
+    <ul class={estilos.rejilla}>
+      {
+        catalogo.elementos.map(
+          (elemento: { icono: string; imagen: string; nombre: string; texto: string }) => (
+            <li>
+              <a class={estilos.tarjeta} href={destino}>
+                <img
+                  class={estilos.imagen}
+                  src={`/images/${elemento.imagen}.webp`}
+                  alt={elemento.nombre}
+                  width="900"
+                  height="620"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class={estilos.cuerpo}>
+                  <span class={estilos.cabeza}>
+                    <Icono nombre={elemento.icono} tamano={28} grosor={1.25} clase={estilos.icono} />
+                    <span class={estilos.nombre}>{elemento.nombre}</span>
+                  </span>
+                  <span class={estilos.texto}>{elemento.texto}</span>
+                  <span class={estilos.enlace}>
+                    {acciones.verSoluciones}
+                    <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
+                  </span>
+                </span>
+              </a>
+            </li>
+          )
+        )
+      }
+    </ul>
+  </Contenedor>
+</section>

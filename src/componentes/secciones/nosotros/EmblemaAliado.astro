@@ -1,0 +1,16 @@
+---
+import estilos from './EmblemaAliado.module.css';
+
+interface Props {
+  clave: string;
+  nombre: string;
+  subtitulo: string;
+}
+
+const { clave, nombre, subtitulo } = Astro.props;
+---
+
+<span class={[estilos.emblema, estilos[clave]].filter(Boolean).join(' ')}>
+  <span class={estilos.nombre}>{nombre}</span>
+  {subtitulo && <span class={estilos.subtitulo}>{subtitulo}</span>}
+</span>

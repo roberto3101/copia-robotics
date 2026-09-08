@@ -1,0 +1,54 @@
+---
+import PlantillaBase from '../../plantillas/PlantillaBase.astro';
+import PortadaSeccion from '../../componentes/secciones/PortadaSeccion.astro';
+import BarraFiltros from '../../componentes/secciones/BarraFiltros.astro';
+import BibliotecaRecursos from '../../componentes/secciones/recursos/BibliotecaRecursos.astro';
+import BandaLlamada from '../../componentes/secciones/BandaLlamada.astro';
+import { contenido } from '../../nucleo/idiomas';
+
+const idioma = 'en' as const;
+const metadatos = contenido(idioma, 'recursos/metadatos');
+const pestanas = contenido(idioma, 'recursos/pestanas');
+---
+
+<PlantillaBase
+  idioma={idioma}
+  seccion="recursos"
+  titulo={metadatos.titulo}
+  descripcion={metadatos.descripcion}
+  palabrasClave={metadatos.palabrasClave}
+  imagenPrincipal="/images/office-building.webp"
+>
+  <PortadaSeccion
+    idioma={idioma}
+    alturaMinima={451}
+    paquete="recursos"
+    imagen="/images/office-building.webp"
+    posicionImagen="50% 50%"
+    altura="alta"
+  >
+    <img
+      slot="escenario"
+      class="portada-unidades"
+      src="/images/cerberus-unidades.webp"
+      alt=""
+      width="1402"
+      height="882"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </PortadaSeccion>
+  <BarraFiltros
+    rotulo={pestanas.rotulo}
+    elementos={pestanas.elementos}
+    marcadorBusqueda={pestanas.marcadorBusqueda}
+  />
+  <BibliotecaRecursos idioma={idioma} />
+  <BandaLlamada
+    idioma={idioma}
+    paquete="recursos"
+    imagen="/images/engineer-drone-sunset.webp"
+    posicionImagen="50% 42%"
+    disposicion="palabras"
+  />
+</PlantillaBase>

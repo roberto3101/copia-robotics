@@ -1,0 +1,63 @@
+{
+  "antetitulo": "TECHNOLOGY",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Real innovation"
+      }
+    ],
+    [
+      {
+        "texto": "for a "
+      },
+      {
+        "texto": "safer world",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "We combine artificial intelligence, computer vision, autonomous systems, advanced communications and data analytics in one integrated platform, designed for the challenges of Latin America.",
+  "accionPrincipal": "solicitarReunion",
+  "video": {
+    "etiqueta": "Watch technology video",
+    "detalle": "(2 min)"
+  },
+  "atributos": [
+    {
+      "icono": "chipCirculo",
+      "lineas": [
+        "PROPRIETARY",
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "icono": "globo",
+      "lineas": [
+        "INTERNATIONAL",
+        "STANDARDS"
+      ]
+    },
+    {
+      "icono": "red",
+      "lineas": [
+        "SCALABLE",
+        "ARCHITECTURE"
+      ]
+    },
+    {
+      "icono": "escudo",
+      "lineas": [
+        "FOCUS ON",
+        "RESULTS"
+      ]
+    }
+  ],
+  "palabrasLaterales": [
+    "TECHNOLOGY",
+    "THAT OBSERVES.",
+    "ANALYZES.",
+    "CONNECTS.",
+    "PROTECTS."
+  ],
+  "textoAlternativo": "CERBERUS robotic units with vision, analysis and protection"
+}

@@ -1,0 +1,26 @@
+---
+import estilos from './PalabrasLaterales.module.css';
+
+interface Props {
+  palabras: string[];
+  nota?: string;
+  izquierda?: boolean;
+  claro?: boolean;
+  clase?: string;
+}
+
+const { palabras, nota, izquierda = false, claro = false, clase } = Astro.props;
+const clases = [
+  estilos.bloque,
+  izquierda ? estilos.izquierda : null,
+  claro ? estilos.claro : null,
+  clase,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<div class={clases}>
+  {palabras.map((palabra) => <span class={estilos.palabra}>{palabra}</span>)}
+  {nota && <p class={estilos.nota}>{nota}</p>}
+</div>

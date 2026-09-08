@@ -1,0 +1,20 @@
+---
+import estilos from './TituloSeccion.module.css';
+
+interface Props {
+  titulo: string;
+  subtitulo?: string;
+  nivel?: 2 | 3;
+  centrado?: boolean;
+  clase?: string;
+  id?: string;
+}
+
+const { titulo, subtitulo, nivel = 2, centrado = false, clase, id } = Astro.props;
+const Titulo = `h${nivel}` as any;
+---
+
+<div class={[estilos.bloque, centrado ? estilos.centrado : null, clase].filter(Boolean).join(' ')}>
+  <Titulo class={estilos.titulo} id={id}>{titulo}</Titulo>
+  {subtitulo && <p class={estilos.subtitulo}>{subtitulo}</p>}
+</div>

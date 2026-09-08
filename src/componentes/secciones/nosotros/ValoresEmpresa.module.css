@@ -1,0 +1,134 @@
+.seccion {
+  background: var(--superficie-1);
+  border-bottom: 1px solid var(--linea-suave);
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  align-items: stretch;
+  gap: 30px;
+  padding-block: 9px 11px;
+}
+
+.discurso {
+  padding-left: var(--sangria-bloque);
+}
+
+.titulo {
+  font-size: var(--texto-h2);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.subtitulo {
+  margin-top: 3px;
+  font-size: var(--texto-h3);
+  color: var(--marca-300);
+  line-height: 1.34;
+}
+
+.lista {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 22px;
+}
+
+.valor {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 18px;
+  text-align: center;
+}
+
+.valor + .valor::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--linea-suave);
+}
+
+.icono {
+  color: var(--marca-400);
+}
+
+.nombre {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--texto-1);
+}
+
+.texto {
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--texto-2);
+}
+
+.cita {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  padding: 26px 24px;
+  border-radius: var(--radio-md);
+  overflow: hidden;
+}
+
+.imagenCita {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.62;
+}
+
+.textoCita {
+  margin: 0;
+  font-size: 19px;
+  font-style: italic;
+  line-height: 27px;
+  color: var(--texto-1);
+}
+
+.autorCita {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--texto-1);
+}
+
+@media (max-width: 1199.98px) {
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 899.98px) {
+  .lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 0;
+  }
+}
+
+@media (max-width: 559.98px) {
+  .lista {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .valor + .valor::before {
+    display: none;
+  }
+}

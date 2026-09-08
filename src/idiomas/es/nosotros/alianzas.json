@@ -1,0 +1,58 @@
+{
+  "titulo": "Alianzas estratégicas",
+  "texto": "Trabajamos con líderes tecnológicos, instituciones y organizaciones comprometidas con la innovación y la seguridad.",
+  "accion": "Ver nuestras alianzas",
+  "emblemas": [
+    {
+      "clave": "nvidia",
+      "nombre": "NVIDIA",
+      "subtitulo": "INCEPTION PROGRAM"
+    },
+    {
+      "clave": "microsoft",
+      "nombre": "Microsoft",
+      "subtitulo": "for Startups"
+    },
+    {
+      "clave": "dji",
+      "nombre": "DJI",
+      "subtitulo": "ENTERPRISE"
+    },
+    {
+      "clave": "axis",
+      "nombre": "AXIS",
+      "subtitulo": "COMMUNICATIONS"
+    },
+    {
+      "clave": "redhat",
+      "nombre": "Red Hat",
+      "subtitulo": ""
+    }
+  ],
+  "certificaciones": {
+    "titulo": "Certificaciones y estándares",
+    "texto": "Seguimos las mejores prácticas internacionales en desarrollo, seguridad y gestión de proyectos.",
+    "elementos": [
+      {
+        "icono": "selloCalidad",
+        "codigo": "ISO\n9001",
+        "etiqueta": "Gestión de calidad"
+      },
+      {
+        "icono": "selloInfo",
+        "codigo": "ISO\n27001",
+        "etiqueta": "Seguridad de la\ninformación"
+      },
+      {
+        "icono": "selloSeguridad",
+        "codigo": "ISO\n45001",
+        "etiqueta": "Seguridad y salud\nen el trabajo"
+      },
+      {
+        "icono": "selloIa",
+        "codigo": "Buenas\nprácticas de IA",
+        "etiqueta": ""
+      }
+    ]
+  }
+}

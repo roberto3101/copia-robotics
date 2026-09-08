@@ -1,0 +1,77 @@
+.seccion {
+  background: var(--superficie-1);
+  padding-block: 23px 25px;
+  border-bottom: 1px solid var(--linea-suave);
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.beneficio {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding-inline: 26px;
+}
+
+.beneficio:first-child {
+  padding-left: var(--sangria-bloque);
+}
+
+.beneficio + .beneficio::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 1px;
+  background: var(--linea-suave);
+}
+
+.icono {
+  flex: none;
+  color: var(--marca-400);
+}
+
+.cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.titulo {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--texto-1);
+}
+
+.texto {
+  font-size: 14.5px;
+  line-height: 20px;
+  color: var(--texto-2);
+}
+
+@media (max-width: 1023.98px) {
+  .rejilla {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 0;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .beneficio + .beneficio::before {
+    display: none;
+  }
+
+  .beneficio {
+    padding-inline: var(--sangria-bloque);
+  }
+}

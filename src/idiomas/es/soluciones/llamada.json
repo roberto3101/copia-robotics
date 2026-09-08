@@ -1,0 +1,29 @@
+{
+  "titulo": "Soluciones para un futuro más seguro",
+  "texto": "Hablemos sobre cómo CERBERUS puede adaptarse a sus necesidades.\nNuestro equipo de especialistas está listo para ayudarlo.",
+  "accionPrincipal": "solicitarReunion",
+  "accionSecundaria": "descargarBrochure",
+  "cifras": [
+    {
+      "icono": "red",
+      "valor": "+30",
+      "etiqueta": "Proyectos\nimplementados"
+    },
+    {
+      "icono": "soporte",
+      "valor": "24/7",
+      "etiqueta": "Soporte\ntécnico"
+    },
+    {
+      "icono": "engranaje",
+      "valor": "",
+      "etiqueta": "Soluciones\na medida"
+    },
+    {
+      "icono": "crecimiento",
+      "valor": "",
+      "etiqueta": "Resultados\nmedibles"
+    }
+  ],
+  "textoAlternativo": "Cordillera y ciudad al anochecer"
+}

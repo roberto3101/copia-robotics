@@ -1,0 +1,29 @@
+{
+  "titulo": "Technology built in Peru, for the world",
+  "texto": "Innovation with purpose. Real solutions for the challenges of our region, with global standards and a highly qualified team of specialists.",
+  "accionPrincipal": "Learn more about our technology",
+  "accionSecundaria": "descargarBrochure",
+  "cifras": [
+    {
+      "icono": "red",
+      "valor": "+30",
+      "etiqueta": "Projects\ndelivered"
+    },
+    {
+      "icono": "soporte",
+      "valor": "24/7",
+      "etiqueta": "Technical\nsupport"
+    },
+    {
+      "icono": "engranaje",
+      "valor": "",
+      "etiqueta": "Scalable\ntechnology"
+    },
+    {
+      "icono": "crecimiento",
+      "valor": "",
+      "etiqueta": "Measurable\nresults"
+    }
+  ],
+  "textoAlternativo": "Mountain range and city at dusk"
+}

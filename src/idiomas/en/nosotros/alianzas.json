@@ -1,0 +1,58 @@
+{
+  "titulo": "Strategic partnerships",
+  "texto": "We work with technology leaders, institutions and organizations committed to innovation and security.",
+  "accion": "See our partners",
+  "emblemas": [
+    {
+      "clave": "nvidia",
+      "nombre": "NVIDIA",
+      "subtitulo": "INCEPTION PROGRAM"
+    },
+    {
+      "clave": "microsoft",
+      "nombre": "Microsoft",
+      "subtitulo": "for Startups"
+    },
+    {
+      "clave": "dji",
+      "nombre": "DJI",
+      "subtitulo": "ENTERPRISE"
+    },
+    {
+      "clave": "axis",
+      "nombre": "AXIS",
+      "subtitulo": "COMMUNICATIONS"
+    },
+    {
+      "clave": "redhat",
+      "nombre": "Red Hat",
+      "subtitulo": ""
+    }
+  ],
+  "certificaciones": {
+    "titulo": "Certifications and standards",
+    "texto": "We follow international best practices in development, security and project management.",
+    "elementos": [
+      {
+        "icono": "selloCalidad",
+        "codigo": "ISO\n9001",
+        "etiqueta": "Quality management"
+      },
+      {
+        "icono": "selloInfo",
+        "codigo": "ISO\n27001",
+        "etiqueta": "Information\nsecurity"
+      },
+      {
+        "icono": "selloSeguridad",
+        "codigo": "ISO\n45001",
+        "etiqueta": "Occupational health\nand safety"
+      },
+      {
+        "icono": "selloIa",
+        "codigo": "AI best\npractices",
+        "etiqueta": ""
+      }
+    ]
+  }
+}

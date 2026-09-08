@@ -1,0 +1,40 @@
+{
+  "insignia": "FEATURED CASE",
+  "titulo": "Transforming urban security\nin Los Olivos",
+  "textoInicio": "Deployment of a complete ",
+  "textoEnlace": "video surveillance",
+  "textoFin": " system with AI and drones, achieving a significant reduction in incidents and a faster response from municipal patrol units.",
+  "accionPrincipal": "verCasoCompleto",
+  "accionSecundaria": "descargarPdf",
+  "insigniaVideo": "CASE VIDEO",
+  "detalleVideo": "(2:16 min)",
+  "imagenVideo": "case-urban",
+  "textoAlternativoVideo": "Los Olivos case video",
+  "tituloResultados": "Results in 6 months",
+  "resultados": [
+    {
+      "icono": "flechaAbajo",
+      "valor": "-42%",
+      "tendencia": "baja",
+      "etiqueta": "Reported incidents"
+    },
+    {
+      "icono": "reloj",
+      "valor": "+65%",
+      "tendencia": "alza",
+      "etiqueta": "Response time"
+    },
+    {
+      "icono": "grafico",
+      "valor": "+90%",
+      "tendencia": "alza",
+      "etiqueta": "Events detected by AI"
+    },
+    {
+      "icono": "relojAro",
+      "valor": "24/7",
+      "tendencia": "",
+      "etiqueta": "Operational monitoring"
+    }
+  ]
+}

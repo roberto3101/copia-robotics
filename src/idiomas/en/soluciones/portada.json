@@ -1,0 +1,49 @@
+{
+  "antetitulo": "SOLUTIONS",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Smart security"
+      }
+    ],
+    [
+      {
+        "texto": "for a "
+      },
+      {
+        "texto": "real",
+        "resaltado": true
+      },
+      {
+        "texto": " world"
+      }
+    ]
+  ],
+  "entradilla": "End-to-end solutions combining video surveillance, artificial intelligence, drones and real-time analytics, adapted to the needs of your city, company or industry.",
+  "accionPrincipal": "solicitarPropuesta",
+  "video": {
+    "etiqueta": "Watch solutions video",
+    "detalle": "(2 min)"
+  },
+  "palabrasLaterales": [
+    "ONE SINGLE",
+    "PLATFORM.",
+    "MULTIPLE",
+    "SOLUTIONS."
+  ],
+  "textoAlternativo": "Drone over a city detecting, analyzing and responding",
+  "marcadores": [
+    {
+      "icono": "detectar",
+      "etiqueta": "DETECT"
+    },
+    {
+      "icono": "analizar",
+      "etiqueta": "ANALYZE"
+    },
+    {
+      "icono": "responder",
+      "etiqueta": "RESPOND"
+    }
+  ]
+}

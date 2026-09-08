@@ -1,0 +1,46 @@
+{
+  "antetitulo": "SOLUCIONES",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Seguridad inteligente"
+      }
+    ],
+    [
+      {
+        "texto": "para un mundo "
+      },
+      {
+        "texto": "real",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "Soluciones integrales que combinan videovigilancia, inteligencia artificial, drones y analítica en tiempo real, adaptadas a las necesidades de su ciudad, empresa o industria.",
+  "accionPrincipal": "solicitarPropuesta",
+  "video": {
+    "etiqueta": "Ver video de soluciones",
+    "detalle": "(2 min)"
+  },
+  "palabrasLaterales": [
+    "UNA SOLA",
+    "PLATAFORMA.",
+    "MÚLTIPLES",
+    "SOLUCIONES."
+  ],
+  "textoAlternativo": "Dron sobre una ciudad detectando, analizando y respondiendo",
+  "marcadores": [
+    {
+      "icono": "detectar",
+      "etiqueta": "DETECTA"
+    },
+    {
+      "icono": "analizar",
+      "etiqueta": "ANALIZA"
+    },
+    {
+      "icono": "responder",
+      "etiqueta": "RESPONDE"
+    }
+  ]
+}

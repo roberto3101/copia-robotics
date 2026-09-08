@@ -1,0 +1,11 @@
+.contenedor {
+  width: 100%;
+  max-width: calc(var(--contenedor) + var(--margen) * 2);
+  margin-inline: auto;
+  padding-inline: var(--margen);
+}
+
+.ancho {
+  max-width: none;
+  padding-inline: var(--margen);
+}

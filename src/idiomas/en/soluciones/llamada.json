@@ -1,0 +1,29 @@
+{
+  "titulo": "Solutions for a safer future",
+  "texto": "Let's talk about how CERBERUS can adapt to your needs.\nOur team of specialists is ready to help.",
+  "accionPrincipal": "solicitarReunion",
+  "accionSecundaria": "descargarBrochure",
+  "cifras": [
+    {
+      "icono": "red",
+      "valor": "+30",
+      "etiqueta": "Projects\ndelivered"
+    },
+    {
+      "icono": "soporte",
+      "valor": "24/7",
+      "etiqueta": "Technical\nsupport"
+    },
+    {
+      "icono": "engranaje",
+      "valor": "",
+      "etiqueta": "Tailored\nsolutions"
+    },
+    {
+      "icono": "crecimiento",
+      "valor": "",
+      "etiqueta": "Measurable\nresults"
+    }
+  ],
+  "textoAlternativo": "Mountain range and city at dusk"
+}

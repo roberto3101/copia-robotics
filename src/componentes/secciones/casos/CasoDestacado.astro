@@ -1,0 +1,88 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import Boton from '../../base/Boton.astro';
+import estilos from './CasoDestacado.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const destacado = contenido(idioma, 'casos-de-uso/destacado');
+const acciones = contenido(idioma, 'comunes/acciones');
+---
+
+<section class={estilos.seccion} id="caso-destacado">
+  <Contenedor>
+    <div class={estilos.marco}>
+      <div class={estilos.discurso}>
+        <span class={estilos.insignia}>{destacado.insignia}</span>
+        <h2 class={estilos.titulo}>{destacado.titulo}</h2>
+        <p class={estilos.texto}>
+          {destacado.textoInicio}
+          <a class={estilos.destacadoEnlace} href={ruta('soluciones', idioma)}>
+            {destacado.textoEnlace}
+          </a>
+          {destacado.textoFin}
+        </p>
+        <div class={estilos.acciones}>
+          <Boton texto={acciones[destacado.accionPrincipal]} destino={ruta('nosotros', idioma)} />
+          <Boton
+            texto={acciones[destacado.accionSecundaria]}
+            destino={ruta('recursos', idioma)}
+            variante="contorno"
+            iconoInicial="descargar"
+            icono={undefined}
+          />
+        </div>
+      </div>
+
+      <div class={estilos.reproductor}>
+        <img
+          class={estilos.imagen}
+          src={`/images/${destacado.imagenVideo}.webp`}
+          alt={destacado.textoAlternativoVideo}
+          width="900"
+          height="560"
+          loading="lazy"
+          decoding="async"
+        />
+        <span class={estilos.etiquetaVideo}>
+          <span>{destacado.insigniaVideo}</span>
+          <span class={estilos.duracion}>{destacado.detalleVideo}</span>
+        </span>
+        <button class={estilos.reproducir} type="button" aria-label={destacado.textoAlternativoVideo}>
+          <Icono nombre="reproducir" tamano={22} grosor={1} />
+        </button>
+      </div>
+
+      <div class={estilos.resultados}>
+        <h3 class={estilos.tituloResultados}>{destacado.tituloResultados}</h3>
+        <ul class={estilos.listaResultados}>
+          {
+            destacado.resultados.map(
+              (resultado: { icono: string; valor: string; tendencia: string; etiqueta: string }) => (
+                <li class={estilos.resultado}>
+                  <Icono nombre={resultado.icono} tamano={24} grosor={1.3} clase={estilos.iconoResultado} />
+                  <span class={estilos.valor}>{resultado.valor}</span>
+                  {resultado.tendencia && (
+                    <Icono
+                      nombre={resultado.tendencia === 'baja' ? 'flechaAbajo' : 'flechaArriba'}
+                      tamano={13}
+                      grosor={2}
+                      clase={resultado.tendencia === 'baja' ? estilos.baja : estilos.alza}
+                    />
+                  )}
+                  <span class={estilos.etiquetaResultado}>{resultado.etiqueta}</span>
+                </li>
+              )
+            )
+          }
+        </ul>
+      </div>
+    </div>
+  </Contenedor>
+</section>

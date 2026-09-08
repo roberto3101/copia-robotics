@@ -1,0 +1,47 @@
+---
+import '../../estilos/tipografias.css';
+import '../../estilos/pagina-perdida.css';
+
+const idioma = 'en';
+const textos = {
+  titulo: '404 — Page not found',
+  descripcion: 'The page you are looking for does not exist or has moved.',
+  mensaje: 'You have lost your way',
+  accion: 'Back to home',
+  destino: '/en/',
+};
+---
+
+<!doctype html>
+<html lang="en-US" data-tema="oscuro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{textos.titulo}</title>
+    <meta name="description" content={textos.descripcion} />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#11111b" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <section class="perdida" lang={idioma}>
+      <video
+        class="fondo"
+        src="/video/ruido.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-hidden="true"></video>
+
+      <div class="mensaje">
+        <h1 data-texto="404">404</h1>
+        <div class="pie">
+          <p>{textos.mensaje}</p>
+          <a href={textos.destino}>{textos.accion}</a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

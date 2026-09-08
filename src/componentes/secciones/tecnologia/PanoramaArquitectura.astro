@@ -1,0 +1,81 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import Boton from '../../base/Boton.astro';
+import estilos from './PanoramaArquitectura.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const panorama = contenido(idioma, 'tecnologia/panorama');
+const esquema = panorama.esquema;
+---
+
+<section class={estilos.seccion}>
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <h2 class={estilos.titulo}>{panorama.titulo}</h2>
+      <p class={estilos.subtitulo}>{panorama.subtitulo}</p>
+      <p class={estilos.texto}>{panorama.texto}</p>
+      <Boton texto={panorama.accion} destino={ruta('soluciones', idioma)} clase={estilos.accion} />
+    </div>
+
+    <div class={estilos.esquema}>
+      <div class={estilos.flujo}>
+        <ul class={estilos.entradas}>
+          {
+            esquema.entradas.map((entrada: { icono: string; etiqueta: string }) => (
+              <li class={estilos.nodo}>
+                <span class={estilos.rotulo}>{entrada.etiqueta}</span>
+                <Icono nombre={entrada.icono} tamano={38} grosor={1.15} />
+                <span class={estilos.flechaArriba} aria-hidden="true"></span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class={estilos.nucleo}>
+          <svg class={estilos.marcaNucleo} viewBox="0 0 100 92" aria-hidden="true">
+            <path fill="#e9f1f7" d="M50 0 100 92H77.5L50 41.5 22.5 92H0Z" />
+            <path fill="#1c95ec" d="M50 1.5 74.5 62.5H62.8L50 36.5 37.2 62.5H25.5Z" />
+            <path fill="#1c95ec" d="M37.5 70.5h25L55.5 92h-25Z" />
+          </svg>
+          <span class={estilos.nucleoTexto}>
+            <span class={estilos.nucleoNombre}>{esquema.nucleo.nombre}</span>
+            <span class={estilos.nucleoLema}>{esquema.nucleo.subtitulo}</span>
+          </span>
+        </div>
+
+        <ul class={estilos.salidas}>
+          {
+            esquema.salidas.map((salida: { icono: string; etiqueta: string }) => (
+              <li class={estilos.nodo}>
+                <span class={estilos.flechaAbajo} aria-hidden="true"></span>
+                <Icono nombre={salida.icono} tamano={34} grosor={1.15} />
+                <span class={estilos.rotulo}>{salida.etiqueta}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class={estilos.resultados}>
+        <h3 class={estilos.tituloResultados}>{esquema.tituloResultados}</h3>
+        <ul class={estilos.listaResultados}>
+          {
+            esquema.resultados.map((resultado: { icono: string; etiqueta: string }) => (
+              <li>
+                <Icono nombre={resultado.icono} tamano={26} grosor={1.2} />
+                <span>{resultado.etiqueta}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </Contenedor>
+</section>

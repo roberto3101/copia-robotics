@@ -1,0 +1,26 @@
+{
+  "titulo": "Use cases",
+  "subtitulo": "Results in the real world",
+  "elementos": [
+    {
+      "imagen": "case-urban",
+      "titulo": "Real-time tracking of\nobjects of interest",
+      "detalle": "District municipality"
+    },
+    {
+      "imagen": "hero-drone-city",
+      "titulo": "Perimeter surveillance with drones",
+      "detalle": "Industrial plant"
+    },
+    {
+      "imagen": "city-aerial-street",
+      "titulo": "Construction site monitoring",
+      "detalle": "Construction project"
+    },
+    {
+      "imagen": "sector-logistics",
+      "titulo": "Access control",
+      "detalle": "Logistics center"
+    }
+  ]
+}

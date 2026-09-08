@@ -1,0 +1,67 @@
+{
+  "titulo": "Overview",
+  "subtitulo": "An integrated technology architecture",
+  "texto": "CERBERUS combines hardware, software, artificial intelligence and communications in a modular, scalable architecture that adapts to different environments and operational needs.",
+  "accion": "See full architecture",
+  "esquema": {
+    "entradas": [
+      {
+        "icono": "camara",
+        "etiqueta": "CAMERAS"
+      },
+      {
+        "icono": "dron",
+        "etiqueta": "DRONES"
+      },
+      {
+        "icono": "sensor",
+        "etiqueta": "SENSORS"
+      },
+      {
+        "icono": "sistemas",
+        "etiqueta": "EXISTING SYSTEMS"
+      }
+    ],
+    "nucleo": {
+      "nombre": "CERBERUS AI",
+      "subtitulo": "INTELLIGENT PLATFORM"
+    },
+    "salidas": [
+      {
+        "icono": "alerta",
+        "etiqueta": "DETECTION\nAND ALERTS"
+      },
+      {
+        "icono": "analisis",
+        "etiqueta": "ANALYSIS\nAND CONTEXT"
+      },
+      {
+        "icono": "gestion",
+        "etiqueta": "OPERATIONAL\nMANAGEMENT"
+      },
+      {
+        "icono": "respuesta",
+        "etiqueta": "COORDINATED\nRESPONSE"
+      }
+    ],
+    "tituloResultados": "RESULTS",
+    "resultados": [
+      {
+        "icono": "red",
+        "etiqueta": "Safer cities"
+      },
+      {
+        "icono": "reloj",
+        "etiqueta": "Faster response"
+      },
+      {
+        "icono": "engranaje",
+        "etiqueta": "Better use of resources"
+      },
+      {
+        "icono": "grafico",
+        "etiqueta": "Data-driven decisions"
+      }
+    ]
+  }
+}

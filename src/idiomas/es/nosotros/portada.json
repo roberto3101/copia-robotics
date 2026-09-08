@@ -1,0 +1,28 @@
+{
+  "antetitulo": "NOSOTROS",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Tecnología con"
+      }
+    ],
+    [
+      {
+        "texto": "propósito",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "En AI Robotics Perú desarrollamos soluciones de inteligencia artificial y sistemas autónomos para un mundo más seguro, eficiente y humano.",
+  "cita": "“Creemos en el poder de la tecnología para construir ciudades más seguras, empresas más resilientes y comunidades con mayores oportunidades.”",
+  "palabrasLaterales": [
+    "INTELIGENCIA",
+    "PARA UN",
+    "FUTURO REAL."
+  ],
+  "palabrasLateralesEco": [
+    "INTELIGENCIA",
+    "FUTURO REAL"
+  ],
+  "textoAlternativo": "Tres unidades robóticas CERBERUS sobre la ciudad"
+}

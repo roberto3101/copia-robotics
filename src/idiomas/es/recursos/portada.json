@@ -1,0 +1,55 @@
+{
+  "antetitulo": "RECURSOS",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Conocimiento"
+      }
+    ],
+    [
+      {
+        "texto": "que impulsa"
+      }
+    ],
+    [
+      {
+        "texto": "un mundo "
+      },
+      {
+        "texto": "más seguro",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "Descubre artículos, videos, guías, casos de éxito y material técnico sobre inteligencia artificial, videovigilancia, drones y seguridad inteligente. Recursos creados para ayudarte a entender, planificar e implementar soluciones reales.",
+  "atributos": [
+    {
+      "icono": "libro",
+      "titulo": "APRENDE",
+      "subtitulo": "con nuestros contenidos"
+    },
+    {
+      "icono": "bombilla",
+      "titulo": "EXPLORA",
+      "subtitulo": "nuevas posibilidades"
+    },
+    {
+      "icono": "engranaje",
+      "titulo": "IMPLEMENTA",
+      "subtitulo": "con guías prácticas"
+    },
+    {
+      "icono": "crecimiento",
+      "titulo": "CRECE",
+      "subtitulo": "con información experta"
+    }
+  ],
+  "palabrasLaterales": [
+    "TECNOLOGÍA",
+    "QUE OBSERVA.",
+    "ANALIZA.",
+    "CONECTA.",
+    "PROTEGE."
+  ],
+  "textoAlternativo": "Unidades robóticas CERBERUS"
+}

@@ -1,0 +1,24 @@
+{
+  "elementos": [
+    {
+      "icono": "pieza",
+      "titulo": "Adaptable solutions",
+      "texto": "Modular and scalable to your needs."
+    },
+    {
+      "icono": "red",
+      "titulo": "Full integration",
+      "texto": "Works with your existing infrastructure."
+    },
+    {
+      "icono": "crecimiento",
+      "titulo": "Measurable results",
+      "texto": "Greater efficiency and lower risk."
+    },
+    {
+      "icono": "soporte",
+      "titulo": "Specialized support",
+      "texto": "Guidance at every stage."
+    }
+  ]
+}

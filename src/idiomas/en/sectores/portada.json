@@ -1,0 +1,57 @@
+{
+  "antetitulo": "SECTORS",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Smart security"
+      }
+    ],
+    [
+      {
+        "texto": "for "
+      },
+      {
+        "texto": "every reality",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "At AI Robotics Perú we understand that every sector has unique challenges. That is why our solutions adapt to the real needs of each industry, combining video surveillance, artificial intelligence, drones and data analytics.",
+  "atributos": [
+    {
+      "icono": "escudo",
+      "lineas": [
+        "TAILORED",
+        "SOLUTIONS"
+      ]
+    },
+    {
+      "icono": "engranaje",
+      "lineas": [
+        "MULTI-SECTOR",
+        "EXPERIENCE"
+      ]
+    },
+    {
+      "icono": "crecimiento",
+      "lineas": [
+        "PROVEN",
+        "RESULTS"
+      ]
+    },
+    {
+      "icono": "personas",
+      "lineas": [
+        "SPECIALIZED",
+        "SUPPORT"
+      ]
+    }
+  ],
+  "insignia": "DIFFERENT\nSECTORS.\nONE SHARED GOAL:\nSAFER\nENVIRONMENTS.",
+  "palabrasLaterales": [
+    "TECHNOLOGY",
+    "FOR SAFER",
+    "DEVELOPMENT"
+  ],
+  "textoAlternativo": "AI Robotics Perú operator watching the city with a drone"
+}

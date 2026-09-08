@@ -1,0 +1,54 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import estilos from './Testimonios.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const testimonios = contenido(idioma, 'casos-de-uso/testimonios');
+const acciones = contenido(idioma, 'comunes/acciones');
+---
+
+<section class={estilos.seccion}>
+  <Contenedor>
+    <div class={estilos.encabezado}>
+      <h2 class={estilos.titulo}>{testimonios.titulo}</h2>
+      <div class={estilos.controles}>
+        <button class={estilos.control} type="button" aria-label={acciones.anterior}>
+          <Icono nombre="chevronIzquierda" tamano={18} grosor={1.5} />
+        </button>
+        <button class={estilos.control} type="button" aria-label={acciones.siguiente}>
+          <Icono nombre="chevronDerecha" tamano={18} grosor={1.5} />
+        </button>
+      </div>
+    </div>
+
+    <ul class={estilos.rejilla}>
+      {
+        testimonios.elementos.map(
+          (t: { emblema: string; organizacion: string; cita: string; autor: string; cargo: string }) => (
+            <li>
+              <figure class={estilos.tarjeta}>
+                <span class={estilos.emblema} data-emblema={t.emblema}>
+                  <Icono nombre="escudo" tamano={30} grosor={1.2} />
+                </span>
+                <div class={estilos.cuerpo}>
+                  <span class={estilos.organizacion}>{t.organizacion}</span>
+                  <blockquote class={estilos.cita}>{t.cita}</blockquote>
+                  <figcaption class={estilos.firma}>
+                    <span class={estilos.autor}>{t.autor}</span>
+                    <span class={estilos.cargo}>{t.cargo}</span>
+                  </figcaption>
+                </div>
+              </figure>
+            </li>
+          )
+        )
+      }
+    </ul>
+  </Contenedor>
+</section>

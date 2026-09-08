@@ -1,0 +1,125 @@
+---
+import Contenedor from '../base/Contenedor.astro';
+import Icono from '../base/Icono.astro';
+import Logotipo from '../marca/Logotipo.astro';
+import estilos from './PieSitio.module.css';
+import { contenido, type Idioma } from '../../nucleo/idiomas';
+import { ruta, type ClaveSeccion } from '../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+
+const marca = contenido(idioma, 'comunes/marca');
+const pie = contenido(idioma, 'comunes/pie');
+const destinoContacto = `${ruta('nosotros', idioma)}#contacto`;
+---
+
+<footer class={estilos.pie}>
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.identidad}>
+      <Logotipo
+        nombre={marca.nombre}
+        pais={marca.pais}
+        textoAlternativo={marca.textoAlternativo}
+        destino={ruta('inicio', idioma)}
+        compacto
+      />
+      <p class={estilos.lema}>{pie.lema}</p>
+      <a class={estilos.accion} href={destinoContacto}>{pie.accionContacto}</a>
+      <small class={estilos.aviso}>{pie.aviso}</small>
+    </div>
+
+    {
+      pie.columnas.map(
+        (columna: { titulo: string; enlaces: { etiqueta: string; destino: ClaveSeccion }[] }) => (
+          <nav class={estilos.columna} aria-label={columna.titulo}>
+            <h2 class={estilos.tituloColumna}>{columna.titulo}</h2>
+            <ul class={estilos.enlaces}>
+              {columna.enlaces.map((enlace) => (
+                <li>
+                  <a class={estilos.enlace} href={ruta(enlace.destino, idioma)}>
+                    {enlace.etiqueta}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )
+      )
+    }
+
+    <div class={estilos.columna}>
+      <h2 class={estilos.tituloColumna}>{pie.contacto.titulo}</h2>
+      <ul class={estilos.enlaces}>
+        <li class={estilos.dato}>
+          <Icono nombre="ubicacion" tamano={16} grosor={1.5} />
+          {pie.contacto.ubicacion}
+        </li>
+        <li>
+          <a class={[estilos.enlace, estilos.dato].join(' ')} href={`mailto:${pie.contacto.correo}`}>
+            <Icono nombre="correo" tamano={16} grosor={1.5} />
+            {pie.contacto.correo}
+          </a>
+        </li>
+        <li>
+          <a class={[estilos.enlace, estilos.dato].join(' ')} href={`tel:${pie.contacto.telefonoEnlace}`}>
+            <Icono nombre="telefono" tamano={16} grosor={1.5} />
+            {pie.contacto.telefono}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class={estilos.columna}>
+      <h2 class={estilos.tituloColumna}>{pie.rotuloRedes}</h2>
+      <ul class={estilos.redes}>
+        {
+          pie.redes.map((red: { red: string; etiqueta: string; destino: string }) => (
+            <li>
+              <a
+                class={estilos.red}
+                href={red.destino}
+                aria-label={red.etiqueta}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Icono nombre={red.red} tamano={17} grosor={1.4} />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </Contenedor>
+
+  <div class={estilos.marcaGrande} data-resplandor aria-label={marca.textoAlternativo}>
+    <span class={estilos.palabraMarca} aria-hidden="true">{pie.marcaGrande}</span>
+    <span
+      class={[estilos.palabraMarca, estilos.palabraMarcaEncima].join(' ')}
+      aria-hidden="true">{pie.marcaGrande}</span>
+  </div>
+</footer>
+
+<script>
+  const enlazarResplandor = () => {
+    document.querySelectorAll('[data-resplandor]').forEach((nodo) => {
+      const el = nodo as HTMLElement;
+      if (el.dataset.resplandorActivo) return;
+      el.dataset.resplandorActivo = '1';
+      el.addEventListener('pointermove', (evento) => {
+        const caja = el.getBoundingClientRect();
+        el.style.setProperty('--x', `${evento.clientX - caja.left}px`);
+        el.style.setProperty('--y', `${evento.clientY - caja.top}px`);
+        el.style.setProperty('--r', '320px');
+      });
+      el.addEventListener('pointerenter', () => el.style.setProperty('--r', '320px'));
+      el.addEventListener('pointerleave', () => el.style.setProperty('--r', '0px'));
+    });
+  };
+
+  enlazarResplandor();
+  document.addEventListener('astro:page-load', enlazarResplandor);
+</script>

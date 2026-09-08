@@ -1,0 +1,24 @@
+{
+  "insignia": "CASO DE ÉXITO",
+  "titulo": "Ciudades más seguras",
+  "texto": "Implementación en municipalidades con resultados medibles en reducción de incidentes y mejora en tiempos de respuesta.",
+  "accion": "verCasoCompleto",
+  "cifras": [
+    {
+      "valor": "-40%",
+      "etiqueta": "Incidentes reportados"
+    },
+    {
+      "valor": "+60%",
+      "etiqueta": "Tiempo de respuesta"
+    },
+    {
+      "valor": "+90%",
+      "etiqueta": "Eventos detectados por IA"
+    }
+  ],
+  "cita": "“CERBERUS nos ha permitido tener una ciudad más segura y una respuesta más rápida.”",
+  "autor": "Ing. Carlos Méndez",
+  "cargo": "Gerente de Seguridad Ciudadana",
+  "textoAlternativo": "Vista aérea nocturna de una avenida iluminada"
+}

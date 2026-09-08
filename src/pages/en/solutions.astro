@@ -1,0 +1,39 @@
+---
+import PlantillaBase from '../../plantillas/PlantillaBase.astro';
+import PortadaSeccion from '../../componentes/secciones/PortadaSeccion.astro';
+import BarraFiltros from '../../componentes/secciones/BarraFiltros.astro';
+import CatalogoSoluciones from '../../componentes/secciones/soluciones/CatalogoSoluciones.astro';
+import BandaLlamada from '../../componentes/secciones/BandaLlamada.astro';
+import { contenido } from '../../nucleo/idiomas';
+
+const idioma = 'en' as const;
+const metadatos = contenido(idioma, 'soluciones/metadatos');
+const pestanas = contenido(idioma, 'soluciones/pestanas');
+---
+
+<PlantillaBase
+  idioma={idioma}
+  seccion="soluciones"
+  titulo={metadatos.titulo}
+  descripcion={metadatos.descripcion}
+  palabrasClave={metadatos.palabrasClave}
+  imagenPrincipal="/images/hero-drone-city.webp"
+>
+  <PortadaSeccion
+    idioma={idioma}
+    alturaMinima={488}
+    paquete="soluciones"
+    imagen="/images/hero-drone-city.webp"
+    posicionImagen="58% 44%"
+    altura="alta"
+  />
+  <BarraFiltros rotulo={pestanas.rotulo} elementos={pestanas.elementos} />
+  <CatalogoSoluciones idioma={idioma} />
+  <BandaLlamada
+    idioma={idioma}
+    paquete="soluciones"
+    imagen="/images/mountains-city-dusk.webp"
+    posicionImagen="50% 44%"
+    disposicion="cifras"
+  />
+</PlantillaBase>

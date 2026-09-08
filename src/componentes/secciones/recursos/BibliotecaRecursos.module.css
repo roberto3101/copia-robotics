@@ -1,0 +1,232 @@
+.seccion {
+  background: var(--superficie-base);
+  border-bottom: 1px solid var(--linea-suave);
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 372px);
+  align-items: start;
+  gap: 28px;
+  padding-block: 22px 26px;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.bloque {
+  display: flex;
+  flex-direction: column;
+}
+
+.tercios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.tercios li {
+  display: flex;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid var(--linea-suave);
+  border-radius: var(--radio-md);
+  overflow: hidden;
+  background: var(--superficie-1);
+  transition:
+    border-color var(--duracion) var(--curva),
+    transform var(--duracion) var(--curva);
+}
+
+.tarjeta:hover {
+  border-color: var(--linea-marca);
+  transform: translateY(-3px);
+}
+
+.lienzo {
+  position: relative;
+}
+
+.imagen {
+  width: 100%;
+  aspect-ratio: 300 / 152;
+  object-fit: cover;
+}
+
+.distintivo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 11px;
+  border: 1px solid var(--linea-marca);
+  border-radius: var(--radio-xs);
+  background: rgba(4, 20, 34, 0.74);
+  backdrop-filter: blur(3px);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--texto-1);
+}
+
+.duracion {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 4px 9px;
+  border-radius: var(--radio-xs);
+  background: rgba(4, 20, 34, 0.8);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--texto-1);
+}
+
+.reproducir {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(4, 20, 34, 0.26);
+  transition:
+    background-color var(--duracion) var(--curva),
+    transform var(--duracion) var(--curva);
+}
+
+.reproducir:hover {
+  background: rgba(4, 20, 34, 0.6);
+  transform: scale(1.06);
+}
+
+.cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 14px 16px 16px;
+}
+
+.fecha {
+  font-size: 12.5px;
+  color: var(--texto-3);
+}
+
+.nombre {
+  margin-top: 7px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.28;
+  color: var(--texto-1);
+  white-space: pre-line;
+}
+
+.texto {
+  margin-top: 9px;
+  font-size: 13.5px;
+  line-height: 19px;
+  color: var(--texto-2);
+}
+
+.enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 14px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--marca-400);
+}
+
+.documento {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--linea-suave);
+  border-radius: var(--radio-md);
+  background: var(--superficie-1);
+  transition:
+    border-color var(--duracion) var(--curva),
+    transform var(--duracion) var(--curva);
+}
+
+.documento:hover {
+  border-color: var(--linea-marca);
+  transform: translateY(-2px);
+}
+
+.ficha {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 56px;
+  border-radius: 4px 10px 4px 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.pdf {
+  background: #e2231a;
+}
+
+.xls {
+  background: #1d9d55;
+}
+
+.datos {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.distintivoDoc {
+  align-self: flex-start;
+  padding: 3px 9px;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-xs);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--texto-2);
+}
+
+.nombreDoc {
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--texto-1);
+  white-space: pre-line;
+}
+
+.peso {
+  font-size: 13px;
+  color: var(--texto-3);
+}
+
+@media (max-width: 1199.98px) {
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .tercios {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

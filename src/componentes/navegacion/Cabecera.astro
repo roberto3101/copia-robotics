@@ -1,0 +1,136 @@
+---
+import Contenedor from '../base/Contenedor.astro';
+import Icono from '../base/Icono.astro';
+import Boton from '../base/Boton.astro';
+import Logotipo from '../marca/Logotipo.astro';
+import SelectorIdioma from './SelectorIdioma.astro';
+import estilos from './Cabecera.module.css';
+import { contenido, type Idioma } from '../../nucleo/idiomas';
+import { ruta, type ClaveSeccion } from '../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+  seccion: ClaveSeccion;
+}
+
+const { idioma, seccion } = Astro.props;
+
+const marca = contenido(idioma, 'comunes/marca');
+const navegacion = contenido(idioma, 'comunes/navegacion');
+const acciones = contenido(idioma, 'comunes/acciones');
+const idiomaTextos = contenido(idioma, 'comunes/idioma');
+---
+
+<header class={estilos.cabecera} data-cabecera data-menu="cerrado">
+  <Contenedor clase={estilos.barra}>
+    <Logotipo
+      nombre={marca.nombre}
+      pais={marca.pais}
+      textoAlternativo={marca.textoAlternativo}
+      destino={ruta('inicio', idioma)}
+    />
+
+    <nav class={estilos.navegacion} aria-label={navegacion.rotulo}>
+      <ul class={estilos.menu}>
+        {
+          navegacion.elementos.map((elemento: { clave: ClaveSeccion; etiqueta: string }) => (
+            <li>
+              <a
+                class={estilos.entrada}
+                data-entrada
+                href={ruta(elemento.clave, idioma)}
+                aria-current={elemento.clave === seccion ? 'page' : undefined}
+              >
+                {elemento.etiqueta}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class={estilos.acciones}>
+      <button class={estilos.busqueda} type="button" aria-label={navegacion.rotuloBusqueda}>
+        <Icono nombre="buscar" tamano={20} grosor={1.7} />
+      </button>
+      <SelectorIdioma
+        idioma={idioma}
+        seccion={seccion}
+        rotulo={idiomaTextos.rotulo}
+        opciones={idiomaTextos.opciones}
+      />
+      <Boton
+        texto={acciones.solicitarDemostracion}
+        destino={`${ruta('nosotros', idioma)}#contacto`}
+        clase={estilos.llamada}
+      />
+      <button
+        class={estilos.alternador}
+        type="button"
+        aria-label={navegacion.abrirMenu}
+        aria-expanded="false"
+        aria-controls="panel-navegacion"
+        data-alternador
+      >
+        <Icono nombre="menu" tamano={22} grosor={1.7} />
+      </button>
+    </div>
+  </Contenedor>
+
+  <div class={estilos.panel} id="panel-navegacion">
+    <ul class={estilos.menuMovil}>
+      {
+        navegacion.elementos.map((elemento: { clave: ClaveSeccion; etiqueta: string }) => (
+          <li>
+            <a
+              class={estilos.entradaMovil}
+              data-entrada
+              href={ruta(elemento.clave, idioma)}
+              aria-current={elemento.clave === seccion ? 'page' : undefined}
+            >
+              {elemento.etiqueta}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <Boton
+      texto={acciones.solicitarDemostracion}
+      destino={`${ruta('nosotros', idioma)}#contacto`}
+      clase={estilos.llamadaMovil}
+    />
+  </div>
+</header>
+
+<script>
+  const prepararCabecera = () => {
+    const cabecera = document.querySelector<HTMLElement>('[data-cabecera]');
+    if (!cabecera) return;
+
+    const alternador = cabecera.querySelector<HTMLButtonElement>('[data-alternador]');
+    if (alternador && !alternador.dataset.listo) {
+      alternador.dataset.listo = '1';
+      alternador.addEventListener('click', () => {
+        const abierto = cabecera.dataset.menu === 'abierto';
+        cabecera.dataset.menu = abierto ? 'cerrado' : 'abierto';
+        alternador.setAttribute('aria-expanded', String(!abierto));
+        document.body.style.overflow = abierto ? '' : 'hidden';
+      });
+    }
+
+    cabecera.dataset.menu = 'cerrado';
+    alternador?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+
+    const actual = window.location.pathname.replace(/\/+$/, '') || '/';
+    cabecera.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((enlace) => {
+      const destino = new URL(enlace.href, window.location.origin).pathname.replace(/\/+$/, '') || '/';
+      if (enlace.dataset.entrada === undefined) return;
+      if (destino === actual) enlace.setAttribute('aria-current', 'page');
+      else enlace.removeAttribute('aria-current');
+    });
+  };
+
+  prepararCabecera();
+  document.addEventListener('astro:page-load', prepararCabecera);
+</script>

@@ -1,0 +1,24 @@
+{
+  "insignia": "SUCCESS STORY",
+  "titulo": "Safer cities",
+  "texto": "Deployment across municipalities with measurable results in incident reduction and improved response times.",
+  "accion": "verCasoCompleto",
+  "cifras": [
+    {
+      "valor": "-40%",
+      "etiqueta": "Reported incidents"
+    },
+    {
+      "valor": "+60%",
+      "etiqueta": "Response time"
+    },
+    {
+      "valor": "+90%",
+      "etiqueta": "Events detected by AI"
+    }
+  ],
+  "cita": "“CERBERUS has given us a safer city and a faster response.”",
+  "autor": "Carlos Méndez",
+  "cargo": "Public Safety Manager",
+  "textoAlternativo": "Aerial night view of a lit avenue"
+}

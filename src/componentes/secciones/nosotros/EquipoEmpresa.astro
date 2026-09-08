@@ -1,0 +1,48 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Boton from '../../base/Boton.astro';
+import Bandera from '../../base/Bandera.astro';
+import estilos from './EquipoEmpresa.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const equipo = contenido(idioma, 'nosotros/equipo');
+---
+
+<section class={estilos.seccion}>
+  <div class={estilos.fondo}>
+    <img
+      class={estilos.imagen}
+      src="/images/team-operations.webp"
+      alt={equipo.textoAlternativo}
+      width="1400"
+      height="800"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class={estilos.velo}></span>
+  </div>
+
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <h2 class={estilos.titulo}>{equipo.titulo}</h2>
+      <p class={estilos.subtitulo}>{equipo.subtitulo}</p>
+      <p class={estilos.texto}>{equipo.texto}</p>
+      <Boton texto={equipo.accion} destino={ruta('nosotros', idioma)} clase={estilos.accion} />
+    </div>
+
+    <aside class={estilos.complemento}>
+      <h3 class={estilos.tituloComplemento}>{equipo.complemento.titulo}</h3>
+      <p class={estilos.textoComplemento}>{equipo.complemento.texto}</p>
+      <p class={estilos.insignia}>
+        <Bandera codigo="pe" titulo="Perú" clase={estilos.bandera} />
+        <span>{equipo.complemento.insignia}</span>
+      </p>
+    </aside>
+  </Contenedor>
+</section>

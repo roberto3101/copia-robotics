@@ -1,0 +1,12 @@
+import puppeteer from 'puppeteer-core';
+const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
+const [url, salida, ancho = '1440', alto = '900', completa = 'no'] = process.argv.slice(2);
+const navegador = await puppeteer.launch({ executablePath: CHROME, headless: 'new', args: ['--hide-scrollbars', '--autoplay-policy=no-user-gesture-required'] });
+const p = await navegador.newPage();
+await p.setViewport({ width: Number(ancho), height: Number(alto), deviceScaleFactor: 1 });
+await p.goto(url, { waitUntil: 'networkidle0' });
+await p.evaluate(() => document.fonts.ready);
+await new Promise((r) => setTimeout(r, 900));
+await p.screenshot({ path: salida, fullPage: completa === 'si' });
+console.log('ok', salida);
+await navegador.close();

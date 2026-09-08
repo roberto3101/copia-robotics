@@ -1,0 +1,12 @@
+---
+import estilos from './Antetitulo.module.css';
+
+interface Props {
+  texto: string;
+  clase?: string;
+}
+
+const { texto, clase } = Astro.props;
+---
+
+<span class={[estilos.antetitulo, clase].filter(Boolean).join(' ')}>{texto}</span>

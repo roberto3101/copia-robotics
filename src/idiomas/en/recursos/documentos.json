@@ -1,0 +1,25 @@
+{
+  "titulo": "Documents and guides",
+  "subtitulo": "Technical material for a successful deployment.",
+  "verTodos": "View all documents",
+  "elementos": [
+    {
+      "formato": "pdf",
+      "distintivo": "GUIDE",
+      "titulo": "CERBERUS implementation\nguide",
+      "peso": "2.4 MB"
+    },
+    {
+      "formato": "pdf",
+      "distintivo": "USE CASE",
+      "titulo": "Success story - Municipality\nof Los Olivos",
+      "peso": "1.8 MB"
+    },
+    {
+      "formato": "xls",
+      "distintivo": "TEMPLATE",
+      "titulo": "Risk assessment\ntemplate",
+      "peso": "950 KB"
+    }
+  ]
+}

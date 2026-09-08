@@ -1,0 +1,218 @@
+.pie {
+  position: relative;
+  overflow: hidden;
+  background: var(--superficie-cabecera);
+  border-top: 1px solid var(--linea-suave);
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) repeat(6, minmax(0, 1fr));
+  align-items: start;
+  gap: 34px;
+  padding-block: 56px 40px;
+}
+
+.identidad {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  max-width: 340px;
+}
+
+.lema {
+  font-size: 13.5px;
+  line-height: 19px;
+  max-width: 300px;
+  color: var(--texto-2);
+}
+
+.accion {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 20px;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: var(--radio-xs);
+  font-family: var(--tipografia-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-1);
+  transition:
+    background-color var(--duracion) var(--curva),
+    border-color var(--duracion) var(--curva),
+    color var(--duracion) var(--curva);
+}
+
+.accion:hover {
+  background: var(--marca-500);
+  border-color: var(--marca-500);
+  color: var(--texto-sobre-marca);
+}
+
+.aviso {
+  font-family: var(--tipografia-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: var(--texto-4);
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tituloColumna {
+  font-family: var(--tipografia-mono);
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-1);
+  line-height: 1.2;
+}
+
+.enlaces {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.enlace,
+.dato {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  min-height: 24px;
+  font-family: var(--tipografia-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: var(--texto-3);
+  transition:
+    color var(--duracion) var(--curva),
+    transform var(--duracion) var(--curva);
+}
+
+.enlace svg,
+.dato svg {
+  flex: none;
+  color: var(--marca-400);
+}
+
+a.enlace:hover {
+  color: var(--texto-1);
+  transform: translateX(3px);
+}
+
+.redes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.red {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--texto-1);
+  color: var(--superficie-cabecera);
+  transition:
+    background-color var(--duracion) var(--curva),
+    color var(--duracion) var(--curva),
+    transform var(--duracion) var(--curva);
+}
+
+.red:hover {
+  background: var(--marca-500);
+  color: var(--texto-sobre-marca);
+  transform: translateY(-3px);
+}
+
+.marcaGrande {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-block: 26px 14px;
+  text-align: center;
+  user-select: none;
+}
+
+.palabraMarca {
+  grid-area: 1 / 1;
+  font-family: var(--tipografia);
+  font-size: clamp(3rem, 14vw, 16rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  color: rgba(201, 219, 236, 0.07);
+  pointer-events: none;
+}
+
+.palabraMarcaEncima {
+  background: linear-gradient(
+    90deg,
+    #ff3b30 0%,
+    #ff9500 16%,
+    #ffcc00 32%,
+    #34c759 50%,
+    #5ac8fa 66%,
+    #5856d6 82%,
+    #ff2d55 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-mask: radial-gradient(
+    var(--r, 0px) var(--r, 0px) at var(--x, 50%) var(--y, 50%),
+    #000 0%,
+    rgba(0, 0, 0, 0.8) 55%,
+    transparent 100%
+  );
+  mask: radial-gradient(
+    var(--r, 0px) var(--r, 0px) at var(--x, 50%) var(--y, 50%),
+    #000 0%,
+    rgba(0, 0, 0, 0.8) 55%,
+    transparent 100%
+  );
+  transition:
+    -webkit-mask 0.35s ease,
+    mask 0.35s ease;
+  will-change: mask;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palabraMarcaEncima {
+    -webkit-mask: none;
+    mask: none;
+    opacity: 0.25;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .rejilla {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px 28px;
+  }
+
+  .identidad {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .rejilla {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-block: 40px 28px;
+  }
+}

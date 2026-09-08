@@ -1,0 +1,58 @@
+{
+  "antetitulo": "SECTORES",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Seguridad inteligente"
+      }
+    ],
+    [
+      {
+        "texto": "para "
+      },
+      {
+        "texto": "cada realidad",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "En AI Robotics Perú entendemos que cada sector tiene desafíos únicos. Por eso, nuestras soluciones se adaptan a las necesidades reales de cada industria, combinando videovigilancia, inteligencia artificial, drones y analítica de datos.",
+  "atributos": [
+    {
+      "icono": "escudo",
+      "lineas": [
+        "SOLUCIONES",
+        "A LA MEDIDA"
+      ]
+    },
+    {
+      "icono": "engranaje",
+      "lineas": [
+        "EXPERIENCIA",
+        "MULTISECTORIAL"
+      ]
+    },
+    {
+      "icono": "crecimiento",
+      "lineas": [
+        "RESULTADOS",
+        "COMPROBADOS"
+      ]
+    },
+    {
+      "icono": "personas",
+      "lineas": [
+        "ACOMPAÑAMIENTO",
+        "ESPECIALIZADO"
+      ]
+    }
+  ],
+  "insignia": "DIFERENTES\nSECTORES.\nUN MISMO OBJETIVO:\nENTORNOS\nMÁS SEGUROS.",
+  "palabrasLaterales": [
+    "TECNOLOGÍA",
+    "PARA UN",
+    "DESARROLLO",
+    "MÁS SEGURO"
+  ],
+  "textoAlternativo": "Operador de AI Robotics Perú observando la ciudad con un dron"
+}

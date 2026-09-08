@@ -1,0 +1,42 @@
+{
+  "titulo": "Solutions for every sector",
+  "subtitulo": "Technology applied to the real challenges of each industry.",
+  "elementos": [
+    {
+      "icono": "municipio",
+      "imagen": "sector-municipality",
+      "nombre": "Municipalities",
+      "descripcion": "Smart urban security"
+    },
+    {
+      "icono": "escudo",
+      "imagen": "sector-security",
+      "nombre": "Private Security",
+      "descripcion": "Facility protection"
+    },
+    {
+      "icono": "industria",
+      "imagen": "sector-industry",
+      "nombre": "Industry",
+      "descripcion": "Perimeter security"
+    },
+    {
+      "icono": "mineria",
+      "imagen": "sector-mining",
+      "nombre": "Mining",
+      "descripcion": "Surveillance across large areas"
+    },
+    {
+      "icono": "construccion",
+      "imagen": "sector-construction",
+      "nombre": "Construction",
+      "descripcion": "Site monitoring"
+    },
+    {
+      "icono": "logistica",
+      "imagen": "sector-logistics",
+      "nombre": "Logistics",
+      "descripcion": "Transport and warehouse security"
+    }
+  ]
+}

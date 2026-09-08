@@ -1,0 +1,71 @@
+{
+  "antetitulo": "CASOS DE USO",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Resultados reales"
+      }
+    ],
+    [
+      {
+        "texto": "en el "
+      },
+      {
+        "texto": "mundo real",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "Descubre cómo CERBERUS ayuda a municipalidades, empresas e industrias a prevenir incidentes, optimizar operaciones y proteger lo que más importa.",
+  "atributos": [
+    {
+      "icono": "escudoCheck",
+      "lineas": [
+        "PROBLEMAS",
+        "REALES"
+      ]
+    },
+    {
+      "icono": "engranaje",
+      "lineas": [
+        "SOLUCIONES",
+        "A MEDIDA"
+      ]
+    },
+    {
+      "icono": "crecimiento",
+      "lineas": [
+        "RESULTADOS",
+        "MEDIBLES"
+      ]
+    },
+    {
+      "icono": "personas",
+      "lineas": [
+        "IMPACTO",
+        "POSITIVO"
+      ]
+    }
+  ],
+  "insignia": "VIGILANCIA INTELIGENTE\nCIUDADES MÁS SEGURAS",
+  "palabrasLaterales": [
+    "DE LA",
+    "DETECCIÓN",
+    "A LA ACCIÓN"
+  ],
+  "textoAlternativo": "Dron sobre una ciudad con detección de objetos en tiempo real",
+  "miniaturas": [
+    {
+      "imagen": "case-urban",
+      "textoAlternativo": "Detección de vehículos en avenida"
+    },
+    {
+      "imagen": "city-aerial-street",
+      "textoAlternativo": "Mapa de cobertura urbana"
+    },
+    {
+      "imagen": "city-highway-night",
+      "textoAlternativo": "Seguimiento de unidades en vía rápida"
+    }
+  ]
+}

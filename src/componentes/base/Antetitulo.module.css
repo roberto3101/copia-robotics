@@ -1,0 +1,9 @@
+.antetitulo {
+  display: block;
+  font-size: var(--texto-antetitulo);
+  font-weight: 500;
+  letter-spacing: var(--espaciado-antetitulo);
+  color: var(--cian-400);
+  text-transform: uppercase;
+  line-height: 1;
+}

@@ -1,0 +1,40 @@
+{
+  "insignia": "CASO DESTACADO",
+  "titulo": "Transformando la seguridad urbana\nen Los Olivos",
+  "textoInicio": "Implementación de un sistema integral de ",
+  "textoEnlace": "videovigilancia",
+  "textoFin": " con IA y drones, logrando una reducción significativa de incidentes y una respuesta más rápida de las unidades de serenazgo.",
+  "accionPrincipal": "verCasoCompleto",
+  "accionSecundaria": "descargarPdf",
+  "insigniaVideo": "VIDEO DEL CASO",
+  "detalleVideo": "(2:16 min)",
+  "imagenVideo": "case-urban",
+  "textoAlternativoVideo": "Video del caso de Los Olivos",
+  "tituloResultados": "Resultados en 6 meses",
+  "resultados": [
+    {
+      "icono": "flechaAbajo",
+      "valor": "-42%",
+      "tendencia": "baja",
+      "etiqueta": "Incidentes reportados"
+    },
+    {
+      "icono": "reloj",
+      "valor": "+65%",
+      "tendencia": "alza",
+      "etiqueta": "Tiempo de respuesta"
+    },
+    {
+      "icono": "grafico",
+      "valor": "+90%",
+      "tendencia": "alza",
+      "etiqueta": "Eventos detectados por IA"
+    },
+    {
+      "icono": "relojAro",
+      "valor": "24/7",
+      "tendencia": "",
+      "etiqueta": "Monitoreo operativo"
+    }
+  ]
+}

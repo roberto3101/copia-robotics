@@ -1,0 +1,97 @@
+---
+import { registroIconos } from '../../nucleo/iconos/registro';
+import type { Forma, Punto } from '../../nucleo/iconos/formas';
+
+interface Props {
+  nombre: string;
+  tamano?: number;
+  grosor?: number;
+  clase?: string;
+}
+
+const { nombre, tamano = 24, grosor = 1.4, clase } = Astro.props;
+const formas: Forma[] = registroIconos[nombre] ?? registroIconos.rejilla;
+
+const listar = (puntos: Punto[]) => puntos.map(([x, y]) => `${x},${y}`).join(' ');
+const relleno = (valor?: boolean | 'fondo') =>
+  valor === 'fondo' ? 'var(--superficie-cabecera)' : valor ? 'currentColor' : 'none';
+const borde = (valor?: boolean | 'fondo') => (valor ? 'none' : 'currentColor');
+---
+
+<svg
+  class={clase}
+  width={tamano}
+  height={tamano}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width={grosor}
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  {
+    formas.map((forma) => {
+      switch (forma.tipo) {
+        case 'linea':
+          return (
+            <line
+              x1={forma.desde[0]}
+              y1={forma.desde[1]}
+              x2={forma.hasta[0]}
+              y2={forma.hasta[1]}
+            />
+          );
+        case 'circulo':
+          return (
+            <circle
+              cx={forma.centro[0]}
+              cy={forma.centro[1]}
+              r={forma.radio}
+              fill={relleno(forma.relleno)}
+              stroke={borde(forma.relleno)}
+            />
+          );
+        case 'rectangulo':
+          return (
+            <rect
+              x={forma.x}
+              y={forma.y}
+              width={forma.ancho}
+              height={forma.alto}
+              rx={forma.esquina}
+              fill={relleno(forma.relleno)}
+              stroke={borde(forma.relleno)}
+            />
+          );
+        case 'poligono':
+          return (
+            <polygon
+              points={listar(forma.puntos)}
+              fill={relleno(forma.relleno)}
+              stroke={borde(forma.relleno)}
+            />
+          );
+        case 'polilinea':
+          return <polyline points={listar(forma.puntos)} />;
+        case 'arco':
+          return (
+            <path
+              d={`M${forma.desde[0]} ${forma.desde[1]} A${forma.radio} ${forma.radio} 0 ${
+                forma.mayor ? 1 : 0
+              } ${forma.sentido ?? 1} ${forma.hasta[0]} ${forma.hasta[1]}`}
+            />
+          );
+        case 'curva':
+          return (
+            <path
+              d={forma.d}
+              fill={relleno(forma.relleno)}
+              stroke={borde(forma.relleno)}
+            />
+          );
+      }
+    })
+  }
+</svg>

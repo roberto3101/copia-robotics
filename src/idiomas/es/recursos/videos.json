@@ -1,0 +1,28 @@
+{
+  "titulo": "Videos",
+  "subtitulo": "Demostraciones, entrevistas y contenido técnico.",
+  "verTodos": "Ver todos los videos",
+  "elementos": [
+    {
+      "distintivo": "PLATAFORMA",
+      "imagen": "video-platform",
+      "duracion": "02:35",
+      "titulo": "Conoce la plataforma CERBERUS",
+      "texto": "Vista general de sus principales funcionalidades."
+    },
+    {
+      "distintivo": "CASO DE USO",
+      "imagen": "video-detection",
+      "duracion": "03:18",
+      "titulo": "Detección de eventos con IA",
+      "texto": "Ejemplos reales en entornos urbanos."
+    },
+    {
+      "distintivo": "TESTIMONIO",
+      "imagen": "video-testimonial",
+      "duracion": "02:12",
+      "titulo": "Municipalidad de Los Olivos",
+      "texto": "Resultados y experiencia de implementación."
+    }
+  ]
+}

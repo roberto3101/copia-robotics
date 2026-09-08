@@ -1,0 +1,28 @@
+{
+  "titulo": "Featured articles",
+  "subtitulo": "Analysis, trends and experience in smart security.",
+  "verTodos": "View all articles",
+  "elementos": [
+    {
+      "distintivo": "URBAN SECURITY",
+      "imagen": "article-city-ai",
+      "fecha": "12 Aug 2026",
+      "titulo": "How AI is transforming\nsecurity in cities",
+      "texto": "Learn how artificial intelligence detects events in real time and improves operational response."
+    },
+    {
+      "distintivo": "DRONES",
+      "imagen": "article-drone",
+      "fecha": "05 Aug 2026",
+      "titulo": "Surveillance drones: a new\ndimension in security",
+      "texto": "Benefits, use cases and considerations for deploying drones in urban and industrial security operations."
+    },
+    {
+      "distintivo": "OPERATIONS CENTER",
+      "imagen": "article-operations",
+      "fecha": "28 Jul 2026",
+      "titulo": "From data to decision:\nthe role of the ops center",
+      "texto": "How to bring cameras, sensors and drones into a single platform for more efficient incident management."
+    }
+  ]
+}

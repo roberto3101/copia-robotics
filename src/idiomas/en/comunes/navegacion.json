@@ -1,0 +1,37 @@
+{
+  "rotulo": "Main navigation",
+  "abrirMenu": "Open menu",
+  "cerrarMenu": "Close menu",
+  "rotuloBusqueda": "Search the site",
+  "marcadorBusqueda": "Search…",
+  "elementos": [
+    {
+      "clave": "inicio",
+      "etiqueta": "Home"
+    },
+    {
+      "clave": "soluciones",
+      "etiqueta": "Solutions"
+    },
+    {
+      "clave": "tecnologia",
+      "etiqueta": "Technology"
+    },
+    {
+      "clave": "sectores",
+      "etiqueta": "Sectors"
+    },
+    {
+      "clave": "casos",
+      "etiqueta": "Use cases"
+    },
+    {
+      "clave": "nosotros",
+      "etiqueta": "About us"
+    },
+    {
+      "clave": "recursos",
+      "etiqueta": "Resources"
+    }
+  ]
+}

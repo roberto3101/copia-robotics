@@ -1,0 +1,28 @@
+.miniaturas {
+  position: absolute;
+  right: 3.4%;
+  top: 12%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 16%;
+}
+
+.miniaturas li {
+  border: 1px solid var(--linea-marca);
+  border-radius: var(--radio-xs);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.miniaturas img {
+  width: 100%;
+  aspect-ratio: 232 / 106;
+  object-fit: cover;
+}
+
+@media (max-width: 1023.98px) {
+  .miniaturas {
+    display: none;
+  }
+}

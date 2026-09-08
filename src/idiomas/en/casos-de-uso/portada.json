@@ -1,0 +1,71 @@
+{
+  "antetitulo": "USE CASES",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Real results"
+      }
+    ],
+    [
+      {
+        "texto": "in the "
+      },
+      {
+        "texto": "real world",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "See how CERBERUS helps municipalities, companies and industries prevent incidents, optimize operations and protect what matters most.",
+  "atributos": [
+    {
+      "icono": "escudoCheck",
+      "lineas": [
+        "REAL",
+        "PROBLEMS"
+      ]
+    },
+    {
+      "icono": "engranaje",
+      "lineas": [
+        "TAILORED",
+        "SOLUTIONS"
+      ]
+    },
+    {
+      "icono": "crecimiento",
+      "lineas": [
+        "MEASURABLE",
+        "RESULTS"
+      ]
+    },
+    {
+      "icono": "personas",
+      "lineas": [
+        "POSITIVE",
+        "IMPACT"
+      ]
+    }
+  ],
+  "insignia": "SMART SURVEILLANCE\nSAFER CITIES",
+  "palabrasLaterales": [
+    "FROM",
+    "DETECTION",
+    "TO ACTION"
+  ],
+  "textoAlternativo": "Drone over a city with real-time object detection",
+  "miniaturas": [
+    {
+      "imagen": "case-urban",
+      "textoAlternativo": "Vehicle detection on an avenue"
+    },
+    {
+      "imagen": "city-aerial-street",
+      "textoAlternativo": "Urban coverage map"
+    },
+    {
+      "imagen": "city-highway-night",
+      "textoAlternativo": "Unit tracking on a highway"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import estilos from './CatalogoCasos.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const catalogo = contenido(idioma, 'casos-de-uso/catalogo');
+const acciones = contenido(idioma, 'comunes/acciones');
+---
+
+<section class={estilos.seccion}>
+  <Contenedor>
+    <div class={estilos.encabezado}>
+      <div class={estilos.textos}>
+        <h2 class={estilos.titulo}>{catalogo.titulo}</h2>
+        <p class={estilos.subtitulo}>{catalogo.subtitulo}</p>
+      </div>
+      <div class={estilos.filtros}>
+        <label class={estilos.buscador}>
+          <Icono nombre="buscar" tamano={18} grosor={1.5} />
+          <input type="search" placeholder={catalogo.marcadorBusqueda} aria-label={catalogo.marcadorBusqueda} />
+        </label>
+        <label class={estilos.selector}>
+          <span class="solo-lectores">{catalogo.rotuloFiltro}</span>
+          <select>
+            {catalogo.opcionesFiltro.map((opcion: string) => <option>{opcion}</option>)}
+          </select>
+          <Icono nombre="chevronAbajo" tamano={16} grosor={1.7} />
+        </label>
+      </div>
+    </div>
+
+    <ul class={estilos.rejilla}>
+      {
+        catalogo.elementos.map(
+          (caso: {
+            distintivo: string;
+            imagen: string;
+            titulo: string;
+            ubicacion: string;
+            texto: string;
+          }) => (
+            <li>
+              <article class={estilos.tarjeta}>
+                <div class={estilos.lienzo}>
+                  <img
+                    class={estilos.imagen}
+                    src={`/images/${caso.imagen}.webp`}
+                    alt={caso.titulo.split('\n').join(' ')}
+                    width="900"
+                    height="560"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class={estilos.distintivo}>{caso.distintivo}</span>
+                </div>
+                <div class={estilos.cuerpo}>
+                  <h3 class={estilos.nombre}>{caso.titulo}</h3>
+                  <p class={estilos.ubicacion}>
+                    <Icono nombre="ubicacion" tamano={16} grosor={1.4} />
+                    {caso.ubicacion}
+                  </p>
+                  <p class={estilos.texto}>{caso.texto}</p>
+                  <a class={estilos.enlace} href="#caso-destacado">
+                    {acciones.verCasoCompleto}
+                    <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
+                  </a>
+                </div>
+              </article>
+            </li>
+          )
+        )
+      }
+    </ul>
+  </Contenedor>
+</section>

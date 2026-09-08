@@ -1,0 +1,43 @@
+{
+  "titulo": "Components of our technology",
+  "subtitulo": "Modular solutions that work together.",
+  "nota": "Robust, flexible technology ready to integrate with your organization's existing systems.",
+  "elementos": [
+    {
+      "icono": "escudoOjo",
+      "imagen": "tech-camera",
+      "nombre": "Artificial intelligence",
+      "texto": "Vision that understands the environment in real time."
+    },
+    {
+      "icono": "engranajeAro",
+      "imagen": "tech-drone",
+      "nombre": "Drones and robotics",
+      "texto": "Autonomous platforms for surveillance and response."
+    },
+    {
+      "icono": "senalCaja",
+      "imagen": "tech-antenna",
+      "nombre": "Communications",
+      "texto": "Secure and reliable connectivity."
+    },
+    {
+      "icono": "procesador",
+      "imagen": "tech-platform",
+      "nombre": "Platform and software",
+      "texto": "The brain of the operation."
+    },
+    {
+      "icono": "infraestructura",
+      "imagen": "tech-infrastructure",
+      "nombre": "Infrastructure",
+      "texto": "From the edge to the cloud."
+    },
+    {
+      "icono": "candadoEscudo",
+      "imagen": "tech-cybersecurity",
+      "nombre": "Cybersecurity",
+      "texto": "Protection at every level."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+.titulo {
+  font-size: var(--texto-h1);
+  font-weight: 700;
+  line-height: var(--interlineado-ajustado);
+  letter-spacing: -0.022em;
+  color: var(--texto-1);
+  text-wrap: initial;
+}
+
+.linea {
+  display: block;
+}
+
+.resaltado {
+  color: var(--marca-300);
+}

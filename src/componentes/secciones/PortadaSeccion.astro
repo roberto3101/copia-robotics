@@ -1,0 +1,98 @@
+---
+import Contenedor from '../base/Contenedor.astro';
+import Antetitulo from '../base/Antetitulo.astro';
+import TituloPortada from '../base/TituloPortada.astro';
+import Boton from '../base/Boton.astro';
+import BotonVideo from '../base/BotonVideo.astro';
+import SelloCerberus from '../marca/SelloCerberus.astro';
+import ListaAtributos from './ListaAtributos.astro';
+import estilos from './PortadaSeccion.module.css';
+import { contenido, type Idioma } from '../../nucleo/idiomas';
+import { ruta } from '../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+  paquete: string;
+  imagen: string;
+  posicionImagen?: string;
+  altura?: 'normal' | 'alta' | 'extensa';
+  alturaMinima?: number;
+  mostrarSello?: boolean;
+  claseFondo?: string;
+}
+
+const {
+  idioma,
+  paquete,
+  imagen,
+  posicionImagen = '62% 45%',
+  altura = 'normal',
+  alturaMinima,
+  mostrarSello = true,
+  claseFondo,
+} = Astro.props;
+
+const portada = contenido(idioma, `${paquete}/portada`);
+const acciones = contenido(idioma, 'comunes/acciones');
+const marca = contenido(idioma, 'comunes/marca');
+const textoAccion = portada.accionPrincipal
+  ? (acciones[portada.accionPrincipal] ?? portada.accionPrincipal)
+  : null;
+---
+
+<section
+  class={[estilos.portada, estilos[altura], claseFondo].filter(Boolean).join(' ')}
+  style={alturaMinima ? `--alto-portada:${alturaMinima}px` : undefined}
+>
+  <div class={estilos.fondo}>
+    <img
+      class={estilos.imagen}
+      src={imagen}
+      alt={portada.textoAlternativo}
+      width="1600"
+      height="900"
+      style={`object-position:${posicionImagen}`}
+      fetchpriority="high"
+      decoding="async"
+    />
+    <span class={estilos.velo}></span>
+    <slot name="escenario" />
+  </div>
+
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <Antetitulo texto={portada.antetitulo} />
+      <TituloPortada lineas={portada.lineasTitulo} clase={estilos.titulo} />
+      <p class={estilos.entradilla}>{portada.entradilla}</p>
+      {portada.cita && <blockquote class={estilos.cita}>{portada.cita}</blockquote>}
+      {
+        (textoAccion || portada.video) && (
+          <div class={estilos.acciones}>
+            {textoAccion && (
+              <Boton texto={textoAccion} destino={`${ruta('nosotros', idioma)}#contacto`} />
+            )}
+            {portada.video && (
+              <BotonVideo etiqueta={portada.video.etiqueta} detalle={portada.video.detalle} />
+            )}
+          </div>
+        )
+      }
+      {portada.atributos && <ListaAtributos atributos={portada.atributos} clase={estilos.atributos} />}
+    </div>
+
+    <aside class={estilos.lateral}>
+      <slot name="insignia" />
+      <ul class={estilos.palabras}>
+        {portada.palabrasLaterales.map((palabra: string) => <li>{palabra}</li>)}
+      </ul>
+      {portada.palabrasLateralesEco && (
+        <ul class={[estilos.palabras, estilos.eco].join(' ')}>
+          {portada.palabrasLateralesEco.map((palabra: string) => <li>{palabra}</li>)}
+        </ul>
+      )}
+      {mostrarSello && (
+        <SelloCerberus producto={marca.producto} lema={marca.lemaProducto} clase={estilos.sello} />
+      )}
+    </aside>
+  </Contenedor>
+</section>

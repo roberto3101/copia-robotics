@@ -1,0 +1,40 @@
+---
+import PlantillaBase from '../plantillas/PlantillaBase.astro';
+import PortadaPrincipal from '../componentes/secciones/PortadaPrincipal.astro';
+import CambioSeguridad from '../componentes/secciones/inicio/CambioSeguridad.astro';
+import Funcionamiento from '../componentes/secciones/inicio/Funcionamiento.astro';
+import SolucionesResumen from '../componentes/secciones/inicio/SolucionesResumen.astro';
+import SectoresResumen from '../componentes/secciones/inicio/SectoresResumen.astro';
+import ResultadosConfianza from '../componentes/secciones/inicio/ResultadosConfianza.astro';
+import CarruselCasos from '../componentes/secciones/inicio/CarruselCasos.astro';
+import BandaLlamada from '../componentes/secciones/BandaLlamada.astro';
+import { contenido } from '../nucleo/idiomas';
+
+const idioma = 'es' as const;
+const metadatos = contenido(idioma, 'inicio/metadatos');
+---
+
+<PlantillaBase
+  idioma={idioma}
+  seccion="inicio"
+  titulo={metadatos.titulo}
+  descripcion={metadatos.descripcion}
+  palabrasClave={metadatos.palabrasClave}
+  imagenPrincipal="/images/hero-city-night.webp"
+  textoAlternativoSocial={metadatos.textoAlternativoPortada}
+>
+  <PortadaPrincipal idioma={idioma} />
+  <CambioSeguridad idioma={idioma} />
+  <Funcionamiento idioma={idioma} />
+  <SolucionesResumen idioma={idioma} />
+  <SectoresResumen idioma={idioma} />
+  <ResultadosConfianza idioma={idioma} />
+  <CarruselCasos idioma={idioma} />
+  <BandaLlamada
+    idioma={idioma}
+    paquete="inicio"
+    imagen="/images/hero-drone-city.webp"
+    posicionImagen="50% 46%"
+    disposicion="palabras"
+  />
+</PlantillaBase>

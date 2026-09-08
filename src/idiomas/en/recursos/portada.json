@@ -1,0 +1,55 @@
+{
+  "antetitulo": "RESOURCES",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Knowledge"
+      }
+    ],
+    [
+      {
+        "texto": "that drives"
+      }
+    ],
+    [
+      {
+        "texto": "a "
+      },
+      {
+        "texto": "safer world",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "Discover articles, videos, guides, success stories and technical material on artificial intelligence, video surveillance, drones and smart security. Resources created to help you understand, plan and deploy real solutions.",
+  "atributos": [
+    {
+      "icono": "libro",
+      "titulo": "LEARN",
+      "subtitulo": "with our content"
+    },
+    {
+      "icono": "bombilla",
+      "titulo": "EXPLORE",
+      "subtitulo": "new possibilities"
+    },
+    {
+      "icono": "engranaje",
+      "titulo": "IMPLEMENT",
+      "subtitulo": "with practical guides"
+    },
+    {
+      "icono": "crecimiento",
+      "titulo": "GROW",
+      "subtitulo": "with expert insight"
+    }
+  ],
+  "palabrasLaterales": [
+    "TECHNOLOGY",
+    "THAT OBSERVES.",
+    "ANALYZES.",
+    "CONNECTS.",
+    "PROTECTS."
+  ],
+  "textoAlternativo": "CERBERUS robotic units"
+}

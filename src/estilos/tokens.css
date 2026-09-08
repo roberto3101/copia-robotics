@@ -1,0 +1,161 @@
+:root,
+:root[data-tema='oscuro'] {
+  color-scheme: dark;
+
+  --marca-500: #0a90fe;
+  --marca-600: #0a7ae6;
+  --marca-700: #0966c4;
+  --marca-400: #35a9ee;
+  --marca-300: #5cc7f5;
+  --marca-200: #8dd9f9;
+  --cian-400: #22c3de;
+  --cian-300: #4bd4ea;
+
+  --superficie-cabecera: #000e18;
+  --superficie-base: #030f19;
+  --superficie-1: #02111b;
+  --superficie-2: #061622;
+  --superficie-3: #0a1822;
+  --superficie-4: #0d2130;
+  --superficie-vidrio: rgba(10, 26, 38, 0.62);
+  --superficie-tenue: rgba(255, 255, 255, 0.03);
+
+  --linea: rgba(126, 178, 214, 0.16);
+  --linea-suave: rgba(126, 178, 214, 0.1);
+  --linea-fuerte: rgba(126, 178, 214, 0.28);
+  --linea-marca: rgba(53, 169, 238, 0.55);
+
+  --texto-1: #ffffff;
+  --texto-2: #c9d3db;
+  --texto-3: #9aa9b6;
+  --texto-4: #74838f;
+  --texto-sobre-marca: #ffffff;
+
+  --resplandor-marca: 0 0 24px rgba(10, 144, 254, 0.45);
+  --resplandor-marca-suave: 0 0 18px rgba(10, 144, 254, 0.28);
+  --sombra-tarjeta: 0 2px 18px rgba(0, 0, 0, 0.35);
+  --velo-portada: linear-gradient(
+    90deg,
+    #030f19 0%,
+    rgba(3, 15, 25, 0.94) 26%,
+    rgba(3, 15, 25, 0.55) 46%,
+    rgba(3, 15, 25, 0.08) 66%,
+    rgba(3, 15, 25, 0) 100%
+  );
+  --velo-banda: linear-gradient(
+    90deg,
+    #041220 0%,
+    rgba(4, 18, 32, 0.9) 32%,
+    rgba(4, 18, 32, 0.45) 58%,
+    rgba(4, 18, 32, 0.15) 100%
+  );
+
+  --contenedor: 1800px;
+  --margen: clamp(20px, 3.34vw, 64px);
+  --alto-cabecera: 69px;
+  --radio-xs: 3px;
+  --radio-sm: 5px;
+  --radio-md: 8px;
+  --radio-lg: 12px;
+  --radio-pastilla: 999px;
+
+  --tipografia: 'Figtree', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --tipografia-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --texto-antetitulo: 15px;
+  --texto-h1: 47px;
+  --texto-h1-menor: 42px;
+  --texto-h2: 31px;
+  --texto-h3: 19.5px;
+  --texto-entradilla: 19.75px;
+  --texto-cuerpo: 16px;
+  --texto-sm: 0.875rem;
+  --texto-xs: 0.8125rem;
+  --texto-xxs: 0.6875rem;
+
+  --interlineado-ajustado: 1.015;
+  --interlineado-titulo: 1.2;
+  --interlineado-cuerpo: 1.55;
+
+  --espaciado-antetitulo: 0.345em;
+  --sangria-bloque: 12px;
+  --espaciado-ajustado: -0.015em;
+
+  --curva: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --duracion-rapida: 140ms;
+  --duracion: 220ms;
+}
+
+:root[data-tema='claro'] {
+  color-scheme: light;
+
+  --marca-500: #0a70d0;
+  --marca-600: #095cae;
+  --marca-700: #084b8f;
+  --marca-400: #1783d8;
+  --marca-300: #0f6fbd;
+  --marca-200: #3a93d8;
+  --cian-400: #0d84a0;
+  --cian-300: #0a6f88;
+
+  --superficie-cabecera: #ffffff;
+  --superficie-base: #f6f9fc;
+  --superficie-1: #ffffff;
+  --superficie-2: #f1f5f9;
+  --superficie-3: #ffffff;
+  --superficie-4: #e8eef4;
+  --superficie-vidrio: rgba(255, 255, 255, 0.78);
+  --superficie-tenue: rgba(9, 32, 51, 0.04);
+
+  --linea: rgba(19, 58, 88, 0.16);
+  --linea-suave: rgba(19, 58, 88, 0.09);
+  --linea-fuerte: rgba(19, 58, 88, 0.3);
+  --linea-marca: rgba(10, 112, 208, 0.5);
+
+  --texto-1: #08202f;
+  --texto-2: #3a4f5f;
+  --texto-3: #5f7285;
+  --texto-4: #7d8d9c;
+  --texto-sobre-marca: #ffffff;
+
+  --resplandor-marca: 0 6px 18px rgba(10, 112, 208, 0.28);
+  --resplandor-marca-suave: 0 4px 12px rgba(10, 112, 208, 0.18);
+  --sombra-tarjeta: 0 2px 14px rgba(9, 32, 51, 0.1);
+  --velo-portada: linear-gradient(
+    90deg,
+    #f6f9fc 0%,
+    rgba(246, 249, 252, 0.94) 26%,
+    rgba(246, 249, 252, 0.55) 46%,
+    rgba(246, 249, 252, 0.08) 66%,
+    rgba(246, 249, 252, 0) 100%
+  );
+  --velo-banda: linear-gradient(
+    90deg,
+    #eef4f9 0%,
+    rgba(238, 244, 249, 0.9) 32%,
+    rgba(238, 244, 249, 0.45) 58%,
+    rgba(238, 244, 249, 0.15) 100%
+  );
+}
+
+@media (max-width: 1439.98px) {
+  :root {
+    --texto-h1: clamp(32px, 3.27vw, 47px);
+    --texto-h1-menor: clamp(29px, 2.92vw, 42px);
+    --texto-h2: clamp(24px, 2.15vw, 31px);
+    --texto-h3: clamp(17px, 1.35vw, 19.5px);
+    --texto-entradilla: clamp(16px, 1.37vw, 19.75px);
+    --texto-cuerpo: clamp(14.5px, 1.11vw, 16px);
+    --texto-antetitulo: clamp(13px, 1.04vw, 15px);
+    --sangria-bloque: clamp(0px, 0.84vw, 12px);
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --marca-500: #0a63b8;
+    --marca-600: #08528f;
+    --texto-2: #e2e9ef;
+    --texto-3: #c3ced8;
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "antetitulo": "TECNOLOGÍA",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Innovación real"
+      }
+    ],
+    [
+      {
+        "texto": "para un mundo "
+      },
+      {
+        "texto": "más seguro",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "Combinamos inteligencia artificial, visión computacional, sistemas autónomos, comunicaciones avanzadas y analítica de datos en una plataforma integrada, diseñada para los desafíos de Latinoamérica.",
+  "accionPrincipal": "solicitarReunion",
+  "video": {
+    "etiqueta": "Ver video de tecnología",
+    "detalle": "(2 min)"
+  },
+  "atributos": [
+    {
+      "icono": "chipCirculo",
+      "lineas": [
+        "TECNOLOGÍA",
+        "PROPIA"
+      ]
+    },
+    {
+      "icono": "globo",
+      "lineas": [
+        "ESTÁNDARES",
+        "INTERNACIONALES"
+      ]
+    },
+    {
+      "icono": "red",
+      "lineas": [
+        "ARQUITECTURA",
+        "ESCALABLE"
+      ]
+    },
+    {
+      "icono": "escudo",
+      "lineas": [
+        "ENFOQUE EN",
+        "RESULTADOS"
+      ]
+    }
+  ],
+  "palabrasLaterales": [
+    "TECNOLOGÍA",
+    "QUE OBSERVA.",
+    "ANALIZA.",
+    "CONECTA.",
+    "PROTEGE."
+  ],
+  "textoAlternativo": "Unidades robóticas CERBERUS con visión, análisis y protección"
+}

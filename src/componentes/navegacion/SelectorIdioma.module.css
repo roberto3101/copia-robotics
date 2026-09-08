@@ -1,0 +1,109 @@
+.selector {
+  position: relative;
+  flex: none;
+}
+
+.disparador {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 9px 0 7px;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-sm);
+  color: var(--texto-2);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition:
+    border-color var(--duracion) var(--curva),
+    color var(--duracion) var(--curva),
+    background-color var(--duracion) var(--curva);
+}
+
+.disparador:hover {
+  border-color: var(--linea-marca);
+  color: var(--texto-1);
+  background: var(--superficie-tenue);
+}
+
+.bandera {
+  width: 22px;
+  height: 15px;
+  border-radius: 2px;
+  flex: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
+}
+
+.punta {
+  transition: transform var(--duracion) var(--curva);
+}
+
+.selector[data-abierto='true'] .punta {
+  transform: rotate(180deg);
+}
+
+.listado {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 168px;
+  padding: 6px;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-md);
+  background: var(--superficie-3);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition:
+    opacity var(--duracion) var(--curva),
+    transform var(--duracion) var(--curva),
+    visibility var(--duracion) var(--curva);
+  z-index: 60;
+}
+
+.selector[data-abierto='true'] .listado {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: var(--radio-sm);
+  color: var(--texto-2);
+  font-size: var(--texto-sm);
+  transition:
+    background-color var(--duracion-rapida) var(--curva),
+    color var(--duracion-rapida) var(--curva);
+}
+
+.opcion:hover {
+  background: var(--superficie-tenue);
+  color: var(--texto-1);
+}
+
+.opcion[aria-current='true'] {
+  color: var(--marca-300);
+  font-weight: 600;
+}
+
+.marcaActual {
+  margin-left: auto;
+  color: var(--marca-400);
+}
+
+@media (max-width: 1023.98px) {
+  .disparador span:not(.bandera) {
+    display: none;
+  }
+
+  .disparador {
+    padding: 0 6px;
+  }
+}

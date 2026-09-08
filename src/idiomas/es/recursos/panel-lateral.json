@@ -1,0 +1,65 @@
+{
+  "boletin": {
+    "icono": "sobre",
+    "titulo": "Suscríbete a nuestro boletín",
+    "texto": "Recibe las últimas novedades, artículos y eventos en tu correo.",
+    "marcador": "Tu correo electrónico",
+    "rotulo": "Correo electrónico",
+    "accion": "suscribirme"
+  },
+  "destacado": {
+    "titulo": "Contenido destacado",
+    "distintivo": "VIDEO",
+    "imagen": "video-detection",
+    "nombre": "CERBERUS en acción",
+    "texto": "Inteligencia para un futuro más seguro.",
+    "accion": "verVideo",
+    "textoAlternativo": "Video destacado de CERBERUS en acción"
+  },
+  "eventos": {
+    "icono": "calendario",
+    "titulo": "Próximos eventos",
+    "verTodos": "verTodos",
+    "elementos": [
+      {
+        "dia": "15",
+        "mes": "AGO",
+        "titulo": "Webinar: IA aplicada a\nla seguridad urbana",
+        "hora": "10:00 a.m. (GMT-5)"
+      },
+      {
+        "dia": "28",
+        "mes": "AGO",
+        "titulo": "Taller: Planificación de proyectos\ncon drones",
+        "hora": "10:00 a.m. (GMT-5)"
+      },
+      {
+        "dia": "12",
+        "mes": "SEP",
+        "titulo": "Webinar: Centros de operaciones\ninteligentes",
+        "hora": "10:00 a.m. (GMT-5)"
+      }
+    ]
+  },
+  "noticias": {
+    "titulo": "Noticias",
+    "verTodas": "verTodas",
+    "elementos": [
+      {
+        "dia": "20",
+        "mes": "JUL",
+        "titulo": "AI Robotics Perú presente en el Smart City Expo LATAM 2026"
+      },
+      {
+        "dia": "10",
+        "mes": "JUL",
+        "titulo": "Nuevo módulo de analítica de video en CERBERUS"
+      },
+      {
+        "dia": "25",
+        "mes": "JUN",
+        "titulo": "Alianza estratégica con universidades peruanas"
+      }
+    ]
+  }
+}

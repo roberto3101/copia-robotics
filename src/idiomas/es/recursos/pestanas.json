@@ -1,0 +1,38 @@
+{
+  "rotulo": "Filtrar recursos por tipo",
+  "marcadorBusqueda": "Buscar recursos...",
+  "elementos": [
+    {
+      "icono": "rejilla",
+      "etiqueta": "Todos"
+    },
+    {
+      "icono": "articulo",
+      "etiqueta": "Artículos"
+    },
+    {
+      "icono": "reproducir",
+      "etiqueta": "Videos"
+    },
+    {
+      "icono": "documento",
+      "etiqueta": "Documentos"
+    },
+    {
+      "icono": "webinar",
+      "etiqueta": "Webinars"
+    },
+    {
+      "icono": "casoExito",
+      "etiqueta": "Casos de éxito"
+    },
+    {
+      "icono": "noticia",
+      "etiqueta": "Noticias"
+    },
+    {
+      "icono": "guia",
+      "etiqueta": "Guías y manuales"
+    }
+  ]
+}

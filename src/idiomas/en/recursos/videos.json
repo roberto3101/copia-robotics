@@ -1,0 +1,28 @@
+{
+  "titulo": "Videos",
+  "subtitulo": "Demos, interviews and technical content.",
+  "verTodos": "View all videos",
+  "elementos": [
+    {
+      "distintivo": "PLATFORM",
+      "imagen": "video-platform",
+      "duracion": "02:35",
+      "titulo": "Meet the CERBERUS platform",
+      "texto": "An overview of its main capabilities."
+    },
+    {
+      "distintivo": "USE CASE",
+      "imagen": "video-detection",
+      "duracion": "03:18",
+      "titulo": "AI event detection",
+      "texto": "Real examples in urban environments."
+    },
+    {
+      "distintivo": "TESTIMONIAL",
+      "imagen": "video-testimonial",
+      "duracion": "02:12",
+      "titulo": "Municipality of Los Olivos",
+      "texto": "Results and deployment experience."
+    }
+  ]
+}

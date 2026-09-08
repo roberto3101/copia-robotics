@@ -1,0 +1,97 @@
+{
+  "titulo": "Nuestros sectores",
+  "subtitulo": "Soluciones especializadas para los desafíos de hoy y del mañana.",
+  "nota": "Trabajamos con instituciones públicas y privadas, adaptando nuestra tecnología a los requerimientos operativos, normativos y geográficos de cada sector.",
+  "elementos": [
+    {
+      "icono": "municipio",
+      "imagen": "sector-municipality",
+      "nombre": "Municipalidades",
+      "texto": "Ciudades más seguras y eficientes con videovigilancia inteligente, monitoreo urbano y drones."
+    },
+    {
+      "icono": "escudo",
+      "imagen": "sector-security",
+      "nombre": "Seguridad privada",
+      "texto": "Protección de instalaciones, activos y personas con IA y vigilancia perimetral."
+    },
+    {
+      "icono": "industria",
+      "imagen": "sector-industry",
+      "nombre": "Industria",
+      "texto": "Control y monitoreo en plantas industriales, detección de riesgos y protección de activos críticos."
+    },
+    {
+      "icono": "mineria",
+      "imagen": "sector-mining",
+      "nombre": "Minería",
+      "texto": "Vigilancia en grandes extensiones, monitoreo de accesos y control de operaciones remotas."
+    },
+    {
+      "icono": "construccion",
+      "imagen": "sector-construction",
+      "nombre": "Construcción",
+      "texto": "Seguridad en obras, control de accesos, monitoreo de personal y seguimiento de avances."
+    },
+    {
+      "icono": "camion",
+      "imagen": "sector-logistics",
+      "nombre": "Logística y transporte",
+      "texto": "Seguridad en rutas, monitoreo de flotas, control de almacenes y prevención de robos."
+    },
+    {
+      "icono": "carrito",
+      "imagen": "sector-retail",
+      "nombre": "Retail y centros comerciales",
+      "texto": "Detección de comportamientos sospechosos, analítica de aforo y protección de instalaciones."
+    },
+    {
+      "icono": "finanzas",
+      "imagen": "sector-finance",
+      "nombre": "Entidades financieras",
+      "texto": "Seguridad en sucursales, ATM y agencias, con monitoreo inteligente y respuesta rápida."
+    },
+    {
+      "icono": "educacion",
+      "imagen": "sector-education",
+      "nombre": "Educación",
+      "texto": "Entornos más seguros para estudiantes y personal, control de accesos y monitoreo perimetral."
+    },
+    {
+      "icono": "salud",
+      "imagen": "sector-health",
+      "nombre": "Salud",
+      "texto": "Protección en hospitales y clínicas, control de accesos y monitoreo de áreas críticas."
+    },
+    {
+      "icono": "vivienda",
+      "imagen": "sector-residential",
+      "nombre": "Residencial y condominios",
+      "texto": "Seguridad integral para condominios, urbanizaciones y edificios residenciales."
+    },
+    {
+      "icono": "energia",
+      "imagen": "sector-energy",
+      "nombre": "Energía y utilities",
+      "texto": "Monitoreo de infraestructuras críticas, detección de intrusiones y vigilancia de activos energéticos."
+    },
+    {
+      "icono": "hoja",
+      "imagen": "sector-agro",
+      "nombre": "Agroindustria",
+      "texto": "Vigilancia de cultivos, control perimetral y monitoreo de infraestructura agrícola."
+    },
+    {
+      "icono": "ancla",
+      "imagen": "sector-ports",
+      "nombre": "Puertos y aeropuertos",
+      "texto": "Seguridad en terminales, control de accesos, monitoreo de áreas restringidas y trazabilidad."
+    },
+    {
+      "icono": "personas",
+      "imagen": "sector-events",
+      "nombre": "Eventos masivos",
+      "texto": "Gestión de multitudes, monitoreo en tiempo real y coordinación de respuesta."
+    }
+  ]
+}

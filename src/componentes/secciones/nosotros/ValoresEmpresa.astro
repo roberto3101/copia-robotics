@@ -1,0 +1,47 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import estilos from './ValoresEmpresa.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const valores = contenido(idioma, 'nosotros/valores');
+---
+
+<section class={estilos.seccion}>
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <h2 class={estilos.titulo}>{valores.titulo}</h2>
+      <p class={estilos.subtitulo}>{valores.subtitulo}</p>
+      <ul class={estilos.lista}>
+        {
+          valores.elementos.map((valor: { icono: string; nombre: string; texto: string }) => (
+            <li class={estilos.valor}>
+              <Icono nombre={valor.icono} tamano={42} grosor={1.15} clase={estilos.icono} />
+              <h3 class={estilos.nombre}>{valor.nombre}</h3>
+              <p class={estilos.texto}>{valor.texto}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <figure class={estilos.cita}>
+      <img
+        class={estilos.imagenCita}
+        src="/images/mountains-city-dusk.webp"
+        alt={valores.textoAlternativoCita}
+        width="1600"
+        height="700"
+        loading="lazy"
+        decoding="async"
+      />
+      <blockquote class={estilos.textoCita}>{valores.cita}</blockquote>
+      <figcaption class={estilos.autorCita}>{valores.autorCita}</figcaption>
+    </figure>
+  </Contenedor>
+</section>

@@ -1,0 +1,12 @@
+{
+  "titulo": "Nuestro equipo",
+  "subtitulo": "Talento peruano, visión global",
+  "texto": "Contamos con un equipo multidisciplinario de ingenieros, desarrolladores, especialistas en IA, expertos en seguridad y profesionales de operaciones, comprometidos con entregar soluciones de alto impacto para nuestros clientes.",
+  "accion": "Conoce a nuestro equipo",
+  "textoAlternativo": "Equipo de AI Robotics Perú en el centro de operaciones",
+  "complemento": {
+    "titulo": "Tecnología desarrollada\nen Perú para el mundo",
+    "texto": "Diseñamos soluciones considerando las condiciones, necesidades y desafíos reales de Latinoamérica. Nuestra tecnología refleja el talento y la capacidad de innovación que existe en la región.",
+    "insignia": "ORGULLOSAMENTE\nPERUANOS"
+  }
+}

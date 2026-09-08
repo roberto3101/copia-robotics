@@ -1,0 +1,20 @@
+{
+  "rotulo": "Idioma",
+  "actual": "Español",
+  "opciones": [
+    {
+      "codigo": "es",
+      "etiqueta": "Español",
+      "abreviatura": "ES",
+      "bandera": "pe",
+      "textoAlternativo": "Bandera del Perú"
+    },
+    {
+      "codigo": "en",
+      "etiqueta": "English",
+      "abreviatura": "EN",
+      "bandera": "gb",
+      "textoAlternativo": "Bandera del Reino Unido"
+    }
+  ]
+}

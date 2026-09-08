@@ -1,0 +1,37 @@
+{
+  "rotulo": "Navegación principal",
+  "abrirMenu": "Abrir menú",
+  "cerrarMenu": "Cerrar menú",
+  "rotuloBusqueda": "Buscar en el sitio",
+  "marcadorBusqueda": "Buscar…",
+  "elementos": [
+    {
+      "clave": "inicio",
+      "etiqueta": "Inicio"
+    },
+    {
+      "clave": "soluciones",
+      "etiqueta": "Soluciones"
+    },
+    {
+      "clave": "tecnologia",
+      "etiqueta": "Tecnología"
+    },
+    {
+      "clave": "sectores",
+      "etiqueta": "Sectores"
+    },
+    {
+      "clave": "casos",
+      "etiqueta": "Casos de uso"
+    },
+    {
+      "clave": "nosotros",
+      "etiqueta": "Nosotros"
+    },
+    {
+      "clave": "recursos",
+      "etiqueta": "Recursos"
+    }
+  ]
+}

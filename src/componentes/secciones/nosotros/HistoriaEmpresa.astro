@@ -1,0 +1,59 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import Boton from '../../base/Boton.astro';
+import estilos from './HistoriaEmpresa.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const historia = contenido(idioma, 'nosotros/historia');
+---
+
+<section class={estilos.seccion}>
+  <div class={estilos.fondo}>
+    <img
+      class={estilos.imagen}
+      src="/images/office-building.webp"
+      alt={historia.textoAlternativo}
+      width="1200"
+      height="800"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class={estilos.velo}></span>
+  </div>
+
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <h2 class={estilos.titulo}>{historia.titulo}</h2>
+      <p class={estilos.subtitulo}>{historia.subtitulo}</p>
+      <p class={estilos.texto}>{historia.texto}</p>
+      <Boton texto={historia.accion} destino={ruta('nosotros', idioma)} clase={estilos.accion} />
+    </div>
+
+    <ul class={estilos.palabrasSede}>
+      {historia.palabrasSede.map((palabra: string) => <li>{palabra}</li>)}
+    </ul>
+
+    <div class={estilos.proposito}>
+      {
+        [historia.mision, historia.vision].map(
+          (bloque: { icono: string; titulo: string; texto: string }) => (
+            <article class={estilos.bloque}>
+              <Icono nombre={bloque.icono} tamano={38} grosor={1.2} clase={estilos.icono} />
+              <div>
+                <h3 class={estilos.tituloBloque}>{bloque.titulo}</h3>
+                <p class={estilos.textoBloque}>{bloque.texto}</p>
+              </div>
+            </article>
+          )
+        )
+      }
+    </div>
+  </Contenedor>
+</section>

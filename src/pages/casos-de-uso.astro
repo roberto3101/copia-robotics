@@ -1,0 +1,49 @@
+---
+import PlantillaBase from '../plantillas/PlantillaBase.astro';
+import PortadaSeccion from '../componentes/secciones/PortadaSeccion.astro';
+import BarraFiltros from '../componentes/secciones/BarraFiltros.astro';
+import CatalogoCasos from '../componentes/secciones/casos/CatalogoCasos.astro';
+import CasoDestacado from '../componentes/secciones/casos/CasoDestacado.astro';
+import Testimonios from '../componentes/secciones/casos/Testimonios.astro';
+import BandaLlamada from '../componentes/secciones/BandaLlamada.astro';
+import InsigniaPortada from '../componentes/secciones/InsigniaPortada.astro';
+import MiniaturasPortada from '../componentes/secciones/MiniaturasPortada.astro';
+import { contenido } from '../nucleo/idiomas';
+
+const idioma = 'es' as const;
+const metadatos = contenido(idioma, 'casos-de-uso/metadatos');
+const portada = contenido(idioma, 'casos-de-uso/portada');
+const pestanas = contenido(idioma, 'casos-de-uso/pestanas');
+---
+
+<PlantillaBase
+  idioma={idioma}
+  seccion="casos"
+  titulo={metadatos.titulo}
+  descripcion={metadatos.descripcion}
+  palabrasClave={metadatos.palabrasClave}
+  imagenPrincipal="/images/hero-city-night.webp"
+>
+  <PortadaSeccion
+    idioma={idioma}
+    alturaMinima={347}
+    paquete="casos-de-uso"
+    imagen="/images/hero-city-night.webp"
+    posicionImagen="50% 46%"
+    mostrarSello={false}
+  >
+    <MiniaturasPortada slot="escenario" elementos={portada.miniaturas} />
+    <InsigniaPortada slot="insignia" texto={portada.insignia} />
+  </PortadaSeccion>
+  <BarraFiltros rotulo={pestanas.rotulo} elementos={pestanas.elementos} />
+  <CatalogoCasos idioma={idioma} />
+  <CasoDestacado idioma={idioma} />
+  <Testimonios idioma={idioma} />
+  <BandaLlamada
+    idioma={idioma}
+    paquete="casos-de-uso"
+    imagen="/images/engineer-drone-sunset.webp"
+    posicionImagen="50% 44%"
+    disposicion="compacta"
+  />
+</PlantillaBase>

@@ -1,0 +1,97 @@
+{
+  "titulo": "Our sectors",
+  "subtitulo": "Specialized solutions for the challenges of today and tomorrow.",
+  "nota": "We work with public and private institutions, adapting our technology to the operational, regulatory and geographic requirements of each sector.",
+  "elementos": [
+    {
+      "icono": "municipio",
+      "imagen": "sector-municipality",
+      "nombre": "Municipalities",
+      "texto": "Safer, more efficient cities with smart video surveillance, urban monitoring and drones."
+    },
+    {
+      "icono": "escudo",
+      "imagen": "sector-security",
+      "nombre": "Private security",
+      "texto": "Protection of facilities, assets and people with AI and perimeter surveillance."
+    },
+    {
+      "icono": "industria",
+      "imagen": "sector-industry",
+      "nombre": "Industry",
+      "texto": "Control and monitoring in industrial plants, risk detection and protection of critical assets."
+    },
+    {
+      "icono": "mineria",
+      "imagen": "sector-mining",
+      "nombre": "Mining",
+      "texto": "Surveillance across large areas, access monitoring and control of remote operations."
+    },
+    {
+      "icono": "construccion",
+      "imagen": "sector-construction",
+      "nombre": "Construction",
+      "texto": "Site safety, access control, personnel monitoring and progress tracking."
+    },
+    {
+      "icono": "camion",
+      "imagen": "sector-logistics",
+      "nombre": "Logistics and transport",
+      "texto": "Route security, fleet monitoring, warehouse control and theft prevention."
+    },
+    {
+      "icono": "carrito",
+      "imagen": "sector-retail",
+      "nombre": "Retail and malls",
+      "texto": "Detection of suspicious behavior, occupancy analytics and facility protection."
+    },
+    {
+      "icono": "finanzas",
+      "imagen": "sector-finance",
+      "nombre": "Financial institutions",
+      "texto": "Security across branches, ATMs and offices, with smart monitoring and fast response."
+    },
+    {
+      "icono": "educacion",
+      "imagen": "sector-education",
+      "nombre": "Education",
+      "texto": "Safer environments for students and staff, access control and perimeter monitoring."
+    },
+    {
+      "icono": "salud",
+      "imagen": "sector-health",
+      "nombre": "Healthcare",
+      "texto": "Protection in hospitals and clinics, access control and monitoring of critical areas."
+    },
+    {
+      "icono": "vivienda",
+      "imagen": "sector-residential",
+      "nombre": "Residential",
+      "texto": "Comprehensive security for condominiums, gated communities and residential buildings."
+    },
+    {
+      "icono": "energia",
+      "imagen": "sector-energy",
+      "nombre": "Energy and utilities",
+      "texto": "Monitoring of critical infrastructure, intrusion detection and surveillance of energy assets."
+    },
+    {
+      "icono": "hoja",
+      "imagen": "sector-agro",
+      "nombre": "Agribusiness",
+      "texto": "Crop surveillance, perimeter control and monitoring of agricultural infrastructure."
+    },
+    {
+      "icono": "ancla",
+      "imagen": "sector-ports",
+      "nombre": "Ports and airports",
+      "texto": "Terminal security, access control, restricted-area monitoring and traceability."
+    },
+    {
+      "icono": "personas",
+      "imagen": "sector-events",
+      "nombre": "Large events",
+      "texto": "Crowd management, real-time monitoring and response coordination."
+    }
+  ]
+}

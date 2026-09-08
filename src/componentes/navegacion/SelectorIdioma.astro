@@ -1,0 +1,93 @@
+---
+import Icono from '../base/Icono.astro';
+import Bandera from '../base/Bandera.astro';
+import estilos from './SelectorIdioma.module.css';
+import type { Idioma } from '../../nucleo/idiomas';
+import { rutasAlternas, type ClaveSeccion } from '../../nucleo/rutas';
+
+interface Opcion {
+  codigo: Idioma;
+  etiqueta: string;
+  abreviatura: string;
+  bandera: string;
+  textoAlternativo: string;
+}
+
+interface Props {
+  idioma: Idioma;
+  seccion: ClaveSeccion;
+  rotulo: string;
+  opciones: Opcion[];
+}
+
+const { idioma, seccion, rotulo, opciones } = Astro.props;
+const destinos = rutasAlternas(seccion);
+const actual = opciones.find((opcion) => opcion.codigo === idioma) ?? opciones[0];
+---
+
+<div class={estilos.selector} data-selector-idioma data-abierto="false">
+  <button
+    class={estilos.disparador}
+    type="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label={`${rotulo}: ${actual.etiqueta}`}
+    data-disparador
+  >
+    <Bandera codigo={actual.bandera} titulo={actual.textoAlternativo} clase={estilos.bandera} />
+    <span>{actual.abreviatura}</span>
+    <Icono nombre="chevronAbajo" tamano={13} grosor={2} clase={estilos.punta} />
+  </button>
+  <ul class={estilos.listado} role="menu" aria-label={rotulo}>
+    {
+      opciones.map((opcion) => (
+        <li role="none">
+          <a
+            class={estilos.opcion}
+            role="menuitem"
+            href={destinos[opcion.codigo]}
+            hreflang={opcion.codigo}
+            lang={opcion.codigo}
+            aria-current={opcion.codigo === idioma ? 'true' : undefined}
+          >
+            <Bandera codigo={opcion.bandera} titulo={opcion.textoAlternativo} clase={estilos.bandera} />
+            <span>{opcion.etiqueta}</span>
+            {opcion.codigo === idioma && (
+              <Icono nombre="selloCalidad" tamano={14} clase={estilos.marcaActual} />
+            )}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  const selectores = document.querySelectorAll<HTMLElement>('[data-selector-idioma]');
+
+  selectores.forEach((selector) => {
+    const disparador = selector.querySelector<HTMLButtonElement>('[data-disparador]');
+    if (!disparador) return;
+
+    const alternar = (estado: boolean) => {
+      selector.dataset.abierto = String(estado);
+      disparador.setAttribute('aria-expanded', String(estado));
+    };
+
+    disparador.addEventListener('click', (evento) => {
+      evento.stopPropagation();
+      alternar(selector.dataset.abierto !== 'true');
+    });
+
+    selector.addEventListener('keydown', (evento) => {
+      if (evento.key === 'Escape') {
+        alternar(false);
+        disparador.focus();
+      }
+    });
+
+    document.addEventListener('click', (evento) => {
+      if (!selector.contains(evento.target as Node)) alternar(false);
+    });
+  });
+</script>

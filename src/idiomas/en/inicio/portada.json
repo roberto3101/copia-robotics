@@ -1,0 +1,56 @@
+{
+  "antetitulo": "CERBERUS",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Artificial intelligence"
+      }
+    ],
+    [
+      {
+        "texto": "for a safer Peru"
+      }
+    ]
+  ],
+  "entradilla": "We bring cameras, drones, sensors and advanced analytics together in an operational intelligence platform to anticipate, detect and respond to security incidents.",
+  "accionPrincipal": "solicitarDemostracion",
+  "accionSecundaria": "conocerPlataforma",
+  "atributos": [
+    {
+      "icono": "ciudad",
+      "lineas": [
+        "SAFER",
+        "CITIES"
+      ]
+    },
+    {
+      "icono": "reloj",
+      "lineas": [
+        "FASTER",
+        "RESPONSE"
+      ]
+    },
+    {
+      "icono": "grafico",
+      "lineas": [
+        "DATA-DRIVEN",
+        "DECISIONS"
+      ]
+    },
+    {
+      "icono": "escudoIa",
+      "lineas": [
+        "PERUVIAN",
+        "TECHNOLOGY"
+      ]
+    }
+  ],
+  "palabrasLaterales": [
+    "OBSERVE",
+    "ANALYZE",
+    "CONNECT",
+    "PROTECT."
+  ],
+  "notaLateral": "Peruvian technology\nfor a safer future.",
+  "textoAlternativo": "Three CERBERUS robotic units above a city at night"
+}

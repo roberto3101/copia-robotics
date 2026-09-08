@@ -1,0 +1,44 @@
+---
+import Icono from './Icono.astro';
+import estilos from './Boton.module.css';
+
+interface Props {
+  texto: string;
+  destino?: string;
+  variante?: 'principal' | 'contorno' | 'enlace';
+  medida?: 'compacto' | 'normal' | 'amplio';
+  icono?: string;
+  iconoInicial?: string;
+  tipo?: 'button' | 'submit';
+  clase?: string;
+}
+
+const {
+  texto,
+  destino,
+  variante = 'principal',
+  medida = 'normal',
+  icono = variante === 'contorno' ? undefined : 'flechaDerecha',
+  iconoInicial,
+  tipo = 'button',
+  clase,
+} = Astro.props;
+
+const clases = [
+  estilos.boton,
+  estilos[variante],
+  medida !== 'normal' ? estilos[medida] : null,
+  clase,
+]
+  .filter(Boolean)
+  .join(' ');
+
+const Etiqueta = destino ? 'a' : 'button';
+const atributos = destino ? { href: destino } : { type: tipo };
+---
+
+<Etiqueta class={clases} {...atributos}>
+  {iconoInicial && <Icono nombre={iconoInicial} tamano={17} grosor={1.5} />}
+  <span>{texto}</span>
+  {icono && <Icono nombre={icono} tamano={16} grosor={1.6} clase={estilos.flecha} />}
+</Etiqueta>

@@ -1,0 +1,29 @@
+{
+  "titulo": "Tecnología desarrollada en Perú, para el mundo",
+  "texto": "Innovación con propósito. Soluciones reales para los desafíos de nuestra región, con estándares globales y un equipo de especialistas altamente calificado.",
+  "accionPrincipal": "Conocer más sobre nuestra tecnología",
+  "accionSecundaria": "descargarBrochure",
+  "cifras": [
+    {
+      "icono": "red",
+      "valor": "+30",
+      "etiqueta": "Proyectos\nimplementados"
+    },
+    {
+      "icono": "soporte",
+      "valor": "24/7",
+      "etiqueta": "Soporte\ntécnico"
+    },
+    {
+      "icono": "engranaje",
+      "valor": "",
+      "etiqueta": "Tecnología\nescalable"
+    },
+    {
+      "icono": "crecimiento",
+      "valor": "",
+      "etiqueta": "Resultados\nmedibles"
+    }
+  ],
+  "textoAlternativo": "Cordillera y ciudad al anochecer"
+}

@@ -1,0 +1,101 @@
+.seccion {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--superficie-1);
+  border-bottom: 1px solid var(--linea-suave);
+}
+
+.fondo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.imagen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 46%;
+  opacity: 0.92;
+}
+
+.velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #02111b 0%,
+    rgba(2, 17, 27, 0.96) 26%,
+    rgba(2, 17, 27, 0.62) 42%,
+    rgba(2, 17, 27, 0.05) 58%,
+    rgba(2, 17, 27, 0) 100%
+  );
+}
+
+.rejilla {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 190px);
+  align-items: center;
+  gap: 40px;
+  padding-block: 21px 17px;
+  min-height: 0;
+}
+
+.discurso {
+  padding-left: var(--sangria-bloque);
+  max-width: 640px;
+}
+
+.titulo {
+  font-size: var(--texto-h2);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.subtitulo {
+  margin-top: 3px;
+  font-size: var(--texto-h3);
+  color: var(--marca-300);
+  line-height: 1.34;
+}
+
+.texto {
+  margin-top: 20px;
+  max-width: 566px;
+  font-size: var(--texto-cuerpo);
+  line-height: 23px;
+  color: var(--texto-2);
+}
+
+.insignia {
+  justify-self: end;
+  padding: 13px 16px;
+  border: 1px solid var(--linea-marca);
+  border-radius: var(--radio-sm);
+  background: rgba(4, 20, 34, 0.42);
+  backdrop-filter: blur(3px);
+  font-size: var(--texto-cuerpo);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  color: var(--marca-200);
+  white-space: pre-line;
+}
+
+@media (max-width: 899.98px) {
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .insignia {
+    justify-self: start;
+  }
+
+  .velo {
+    background: linear-gradient(180deg, rgba(2, 17, 27, 0.9) 0%, rgba(2, 17, 27, 0.95) 100%);
+  }
+}

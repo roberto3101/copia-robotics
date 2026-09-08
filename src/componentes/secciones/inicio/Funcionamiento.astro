@@ -1,0 +1,53 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import EncabezadoSeccion from '../EncabezadoSeccion.astro';
+import estilos from './Funcionamiento.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const funcionamiento = contenido(idioma, 'inicio/funcionamiento');
+---
+
+<section class={estilos.seccion}>
+  <Contenedor>
+    <EncabezadoSeccion titulo={funcionamiento.titulo} subtitulo={funcionamiento.subtitulo} />
+    <ol class={estilos.pasos}>
+      {
+        funcionamiento.pasos.map(
+          (
+            paso: { numero: string; etiqueta: string; iconos: string[]; texto: string },
+            indice: number
+          ) => (
+            <li class={estilos.paso}>
+              <article class={estilos.tarjeta}>
+                <span class={estilos.numero}>{paso.numero}</span>
+                <div class={estilos.cuerpo}>
+                  <h3 class={estilos.etiqueta}>{paso.etiqueta}</h3>
+                  <div class={estilos.iconos}>
+                    {paso.iconos.map((icono, posicion) => (
+                      <>
+                        {posicion > 0 && (
+                          <Icono nombre="chevronDerecha" tamano={13} grosor={1.6} clase={estilos.separador} />
+                        )}
+                        <Icono nombre={icono} tamano={34} grosor={1.2} />
+                      </>
+                    ))}
+                  </div>
+                  <p class={estilos.texto}>{paso.texto}</p>
+                </div>
+              </article>
+              {indice < funcionamiento.pasos.length - 1 && (
+                <Icono nombre="chevronDerecha" tamano={26} grosor={1.4} clase={estilos.flecha} />
+              )}
+            </li>
+          )
+        )
+      }
+    </ol>
+  </Contenedor>
+</section>

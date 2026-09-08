@@ -1,0 +1,60 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import Boton from '../../base/Boton.astro';
+import EmblemaAliado from './EmblemaAliado.astro';
+import estilos from './AlianzasEmpresa.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { ruta } from '../../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const alianzas = contenido(idioma, 'nosotros/alianzas');
+const certificaciones = alianzas.certificaciones;
+---
+
+<section class={estilos.seccion}>
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <h2 class={estilos.titulo}>{alianzas.titulo}</h2>
+      <div class={estilos.texto}>
+        <span class={estilos.medallon}>
+          <Icono nombre="engranajeAro" tamano={32} grosor={1.2} />
+        </span>
+        <p>{alianzas.texto}</p>
+      </div>
+      <Boton texto={alianzas.accion} destino={ruta('nosotros', idioma)} clase={estilos.accion} />
+    </div>
+
+    <ul class={estilos.emblemas}>
+      {
+        alianzas.emblemas.map((emblema: { clave: string; nombre: string; subtitulo: string }) => (
+          <li>
+            <EmblemaAliado clave={emblema.clave} nombre={emblema.nombre} subtitulo={emblema.subtitulo} />
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class={estilos.certificaciones}>
+      <h3 class={estilos.tituloCertificaciones}>{certificaciones.titulo}</h3>
+      <p class={estilos.textoCertificaciones}>{certificaciones.texto}</p>
+      <ul class={estilos.sellos}>
+        {
+          certificaciones.elementos.map(
+            (sello: { icono: string; codigo: string; etiqueta: string }) => (
+              <li class={estilos.sello}>
+                <Icono nombre={sello.icono} tamano={34} grosor={1.2} clase={estilos.iconoSello} />
+                <span class={estilos.codigo}>{sello.codigo}</span>
+                {sello.etiqueta && <span class={estilos.etiquetaSello}>{sello.etiqueta}</span>}
+              </li>
+            )
+          )
+        }
+      </ul>
+    </div>
+  </Contenedor>
+</section>

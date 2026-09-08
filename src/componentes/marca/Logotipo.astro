@@ -1,0 +1,43 @@
+---
+import estilos from './Logotipo.module.css';
+
+interface Props {
+  nombre: string;
+  pais: string;
+  textoAlternativo: string;
+  destino?: string;
+  compacto?: boolean;
+  clase?: string;
+}
+
+const { nombre, pais, textoAlternativo, destino, compacto = false, clase } = Astro.props;
+const Etiqueta = destino ? 'a' : 'span';
+const atributos = destino ? { href: destino, 'aria-label': textoAlternativo } : {};
+const clases = [estilos.logotipo, compacto ? estilos.compacto : null, clase]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<Etiqueta class={clases} {...atributos}>
+  <svg class={estilos.marca} viewBox="0 0 100 92" role="img" aria-label={textoAlternativo}>
+    <defs>
+      <linearGradient id="degradadoPlata" x1="0.5" y1="0" x2="0.5" y2="1">
+        <stop offset="0" stop-color="#ffffff" />
+        <stop offset="0.5" stop-color="#f4f8fb" />
+        <stop offset="1" stop-color="#b7c5d1" />
+      </linearGradient>
+      <linearGradient id="degradadoAzul" x1="0.15" y1="0" x2="0.85" y2="1">
+        <stop offset="0" stop-color="#54cbff" />
+        <stop offset="0.45" stop-color="#1c95ec" />
+        <stop offset="1" stop-color="#0a6cc4" />
+      </linearGradient>
+    </defs>
+    <path fill="url(#degradadoPlata)" d="M50 0 100 92H77.5L50 41.5 22.5 92H0Z" />
+    <path fill="url(#degradadoAzul)" d="M50 1.5 74.5 62.5H62.8L50 36.5 37.2 62.5H25.5Z" />
+    <path fill="url(#degradadoAzul)" d="M37.5 70.5h25L55.5 92h-25Z" />
+  </svg>
+  <span class={estilos.texto}>
+    <span class={estilos.nombre}>{nombre}</span>
+    <span class={estilos.pais}><span>{pais}</span></span>
+  </span>
+</Etiqueta>

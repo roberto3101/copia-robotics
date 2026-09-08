@@ -1,0 +1,45 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import estilos from './ResultadosConfianza.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const resultados = contenido(idioma, 'inicio/resultados');
+---
+
+<section class={estilos.seccion}>
+  <div class={estilos.fondo}>
+    <img
+      class={estilos.imagen}
+      src="/images/mountains-city-dusk.webp"
+      alt={resultados.textoAlternativo}
+      width="1600"
+      height="700"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class={estilos.velo}></span>
+  </div>
+
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <h2 class={estilos.titulo}>{resultados.titulo}</h2>
+      <p class={estilos.subtitulo}>{resultados.subtitulo}</p>
+      <ul class={estilos.cifras}>
+        {
+          resultados.cifras.map((cifra: { valor: string; etiqueta: string }) => (
+            <li class={estilos.cifra}>
+              <span class={estilos.valor}>{cifra.valor}</span>
+              <span class={estilos.etiqueta}>{cifra.etiqueta}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <blockquote class={estilos.cita}>{resultados.cita}</blockquote>
+  </Contenedor>
+</section>

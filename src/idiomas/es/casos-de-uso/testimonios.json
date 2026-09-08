@@ -1,0 +1,26 @@
+{
+  "titulo": "Lo que dicen nuestros clientes",
+  "elementos": [
+    {
+      "emblema": "municipal",
+      "organizacion": "Municipalidad de Los Olivos",
+      "cita": "“CERBERUS nos ha permitido tener una ciudad más segura, con una respuesta más rápida y eficiente ante los incidentes.”",
+      "autor": "Ing. Carlos Méndez",
+      "cargo": "Gerente de Seguridad Ciudadana"
+    },
+    {
+      "emblema": "minero",
+      "organizacion": "Compañía Minera Andina",
+      "cita": "“La combinación de IA y drones nos brinda una visión completa de nuestras operaciones y un mayor control de nuestras instalaciones.”",
+      "autor": "María Torres",
+      "cargo": "Jefe de Seguridad Patrimonial"
+    },
+    {
+      "emblema": "logistico",
+      "organizacion": "Logística del Sur S.A.",
+      "cita": "“Hemos reducido riesgos en nuestras rutas y mejorado la trazabilidad de nuestras unidades. Es una herramienta clave para nuestro negocio.”",
+      "autor": "Javier Rojas",
+      "cargo": "Gerente de Operaciones"
+    }
+  ]
+}

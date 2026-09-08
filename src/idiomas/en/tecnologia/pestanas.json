@@ -1,0 +1,33 @@
+{
+  "rotulo": "Explore technology areas",
+  "elementos": [
+    {
+      "icono": "ojo",
+      "etiqueta": "Overview"
+    },
+    {
+      "icono": "cerebro",
+      "etiqueta": "Artificial intelligence"
+    },
+    {
+      "icono": "dronVuelo",
+      "etiqueta": "Drones and robotics"
+    },
+    {
+      "icono": "senal",
+      "etiqueta": "Communications"
+    },
+    {
+      "icono": "puesto",
+      "etiqueta": "Platform and software"
+    },
+    {
+      "icono": "infraestructura",
+      "etiqueta": "Infrastructure"
+    },
+    {
+      "icono": "candadoEscudo",
+      "etiqueta": "Cybersecurity"
+    }
+  ]
+}

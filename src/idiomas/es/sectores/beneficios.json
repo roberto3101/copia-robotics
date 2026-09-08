@@ -1,0 +1,24 @@
+{
+  "elementos": [
+    {
+      "icono": "pieza",
+      "titulo": "Soluciones adaptables",
+      "texto": "Modulares y escalables según tus necesidades."
+    },
+    {
+      "icono": "red",
+      "titulo": "Integración total",
+      "texto": "Funciona con tu infraestructura existente."
+    },
+    {
+      "icono": "crecimiento",
+      "titulo": "Resultados medibles",
+      "texto": "Mayor eficiencia y reducción de riesgos."
+    },
+    {
+      "icono": "soporte",
+      "titulo": "Soporte especializado",
+      "texto": "Acompañamiento en todas las etapas."
+    }
+  ]
+}

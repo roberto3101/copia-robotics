@@ -1,0 +1,31 @@
+---
+import estilos from './TituloPortada.module.css';
+
+interface Fragmento {
+  texto: string;
+  resaltado?: boolean;
+}
+
+interface Props {
+  lineas: Fragmento[][];
+  clase?: string;
+}
+
+const { lineas, clase } = Astro.props;
+---
+
+<h1 class={[estilos.titulo, clase].filter(Boolean).join(' ')}>
+  {
+    lineas.map((linea) => (
+      <span class={estilos.linea}>
+        {linea.map((fragmento) =>
+          fragmento.resaltado ? (
+            <span class={estilos.resaltado}>{fragmento.texto}</span>
+          ) : (
+            <Fragment>{fragmento.texto}</Fragment>
+          )
+        )}
+      </span>
+    ))
+  }
+</h1>

@@ -1,0 +1,178 @@
+{
+ "sector-retail": {
+  "pexels_id": "19287629",
+  "query": "shopping mall interior"
+ },
+ "tech-antenna": {
+  "pexels_id": "14558163",
+  "query": "telecommunication tower antenna sky"
+ },
+ "tech-infrastructure": {
+  "pexels_id": "17489163",
+  "query": "server rack data center"
+ },
+ "case-emergency": {
+  "pexels_id": "12027855",
+  "query": "wildfire smoke emergency"
+ },
+ "case-warehouse": {
+  "pexels_id": "4170172",
+  "query": "warehouse interior racks pallets",
+  "size": [
+   900,
+   560
+  ]
+ },
+ "sector-industry": {
+  "pexels_id": "10407689",
+  "query": "petrochemical plant night lights",
+  "size": [
+   900,
+   620
+  ]
+ },
+ "sector-municipality": {
+  "pexels_id": "12446411",
+  "query": "city hall plaza fountain architecture",
+  "size": [
+   900,
+   620
+  ]
+ },
+ "video-detection": {
+  "pexels_id": "8913522",
+  "query": "aerial view road intersection night",
+  "size": [
+   900,
+   520
+  ]
+ },
+ "city-highway-night": {
+  "pexels_id": "1699588",
+  "query": "highway light trails long exposure night",
+  "size": [
+   1200,
+   700
+  ]
+ },
+ "article-city-ai": {
+  "pexels_id": "19531625",
+  "query": "night city lights aerial technology",
+  "size": [
+   900,
+   520
+  ]
+ },
+ "hero-drone-city": {
+  "pexels_id": "28861949",
+  "query": "x",
+  "size": [
+   1600,
+   900
+  ]
+ },
+ "control-room-wide": {
+  "pexels_id": "11783119",
+  "query": "x",
+  "size": [
+   1600,
+   700
+  ]
+ },
+ "control-room": {
+  "pexels_id": "5831262",
+  "query": "x",
+  "size": [
+   1400,
+   800
+  ]
+ },
+ "mountains-city-dusk": {
+  "pexels_id": "20208915",
+  "query": "x",
+  "size": [
+   1600,
+   700
+  ]
+ },
+ "engineer-drone-sunset": {
+  "pexels_id": "168838",
+  "query": "x",
+  "size": [
+   1600,
+   700
+  ]
+ },
+ "team-operations": {
+  "pexels_id": "5453821",
+  "query": "x",
+  "size": [
+   1400,
+   800
+  ]
+ },
+ "office-building": {
+  "pexels_id": "11576307",
+  "query": "x",
+  "size": [
+   1200,
+   800
+  ]
+ },
+ "sector-construction": {
+  "pexels_id": "30334199",
+  "query": "x",
+  "size": [
+   900,
+   620
+  ]
+ },
+ "tech-camera": {
+  "pexels_id": "27658186",
+  "query": "x",
+  "size": [
+   900,
+   560
+  ]
+ },
+ "case-urban": {
+  "pexels_id": "26984758",
+  "query": "x",
+  "size": [
+   900,
+   560
+  ]
+ },
+ "video-platform": {
+  "pexels_id": "11044812",
+  "query": "x",
+  "size": [
+   900,
+   520
+  ]
+ },
+ "article-operations": {
+  "pexels_id": "11783119",
+  "query": "x",
+  "size": [
+   900,
+   520
+  ]
+ },
+ "tech-cybersecurity": {
+  "pexels_id": "8640331",
+  "query": "blue abstract technology network lines",
+  "size": [
+   900,
+   560
+  ]
+ },
+ "hero-city-night": {
+  "pexels_id": "18441167",
+  "query": "x",
+  "size": [
+   1600,
+   900
+  ]
+ }
+}

@@ -1,0 +1,28 @@
+{
+  "antetitulo": "ABOUT US",
+  "lineasTitulo": [
+    [
+      {
+        "texto": "Technology with"
+      }
+    ],
+    [
+      {
+        "texto": "purpose",
+        "resaltado": true
+      }
+    ]
+  ],
+  "entradilla": "At AI Robotics Perú we build artificial intelligence and autonomous systems for a safer, more efficient and more human world.",
+  "cita": "“We believe in the power of technology to build safer cities, more resilient companies and communities with greater opportunities.”",
+  "palabrasLaterales": [
+    "INTELLIGENCE",
+    "FOR A",
+    "REAL FUTURE."
+  ],
+  "palabrasLateralesEco": [
+    "INTELLIGENCE",
+    "REAL FUTURE"
+  ],
+  "textoAlternativo": "Three CERBERUS robotic units above the city"
+}

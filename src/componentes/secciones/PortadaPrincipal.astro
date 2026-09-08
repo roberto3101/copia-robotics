@@ -1,0 +1,80 @@
+---
+import Contenedor from '../base/Contenedor.astro';
+import Antetitulo from '../base/Antetitulo.astro';
+import TituloPortada from '../base/TituloPortada.astro';
+import Boton from '../base/Boton.astro';
+import SelloCerberus from '../marca/SelloCerberus.astro';
+import Bandera from '../base/Bandera.astro';
+import ListaAtributos from './ListaAtributos.astro';
+import estilos from './PortadaPrincipal.module.css';
+import { contenido, type Idioma } from '../../nucleo/idiomas';
+import { ruta } from '../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const portada = contenido(idioma, 'inicio/portada');
+const acciones = contenido(idioma, 'comunes/acciones');
+const marca = contenido(idioma, 'comunes/marca');
+const lineasNota = portada.notaLateral.split('\n');
+---
+
+<section class={estilos.portada}>
+  <div class={estilos.fondo}>
+    <img
+      class={estilos.ciudad}
+      src="/images/hero-city-night.webp"
+      alt=""
+      width="1600"
+      height="900"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <img
+      class={estilos.unidades}
+      src="/images/cerberus-unidades.webp"
+      alt={portada.textoAlternativo}
+      width="1402"
+      height="882"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <span class={estilos.velo}></span>
+  </div>
+
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <Antetitulo texto={portada.antetitulo} />
+      <TituloPortada lineas={portada.lineasTitulo} clase={estilos.titulo} />
+      <p class={estilos.entradilla}>{portada.entradilla}</p>
+      <div class={estilos.acciones}>
+        <Boton
+          texto={acciones[portada.accionPrincipal]}
+          destino={`${ruta('nosotros', idioma)}#contacto`}
+        />
+        <Boton
+          texto={acciones[portada.accionSecundaria]}
+          destino={ruta('tecnologia', idioma)}
+          variante="contorno"
+        />
+      </div>
+      <ListaAtributos atributos={portada.atributos} clase={estilos.atributos} />
+    </div>
+
+    <aside class={estilos.lateral}>
+      <ul class={estilos.palabras}>
+        {portada.palabrasLaterales.map((palabra: string) => <li>{palabra}</li>)}
+      </ul>
+      <SelloCerberus producto={marca.producto} lema={marca.lemaProducto} clase={estilos.sello} />
+      <p class={estilos.nota}>
+        <span class={estilos.notaLinea}>
+          {lineasNota[0]}
+          <Bandera codigo="pe" titulo={marca.pais} clase={estilos.bandera} />
+        </span>
+        <span>{lineasNota[1]}</span>
+      </p>
+    </aside>
+  </Contenedor>
+</section>

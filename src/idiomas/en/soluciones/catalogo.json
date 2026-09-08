@@ -1,0 +1,55 @@
+{
+  "titulo": "Our solutions",
+  "subtitulo": "Technology applied to the real challenges of every environment.",
+  "nota": "Each solution can be deployed on its own or as part of an integrated platform.",
+  "elementos": [
+    {
+      "distintivo": "DETECT",
+      "icono": "camara",
+      "imagen": "case-urban",
+      "nombre": "CERBERUS VISION",
+      "subtitulo": "AI video surveillance",
+      "texto": "Analyzes video in real time, detects events and generates intelligent alerts."
+    },
+    {
+      "distintivo": "RESPOND",
+      "icono": "dronCirculo",
+      "imagen": "hero-drone-city",
+      "nombre": "CERBERUS DRONE",
+      "subtitulo": "Intelligent aerial surveillance",
+      "texto": "Aerial response units for event verification, patrolling and monitoring."
+    },
+    {
+      "distintivo": "COORDINATE",
+      "icono": "escudoPin",
+      "imagen": "control-room",
+      "nombre": "CERBERUS COMMAND",
+      "subtitulo": "Operations center",
+      "texto": "Unified management of cameras, drones, incidents and resources in real time."
+    },
+    {
+      "distintivo": "PROTECT",
+      "icono": "integracion",
+      "imagen": "sector-security",
+      "nombre": "CERBERUS EDGE",
+      "subtitulo": "AI at the edge",
+      "texto": "Local video processing for greater speed and privacy."
+    },
+    {
+      "distintivo": "CONNECT",
+      "icono": "red",
+      "imagen": "tech-platform",
+      "nombre": "CERBERUS INTEGRATION",
+      "subtitulo": "Full integration",
+      "texto": "Connects your current infrastructure to the CERBERUS platform."
+    },
+    {
+      "distintivo": "OPERATE",
+      "icono": "engranaje",
+      "imagen": "engineer-drone-sunset",
+      "nombre": "CERBERUS OPERATIONS",
+      "subtitulo": "Deployment and support",
+      "texto": "We support your project from pilot to continuous operation."
+    }
+  ]
+}

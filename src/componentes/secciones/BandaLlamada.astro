@@ -1,0 +1,89 @@
+---
+import Contenedor from '../base/Contenedor.astro';
+import Boton from '../base/Boton.astro';
+import Icono from '../base/Icono.astro';
+import estilos from './BandaLlamada.module.css';
+import { contenido, type Idioma } from '../../nucleo/idiomas';
+import { ruta } from '../../nucleo/rutas';
+
+interface Props {
+  idioma: Idioma;
+  paquete: string;
+  imagen: string;
+  posicionImagen?: string;
+  disposicion?: 'cifras' | 'palabras' | 'compacta';
+}
+
+const { idioma, paquete, imagen, posicionImagen = '50% 42%', disposicion = 'palabras' } = Astro.props;
+
+const llamada = contenido(idioma, `${paquete}/llamada`);
+const acciones = contenido(idioma, 'comunes/acciones');
+const destinoContacto = `${ruta('nosotros', idioma)}#contacto`;
+const textoPrincipal = acciones[llamada.accionPrincipal] ?? llamada.accionPrincipal;
+const textoSecundario = llamada.accionSecundaria
+  ? (acciones[llamada.accionSecundaria] ?? llamada.accionSecundaria)
+  : null;
+const esDescarga = llamada.accionSecundaria === 'descargarBrochure';
+---
+
+<section class={[estilos.banda, estilos[`disp${disposicion[0].toUpperCase()}${disposicion.slice(1)}`]].join(' ')}>
+  <div class={estilos.fondo}>
+    <img
+      class={estilos.imagen}
+      src={imagen}
+      alt={llamada.textoAlternativo}
+      width="1600"
+      height="700"
+      loading="lazy"
+      decoding="async"
+      style={`object-position:${posicionImagen}`}
+    />
+    <span class={estilos.velo}></span>
+  </div>
+
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <h2 class={estilos.titulo}>{llamada.titulo}</h2>
+      <p class={estilos.texto}>{llamada.texto}</p>
+    </div>
+
+    <div class={estilos.acciones}>
+      <Boton texto={textoPrincipal} destino={destinoContacto} />
+      {
+        textoSecundario && (
+          <Boton
+            texto={textoSecundario}
+            destino={destinoContacto}
+            variante="contorno"
+            iconoInicial={esDescarga ? 'descargar' : undefined}
+            icono={undefined}
+          />
+        )
+      }
+    </div>
+
+    {
+      llamada.cifras && (
+        <ul class={estilos.cifrasLista}>
+          {llamada.cifras.map((cifra: { icono: string; valor: string; etiqueta: string }) => (
+            <li class={estilos.cifra}>
+              <Icono nombre={cifra.icono} tamano={34} grosor={1.2} clase={estilos.iconoCifra} />
+              {cifra.valor && <span class={estilos.valor}>{cifra.valor}</span>}
+              <span class={estilos.etiquetaCifra}>{cifra.etiqueta}</span>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      llamada.palabrasLaterales && (
+        <ul class={estilos.palabras}>
+          {llamada.palabrasLaterales.map((palabra: string) => (
+            <li>{palabra}</li>
+          ))}
+        </ul>
+      )
+    }
+  </Contenedor>
+</section>

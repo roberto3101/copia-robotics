@@ -1,0 +1,42 @@
+{
+  "titulo": "Nuestras soluciones",
+  "subtitulo": "Una plataforma. Múltiples capacidades.",
+  "elementos": [
+    {
+      "icono": "camara",
+      "familia": "CERBERUS",
+      "producto": "VISION",
+      "descripcion": "Analítica de video con IA"
+    },
+    {
+      "icono": "dron",
+      "familia": "CERBERUS",
+      "producto": "DRONE",
+      "descripcion": "Vigilancia aérea inteligente"
+    },
+    {
+      "icono": "puesto",
+      "familia": "CERBERUS",
+      "producto": "COMMAND",
+      "descripcion": "Centro de operaciones"
+    },
+    {
+      "icono": "chip",
+      "familia": "CERBERUS",
+      "producto": "EDGE",
+      "descripcion": "IA en el borde"
+    },
+    {
+      "icono": "integracion",
+      "familia": "CERBERUS",
+      "producto": "INTEGRATION",
+      "descripcion": "Integración total"
+    },
+    {
+      "icono": "engranaje",
+      "familia": "CERBERUS",
+      "producto": "OPERATIONS",
+      "descripcion": "Implementación y soporte"
+    }
+  ]
+}

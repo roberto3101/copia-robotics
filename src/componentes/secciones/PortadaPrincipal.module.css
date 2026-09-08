@@ -1,0 +1,180 @@
+.portada {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--superficie-base);
+  border-bottom: 1px solid var(--linea-suave);
+}
+
+.fondo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.ciudad {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% 46%;
+  opacity: 0.8;
+}
+
+.unidades {
+  position: absolute;
+  right: 8.4%;
+  bottom: -20%;
+  width: 41%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 46px rgba(0, 0, 0, 0.55));
+}
+
+.velo {
+  position: absolute;
+  inset: 0;
+  background: var(--velo-portada);
+}
+
+.rejilla {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 232px);
+  align-items: start;
+  gap: 40px;
+  padding-block: 45px 29px;
+}
+
+.discurso {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: var(--sangria-bloque);
+}
+
+.titulo {
+  margin-top: 10px;
+}
+
+.entradilla {
+  margin-top: 9px;
+  max-width: 531px;
+  font-size: var(--texto-entradilla);
+  line-height: 24px;
+  color: var(--texto-2);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 21px;
+  margin-top: 17px;
+}
+
+.atributos {
+  margin-top: 28px;
+}
+
+.lateral {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 22px;
+  text-align: right;
+  padding-top: 62px;
+}
+
+.palabras {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.045em;
+  line-height: 1.36;
+  color: var(--marca-300);
+}
+
+.sello {
+  margin-top: 2px;
+}
+
+.nota {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  font-size: var(--texto-cuerpo);
+  color: var(--texto-2);
+  line-height: 1.4;
+}
+
+.notaLinea {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bandera {
+  width: 19px;
+  height: 12px;
+  border-radius: 2px;
+  flex: none;
+}
+
+@media (max-width: 1279.98px) {
+  .rejilla {
+    gap: 26px;
+  }
+
+  .unidades {
+    right: 2%;
+    width: 38%;
+    opacity: 0.78;
+  }
+}
+
+@media (max-width: 1049.98px) {
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 34px 38px;
+  }
+
+  .lateral {
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 0;
+    padding-left: var(--sangria-bloque);
+  }
+
+  .nota {
+    align-items: flex-start;
+  }
+
+  .bandera {
+    position: static;
+  }
+
+  .sello {
+    align-items: flex-start;
+  }
+
+  .unidades {
+    right: -14%;
+    bottom: auto;
+    top: 2%;
+    width: 62%;
+    opacity: 0.26;
+  }
+
+  .velo {
+    background: linear-gradient(
+      180deg,
+      rgba(3, 15, 25, 0.86) 0%,
+      rgba(3, 15, 25, 0.9) 55%,
+      rgba(3, 15, 25, 0.96) 100%
+    );
+  }
+}

@@ -1,0 +1,31 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import estilos from './BeneficiosSectores.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const beneficios = contenido(idioma, 'sectores/beneficios');
+---
+
+<section class={estilos.seccion}>
+  <Contenedor>
+    <ul class={estilos.rejilla}>
+      {
+        beneficios.elementos.map((beneficio: { icono: string; titulo: string; texto: string }) => (
+          <li class={estilos.beneficio}>
+            <Icono nombre={beneficio.icono} tamano={40} grosor={1.15} clase={estilos.icono} />
+            <div class={estilos.cuerpo}>
+              <h3 class={estilos.titulo}>{beneficio.titulo}</h3>
+              <p class={estilos.texto}>{beneficio.texto}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </Contenedor>
+</section>

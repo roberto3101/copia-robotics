@@ -1,0 +1,23 @@
+---
+import Icono from './Icono.astro';
+import estilos from './BotonVideo.module.css';
+
+interface Props {
+  etiqueta: string;
+  detalle?: string;
+  destino?: string;
+  clase?: string;
+}
+
+const { etiqueta, detalle, destino, clase } = Astro.props;
+const Etiqueta = destino ? 'a' : 'button';
+const atributos = destino ? { href: destino } : { type: 'button' };
+---
+
+<Etiqueta class={[estilos.boton, clase].filter(Boolean).join(' ')} {...atributos} aria-label={etiqueta}>
+  <span class={estilos.disco}><Icono nombre="reproducir" tamano={17} grosor={1} /></span>
+  <span class={estilos.leyenda}>
+    <span>{etiqueta}</span>
+    {detalle && <span class={estilos.detalle}>{detalle}</span>}
+  </span>
+</Etiqueta>

@@ -1,0 +1,65 @@
+{
+  "boletin": {
+    "icono": "sobre",
+    "titulo": "Subscribe to our newsletter",
+    "texto": "Get the latest news, articles and events in your inbox.",
+    "marcador": "Your email address",
+    "rotulo": "Email address",
+    "accion": "suscribirme"
+  },
+  "destacado": {
+    "titulo": "Featured content",
+    "distintivo": "VIDEO",
+    "imagen": "video-detection",
+    "nombre": "CERBERUS in action",
+    "texto": "Intelligence for a safer future.",
+    "accion": "verVideo",
+    "textoAlternativo": "Featured video of CERBERUS in action"
+  },
+  "eventos": {
+    "icono": "calendario",
+    "titulo": "Upcoming events",
+    "verTodos": "verTodos",
+    "elementos": [
+      {
+        "dia": "15",
+        "mes": "AUG",
+        "titulo": "Webinar: AI applied to\nurban security",
+        "hora": "10:00 a.m. (GMT-5)"
+      },
+      {
+        "dia": "28",
+        "mes": "AUG",
+        "titulo": "Workshop: Planning drone\nprojects",
+        "hora": "10:00 a.m. (GMT-5)"
+      },
+      {
+        "dia": "12",
+        "mes": "SEP",
+        "titulo": "Webinar: Intelligent operations\ncenters",
+        "hora": "10:00 a.m. (GMT-5)"
+      }
+    ]
+  },
+  "noticias": {
+    "titulo": "News",
+    "verTodas": "verTodas",
+    "elementos": [
+      {
+        "dia": "20",
+        "mes": "JUL",
+        "titulo": "AI Robotics Perú at Smart City Expo LATAM 2026"
+      },
+      {
+        "dia": "10",
+        "mes": "JUL",
+        "titulo": "New video analytics module in CERBERUS"
+      },
+      {
+        "dia": "25",
+        "mes": "JUN",
+        "titulo": "Strategic partnership with Peruvian universities"
+      }
+    ]
+  }
+}

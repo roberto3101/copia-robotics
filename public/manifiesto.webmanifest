@@ -1,0 +1,19 @@
+{
+  "name": "AI Robotics Perú — CERBERUS",
+  "short_name": "AI Robotics",
+  "description": "Inteligencia artificial, visión computacional y drones para un Perú más seguro.",
+  "lang": "es-PE",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000e18",
+  "theme_color": "#000e18",
+  "categories": ["business", "security", "technology"],
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icono-apple.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icono-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

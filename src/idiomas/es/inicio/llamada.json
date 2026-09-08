@@ -1,0 +1,12 @@
+{
+  "titulo": "¿Quieres ver\nCERBERUS funcionando?",
+  "texto": "Agenda una demostración y descubre cómo podemos ayudar a tu institución u organización.",
+  "accionPrincipal": "solicitarDemostracion",
+  "accionSecundaria": "contactanos",
+  "palabrasLaterales": [
+    "CÁMARAS. IA. DRONES.",
+    "UNA SOLA VISIÓN",
+    "DE SEGURIDAD."
+  ],
+  "textoAlternativo": "Dron sobrevolando una ciudad al atardecer"
+}

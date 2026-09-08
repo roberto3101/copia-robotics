@@ -1,0 +1,32 @@
+---
+import Boton from '../base/Boton.astro';
+import estilos from './EncabezadoSeccion.module.css';
+
+interface Props {
+  titulo: string;
+  subtitulo?: string;
+  nota?: string;
+  enlace?: string;
+  destinoEnlace?: string;
+  nivel?: 2 | 3;
+  clase?: string;
+}
+
+const { titulo, subtitulo, nota, enlace, destinoEnlace, nivel = 2, clase } = Astro.props;
+const Titulo = `h${nivel}` as any;
+const simple = !nota && !enlace;
+const conEnlace = Boolean(enlace) && !nota;
+---
+
+<div
+  class={[estilos.encabezado, simple ? estilos.simple : null, conEnlace ? estilos.conEnlace : null, clase]
+    .filter(Boolean)
+    .join(' ')}
+>
+  <div class={estilos.textos}>
+    <Titulo class={estilos.titulo}>{titulo}</Titulo>
+    {subtitulo && <p class={estilos.subtitulo}>{subtitulo}</p>}
+  </div>
+  {nota && <p class={estilos.nota}>{nota}</p>}
+  {enlace && <Boton texto={enlace} destino={destinoEnlace} variante="enlace" clase={estilos.enlace} />}
+</div>

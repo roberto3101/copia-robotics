@@ -1,0 +1,22 @@
+{
+  "titulo": "Our story",
+  "subtitulo": "From a local vision to real impact",
+  "texto": "AI Robotics Perú was born from the conviction that Latin America needs its own technology solutions, adapted to its reality. Bringing together experience in software, artificial intelligence, electronics and operations, we began developing platforms for security, management and automation.",
+  "accion": "Read our story",
+  "textoAlternativo": "AI Robotics Perú headquarters",
+  "palabrasSede": [
+    "IDEAS",
+    "SOLUTIONS",
+    "IMPACT"
+  ],
+  "mision": {
+    "icono": "diana",
+    "titulo": "Our mission",
+    "texto": "To develop and deliver innovative, reliable and accessible technology solutions based on artificial intelligence, to improve security, efficiency and quality of life in our region."
+  },
+  "vision": {
+    "icono": "ojo",
+    "titulo": "Our vision",
+    "texto": "To be the leading company in Latin America in AI, robotics and autonomous systems, recognized for its positive impact on society and for building technology with regional identity."
+  }
+}

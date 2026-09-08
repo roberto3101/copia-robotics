@@ -1,0 +1,47 @@
+---
+import Contenedor from '../base/Contenedor.astro';
+import Icono from '../base/Icono.astro';
+import estilos from './BarraFiltros.module.css';
+
+interface Pestana {
+  icono: string;
+  etiqueta: string;
+}
+
+interface Props {
+  rotulo: string;
+  elementos: Pestana[];
+  marcadorBusqueda?: string;
+  clase?: string;
+}
+
+const { rotulo, elementos, marcadorBusqueda, clase } = Astro.props;
+---
+
+<nav class={[estilos.barra, clase].filter(Boolean).join(' ')} aria-label={rotulo}>
+  <Contenedor>
+    <div class={estilos.pista} role="tablist" aria-label={rotulo}>
+      {
+        elementos.map((elemento, indice) => (
+          <button
+            class={estilos.pestana}
+            type="button"
+            role="tab"
+            aria-selected={indice === 0 ? 'true' : 'false'}
+          >
+            <Icono nombre={elemento.icono} tamano={23} grosor={1.2} clase={estilos.icono} />
+            <span>{elemento.etiqueta}</span>
+          </button>
+        ))
+      }
+      {
+        marcadorBusqueda && (
+          <label class={estilos.busqueda}>
+            <Icono nombre="buscar" tamano={18} grosor={1.5} />
+            <input type="search" placeholder={marcadorBusqueda} aria-label={marcadorBusqueda} />
+          </label>
+        )
+      }
+    </div>
+  </Contenedor>
+</nav>

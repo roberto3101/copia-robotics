@@ -1,0 +1,287 @@
+:root {
+  box-sizing: border-box;
+  cursor: default;
+}
+
+::selection {
+  color: #11111b;
+  background-color: #c0dc67;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #11111b;
+  color: #afd33d;
+  font-size: calc(6.4px + 0.8125vw);
+  overflow: hidden;
+}
+
+.perdida {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.perdida::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-color: #afd33d;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  z-index: 1;
+}
+
+.perdida::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #11111b 21px, transparent 1%) center,
+    linear-gradient(#11111b 21px, transparent 1%) center,
+    white;
+  background-size: 22px 22px;
+  background-position: center;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.perdida .fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  filter: grayscale(1) brightness(0.62) contrast(1.15);
+  mix-blend-mode: luminosity;
+  object-fit: cover;
+}
+
+.perdida .mensaje {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 3;
+}
+
+.perdida .mensaje h1 {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  font-size: 10em;
+  margin: 0;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  animation: sacudida 600ms ease-in-out infinite alternate;
+  text-shadow:
+    0 0 0.07em #afd33d,
+    -0.2em 0 2em rgba(175, 211, 61, 0.3),
+    0.2em 0 2em rgba(175, 211, 61, 0.3);
+  user-select: none;
+}
+
+.perdida .mensaje h1::before {
+  content: attr(data-texto);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0.34em);
+  height: 0.1em;
+  line-height: 0.5em;
+  width: 100%;
+  animation:
+    barrido 500ms ease-in-out infinite alternate 594ms,
+    ruido 300ms ease-in-out infinite alternate;
+  overflow: hidden;
+  opacity: 0.7;
+}
+
+.perdida .mensaje h1::after {
+  content: attr(data-texto);
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  transform: translate(-50%, 0.34em);
+  height: 0.5em;
+  line-height: 0.1em;
+  width: 100%;
+  animation:
+    barrido 665ms ease-in-out infinite alternate 201ms,
+    ruido 300ms ease-in-out infinite alternate;
+  overflow: hidden;
+  opacity: 0.8;
+}
+
+.perdida .mensaje .pie {
+  position: absolute;
+  top: 65%;
+  left: 0;
+  width: 100%;
+}
+
+.perdida .mensaje p,
+.perdida .mensaje a {
+  font-size: 2em;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  text-shadow: 0 0 5px #afd33d;
+  filter: blur(0.8px);
+}
+
+.perdida .mensaje a {
+  position: relative;
+  color: #afd33d;
+  text-decoration: none;
+  font-weight: 700;
+  border: 2px solid #afd33d;
+  text-transform: uppercase;
+  padding: 5px 30px;
+  box-shadow: inset 0 0 0 0 rgba(175, 211, 61, 0.2);
+  transition: 25ms ease-in-out all 0ms;
+  overflow: hidden;
+  animation: atencion 3s ease-in-out infinite;
+}
+
+.perdida .mensaje a:hover {
+  cursor: crosshair;
+  box-shadow: inset 0 -2em 0 0 rgba(175, 211, 61, 0.2);
+  transition: 225ms ease-in-out all 225ms;
+  animation: none;
+}
+
+.perdida .mensaje a:hover::before,
+.perdida .mensaje a:hover::after {
+  transform: translate(-50%, 0) scale(0, 1);
+}
+
+.perdida .mensaje a:active {
+  box-shadow: inset 0 -2em 0 0 rgba(175, 211, 61, 0.5);
+  transition: 225ms ease-in-out all 225ms;
+}
+
+.perdida .mensaje a::before,
+.perdida .mensaje a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0) scale(1, 1);
+  transform-origin: center;
+  background-color: #11111b;
+  width: 90%;
+  height: 5px;
+  transition: 225ms ease-in-out all;
+  mix-blend-mode: hard-light;
+}
+
+.perdida .mensaje a::before {
+  top: -4px;
+}
+
+.perdida .mensaje a::after {
+  bottom: -4px;
+}
+
+@keyframes barrido {
+  from,
+  20%,
+  100% {
+    height: 0;
+    transform: translate(-50%, 0.44em);
+  }
+  10%,
+  15% {
+    height: 1em;
+    line-height: 0.2em;
+    transform: translate(-55%, 0.26em);
+  }
+}
+
+@keyframes atencion {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  30%,
+  35% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes sacudida {
+  0%,
+  100% {
+    transform: translate(-1px, 0);
+  }
+  10% {
+    transform: translate(2px, 1px);
+  }
+  30% {
+    transform: translate(-3px, 2px);
+  }
+  35% {
+    transform: translate(2px, -3px);
+    filter: blur(4px);
+  }
+  45% {
+    transform: translate(2px, 2px) skewY(-8deg) scale(0.96, 1);
+    filter: blur(0);
+  }
+  50% {
+    transform: translate(-3px, 1px);
+  }
+}
+
+@keyframes ruido {
+  0% {
+    clip-path: inset(17% 0 17% 0);
+  }
+  10% {
+    clip-path: inset(76% 0 14% 0);
+  }
+  20% {
+    clip-path: inset(26% 0 39% 0);
+  }
+  30% {
+    clip-path: inset(6% 0 37% 0);
+  }
+  40% {
+    clip-path: inset(18% 0 7% 0);
+  }
+  50% {
+    clip-path: inset(9% 0 19% 0);
+  }
+  60% {
+    clip-path: inset(36% 0 3% 0);
+  }
+  70% {
+    clip-path: inset(83% 0 8% 0);
+  }
+  80% {
+    clip-path: inset(7% 0 16% 0);
+  }
+  90% {
+    clip-path: inset(6% 0 42% 0);
+  }
+  100% {
+    clip-path: inset(19% 0 48% 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .perdida .mensaje h1,
+  .perdida .mensaje h1::before,
+  .perdida .mensaje h1::after,
+  .perdida .mensaje a {
+    animation: none;
+  }
+}

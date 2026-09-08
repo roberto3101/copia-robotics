@@ -1,0 +1,32 @@
+{
+  "titulo": "Cómo funciona",
+  "subtitulo": "Conectar → Analizar → Responder",
+  "pasos": [
+    {
+      "numero": "01",
+      "etiqueta": "CONECTAMOS",
+      "iconos": [
+        "camara",
+        "dron",
+        "sensor"
+      ],
+      "texto": "Integramos cámaras, drones, sensores e infraestructura existente."
+    },
+    {
+      "numero": "02",
+      "etiqueta": "ANALIZAMOS",
+      "iconos": [
+        "cerebro"
+      ],
+      "texto": "La IA procesa la información en tiempo real y genera alertas inteligentes."
+    },
+    {
+      "numero": "03",
+      "etiqueta": "RESPONDEMOS",
+      "iconos": [
+        "dronVuelo"
+      ],
+      "texto": "Coordinamos unidades aéreas y proporcionamos información operacional para una respuesta efectiva."
+    }
+  ]
+}

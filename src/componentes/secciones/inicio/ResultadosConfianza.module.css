@@ -1,0 +1,119 @@
+.seccion {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid var(--linea-suave);
+  background: var(--superficie-1);
+}
+
+.fondo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.imagen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 54% 62%;
+  opacity: 0.85;
+}
+
+.velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #041220 0%,
+    rgba(4, 18, 32, 0.94) 24%,
+    rgba(4, 18, 32, 0.55) 44%,
+    rgba(4, 18, 32, 0.12) 66%,
+    rgba(4, 18, 32, 0.35) 100%
+  );
+}
+
+.rejilla {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+  align-items: start;
+  gap: 40px;
+  padding-block: 8px 5px;
+}
+
+.discurso {
+  padding-left: var(--sangria-bloque);
+}
+
+.titulo {
+  font-size: var(--texto-h2);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.subtitulo {
+  margin-top: 4px;
+  font-size: var(--texto-cuerpo);
+  line-height: 1.4;
+  color: var(--texto-2);
+}
+
+.cifras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.cifra {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 9px 16px 10px;
+  border: 1px solid var(--linea-suave);
+  border-radius: var(--radio-md);
+  background: rgba(4, 18, 32, 0.4);
+  backdrop-filter: blur(3px);
+}
+
+.valor {
+  font-size: 31px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--texto-1);
+  letter-spacing: -0.015em;
+}
+
+.etiqueta {
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--texto-2);
+}
+
+.cita {
+  margin: 0;
+  justify-self: end;
+  max-width: 340px;
+  font-size: var(--texto-entradilla);
+  font-style: italic;
+  line-height: 1.42;
+  color: var(--texto-2);
+  padding-top: 6px;
+}
+
+@media (max-width: 1023.98px) {
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cita {
+    justify-self: start;
+  }
+
+  .velo {
+    background: linear-gradient(180deg, rgba(4, 18, 32, 0.9) 0%, rgba(4, 18, 32, 0.95) 100%);
+  }
+}

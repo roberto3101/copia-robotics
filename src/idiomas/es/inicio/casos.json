@@ -1,0 +1,26 @@
+{
+  "titulo": "Casos de uso",
+  "subtitulo": "Resultados en el mundo real",
+  "elementos": [
+    {
+      "imagen": "case-urban",
+      "titulo": "Seguimiento de objeto\nde interés en tiempo real",
+      "detalle": "Municipalidad distrital"
+    },
+    {
+      "imagen": "hero-drone-city",
+      "titulo": "Vigilancia perimetral con drones",
+      "detalle": "Planta industrial"
+    },
+    {
+      "imagen": "city-aerial-street",
+      "titulo": "Monitoreo de obras",
+      "detalle": "Proyecto de construcción"
+    },
+    {
+      "imagen": "sector-logistics",
+      "titulo": "Control de accesos",
+      "detalle": "Centro logístico"
+    }
+  ]
+}
