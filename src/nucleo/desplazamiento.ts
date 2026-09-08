@@ -54,7 +54,7 @@ function revelarSecciones() {
   ScrollTrigger.getAll().forEach((disparador) => disparador.kill());
 
   if (movimientoReducido()) {
-    gsap.set('[data-revelar]', { clearProps: 'all' });
+    gsap.set('[data-revelar]', { clearProps: 'opacity,transform' });
     return;
   }
 
@@ -62,7 +62,7 @@ function revelarSecciones() {
   bloques.forEach((bloque, indice) => {
     bloque.dataset.revelar = '1';
     if (indice === 0) {
-      gsap.set(bloque, { clearProps: 'all' });
+      gsap.set(bloque, { clearProps: 'opacity,transform' });
       return;
     }
     gsap.fromTo(

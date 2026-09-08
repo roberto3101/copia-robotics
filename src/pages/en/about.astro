@@ -20,28 +20,17 @@ const metadatos = contenido(idioma, 'nosotros/metadatos');
   titulo={metadatos.titulo}
   descripcion={metadatos.descripcion}
   palabrasClave={metadatos.palabrasClave}
-  imagenPrincipal="/images/hero-city-night.webp"
+  imagenPrincipal="/images/portada-nosotros.webp"
 >
   <PortadaSeccion
     idioma={idioma}
     alturaMinima={408}
     paquete="nosotros"
-    imagen="/images/hero-city-night.webp"
-    posicionImagen="50% 42%"
+    imagen="/images/portada-nosotros.webp"
+    posicionImagen="50% 50%"
     mostrarSello={false}
     altura="alta"
-  >
-    <img
-      slot="escenario"
-      class="portada-unidades"
-      src="/images/cerberus-unidades.webp"
-      alt=""
-      width="1402"
-      height="882"
-      fetchpriority="high"
-      decoding="async"
-    />
-  </PortadaSeccion>
+  />
   <HistoriaEmpresa idioma={idioma} />
   <ValoresEmpresa idioma={idioma} />
   <EquipoEmpresa idioma={idioma} />
@@ -51,8 +40,8 @@ const metadatos = contenido(idioma, 'nosotros/metadatos');
   <BandaLlamada
     idioma={idioma}
     paquete="nosotros"
-    imagen="/images/engineer-drone-sunset.webp"
-    posicionImagen="50% 42%"
+    imagen="/images/llamada-nosotros.webp"
+    posicionImagen="50% 50%"
     disposicion="palabras"
   />
 </PlantillaBase>

@@ -17,27 +17,16 @@ const pestanas = contenido(idioma, 'recursos/pestanas');
   titulo={metadatos.titulo}
   descripcion={metadatos.descripcion}
   palabrasClave={metadatos.palabrasClave}
-  imagenPrincipal="/images/office-building.webp"
+  imagenPrincipal="/images/portada-recursos.webp"
 >
   <PortadaSeccion
     idioma={idioma}
     alturaMinima={451}
     paquete="recursos"
-    imagen="/images/office-building.webp"
+    imagen="/images/portada-recursos.webp"
     posicionImagen="50% 50%"
     altura="alta"
-  >
-    <img
-      slot="escenario"
-      class="portada-unidades"
-      src="/images/cerberus-unidades.webp"
-      alt=""
-      width="1402"
-      height="882"
-      fetchpriority="high"
-      decoding="async"
-    />
-  </PortadaSeccion>
+  />
   <BarraFiltros
     rotulo={pestanas.rotulo}
     elementos={pestanas.elementos}
@@ -47,8 +36,8 @@ const pestanas = contenido(idioma, 'recursos/pestanas');
   <BandaLlamada
     idioma={idioma}
     paquete="recursos"
-    imagen="/images/engineer-drone-sunset.webp"
-    posicionImagen="50% 42%"
+    imagen="/images/llamada-recursos.webp"
+    posicionImagen="50% 50%"
     disposicion="palabras"
   />
 </PlantillaBase>

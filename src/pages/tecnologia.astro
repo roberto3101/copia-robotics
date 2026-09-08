@@ -18,35 +18,24 @@ const pestanas = contenido(idioma, 'tecnologia/pestanas');
   titulo={metadatos.titulo}
   descripcion={metadatos.descripcion}
   palabrasClave={metadatos.palabrasClave}
-  imagenPrincipal="/images/hero-city-night.webp"
+  imagenPrincipal="/images/portada-tecnologia.webp"
 >
   <PortadaSeccion
     idioma={idioma}
     alturaMinima={502}
     paquete="tecnologia"
-    imagen="/images/hero-city-night.webp"
+    imagen="/images/portada-tecnologia.webp"
     posicionImagen="50% 50%"
     altura="alta"
-  >
-    <img
-      slot="escenario"
-      class="portada-unidades"
-      src="/images/cerberus-unidades.webp"
-      alt=""
-      width="1402"
-      height="882"
-      fetchpriority="high"
-      decoding="async"
-    />
-  </PortadaSeccion>
+  />
   <BarraFiltros rotulo={pestanas.rotulo} elementos={pestanas.elementos} />
   <PanoramaArquitectura idioma={idioma} />
   <ComponentesTecnologia idioma={idioma} />
   <BandaLlamada
     idioma={idioma}
     paquete="tecnologia"
-    imagen="/images/mountains-city-dusk.webp"
-    posicionImagen="50% 44%"
+    imagen="/images/llamada-tecnologia.webp"
+    posicionImagen="50% 50%"
     disposicion="cifras"
   />
 </PlantillaBase>
