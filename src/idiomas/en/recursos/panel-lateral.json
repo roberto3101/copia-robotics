@@ -5,7 +5,10 @@
     "texto": "Get the latest news, articles and events in your inbox.",
     "marcador": "Your email address",
     "rotulo": "Email address",
-    "accion": "suscribirme"
+    "accion": "suscribirme",
+    "error": "Please enter a valid email.",
+    "exito": "Thanks. We opened your mail app to confirm the subscription.",
+    "asunto": "Newsletter subscription"
   },
   "destacado": {
     "titulo": "Featured content",
@@ -14,7 +17,8 @@
     "nombre": "CERBERUS in action",
     "texto": "Intelligence for a safer future.",
     "accion": "verVideo",
-    "textoAlternativo": "Featured video of CERBERUS in action"
+    "textoAlternativo": "Featured video of CERBERUS in action",
+    "video": "/video/demo-deteccion.mp4"
   },
   "eventos": {
     "icono": "calendario",

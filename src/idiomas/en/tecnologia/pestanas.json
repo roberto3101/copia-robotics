@@ -3,31 +3,38 @@
   "elementos": [
     {
       "icono": "ojo",
-      "etiqueta": "Overview"
+      "etiqueta": "Overview",
+      "clave": "panorama"
     },
     {
       "icono": "cerebro",
-      "etiqueta": "Artificial intelligence"
+      "etiqueta": "Artificial intelligence",
+      "clave": "ia"
     },
     {
       "icono": "dronVuelo",
-      "etiqueta": "Drones and robotics"
+      "etiqueta": "Drones and robotics",
+      "clave": "drones"
     },
     {
       "icono": "senal",
-      "etiqueta": "Communications"
+      "etiqueta": "Communications",
+      "clave": "comunicaciones"
     },
     {
       "icono": "puesto",
-      "etiqueta": "Platform and software"
+      "etiqueta": "Platform and software",
+      "clave": "plataforma"
     },
     {
       "icono": "infraestructura",
-      "etiqueta": "Infrastructure"
+      "etiqueta": "Infrastructure",
+      "clave": "infraestructura"
     },
     {
       "icono": "candadoEscudo",
-      "etiqueta": "Cybersecurity"
+      "etiqueta": "Cybersecurity",
+      "clave": "ciberseguridad"
     }
   ]
 }

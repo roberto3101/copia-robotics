@@ -7,19 +7,28 @@
       "formato": "pdf",
       "distintivo": "GUÍA",
       "titulo": "Guía de implementación\nCERBERUS",
-      "peso": "2.4 MB"
+      "peso": "2.4 MB",
+      "archivo": "/documentos/guia-implementacion-cerberus.pdf"
     },
     {
       "formato": "pdf",
       "distintivo": "CASO DE USO",
       "titulo": "Caso de éxito - Municipalidad\nde Los Olivos",
-      "peso": "1.8 MB"
+      "peso": "1.8 MB",
+      "archivo": "/documentos/caso-exito-los-olivos.pdf"
     },
     {
       "formato": "xls",
       "distintivo": "PLANTILLA",
       "titulo": "Plantilla de evaluación\nde riesgos",
-      "peso": "950 KB"
+      "peso": "950 KB",
+      "archivo": "/documentos/plantilla-evaluacion-riesgos.xlsx"
     }
+  ],
+  "ambitos": [
+    "todos",
+    "documentos",
+    "guias",
+    "casos"
   ]
 }

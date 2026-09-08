@@ -210,3 +210,30 @@
   font-size: 13px;
   color: var(--texto-2);
 }
+
+.enlaceBoton {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.aviso {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: #ff8a80;
+}
+
+.campo[aria-invalid='true'] {
+  border-color: #ff8a80;
+}
+
+.exito {
+  padding: 10px 13px;
+  border: 1px solid var(--linea-marca);
+  border-radius: var(--radio-sm);
+  background: rgba(53, 169, 238, 0.1);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--texto-1);
+}

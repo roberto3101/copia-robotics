@@ -72,7 +72,12 @@ const textoAccion = portada.accionPrincipal
               <Boton texto={textoAccion} destino={`${ruta('nosotros', idioma)}#contacto`} />
             )}
             {portada.video && (
-              <BotonVideo etiqueta={portada.video.etiqueta} detalle={portada.video.detalle} />
+              <BotonVideo
+                etiqueta={portada.video.etiqueta}
+                detalle={portada.video.detalle}
+                origen={portada.video.origen}
+                poster={imagen}
+              />
             )}
           </div>
         )

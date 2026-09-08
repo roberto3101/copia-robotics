@@ -23,7 +23,7 @@ const destino = ruta('tecnologia', idioma);
       subtitulo={catalogo.subtitulo}
       nota={catalogo.nota}
     />
-    <ul class={estilos.rejilla}>
+    <ul class={estilos.rejilla} data-lista>
       {
         catalogo.elementos.map(
           (elemento: {
@@ -33,8 +33,9 @@ const destino = ruta('tecnologia', idioma);
             nombre: string;
             subtitulo: string;
             texto: string;
+            categorias: string[];
           }) => (
-            <li>
+            <li data-pieza data-categorias={elemento.categorias.join(' ')}>
               <article class={estilos.tarjeta}>
                 <div class={estilos.lienzo}>
                   <img

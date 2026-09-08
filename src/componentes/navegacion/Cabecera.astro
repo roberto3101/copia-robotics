@@ -50,7 +50,12 @@ const idiomaTextos = contenido(idioma, 'comunes/idioma');
     </nav>
 
     <div class={estilos.acciones}>
-      <button class={estilos.busqueda} type="button" aria-label={navegacion.rotuloBusqueda}>
+      <button
+        class={estilos.busqueda}
+        type="button"
+        data-abrir-busqueda
+        aria-label={navegacion.rotuloBusqueda}
+      >
         <Icono nombre="buscar" tamano={20} grosor={1.7} />
       </button>
       <SelectorIdioma

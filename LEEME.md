@@ -98,6 +98,11 @@ publican). Las utilidades comparan el sitio renderizado contra ellos a 1440 px:
 node herramientas/capturar.mjs            # captura completa de cada página
 node herramientas/secciones.mjs inicio    # alturas de sección frente al objetivo
 node herramientas/responsive.mjs          # desbordes en 360…1920
+node herramientas/auditar-enlaces.mjs    # enlaces y anclas rotas
+node herramientas/probar-filtros.mjs     # pestañas, búsqueda y selector
+node herramientas/probar-contacto.mjs    # validación del formulario
+node herramientas/probar-video.mjs       # reproductor modal
+node herramientas/probar-todo.mjs        # prueba integral de la interfaz
 python herramientas/comparar.py inicio    # imagen de diferencia y bandas
 python herramientas/bandas.py ref:inicio 469 661
 python herramientas/medir.py herramientas/sondas/inicio-portada.json
@@ -105,6 +110,28 @@ python herramientas/medir.py herramientas/sondas/inicio-portada.json
 
 El lienzo de referencia es 1440 × 2160. Las medidas del diseño se derivan dividiendo las
 coordenadas del PNG (1843 px de ancho) entre 1,2799.
+
+## Funcionalidad
+
+Todo control del sitio hace algo. Un resumen de dónde vive cada pieza:
+
+| Función | Módulo | Qué hace |
+| --- | --- | --- |
+| Filtros por pestaña | `src/nucleo/filtros.ts` | Filtra tarjetas por categoría en Soluciones, Tecnología y Casos de uso, y bloques enteros en Recursos. Navegación con flechas del teclado. |
+| Búsqueda y sector | `src/nucleo/filtros.ts` | Busca por texto en Casos de uso y cruza con el sector elegido. Muestra contador y estado vacío. |
+| Formulario de contacto | `src/nucleo/contacto.ts` | Valida campo a campo, tiene honeypot y compone el correo. Vive en `#contacto` dentro de Nosotros, destino de todos los CTA. |
+| Boletín | `src/nucleo/boletin.ts` | Valida el correo y confirma la suscripción. |
+| Reproductor | `src/nucleo/visor-video.ts` | Abre un `<dialog>` modal con el clip; libera el vídeo al cerrar. |
+| Carruseles | `src/nucleo/carrusel.ts` | Desplaza casos y testimonios; deshabilita la flecha al llegar al extremo. |
+| Buscador del sitio | `src/nucleo/busqueda.ts` | Índice generado en compilación desde los JSON (`src/nucleo/indice.ts`). Se abre con la lupa o Ctrl/Cmd + K. |
+
+El formulario abre el programa de correo con la consulta compuesta. Para enviarlo a un
+servidor, define `PUBLIC_ENDPOINT_CONTACTO` con la URL que reciba el `POST` en JSON; el
+mismo módulo cambia de modo sin tocar el componente.
+
+Los tres documentos descargables se generan con `reportlab` y `openpyxl`, y los clips de
+demostración con `ffmpeg` a partir de las imágenes del sitio. Están en `public/documentos/`
+y `public/video/`.
 
 ## Movimiento y transiciones
 
@@ -127,8 +154,8 @@ sale del PNG entregado, recortado sobre alfa.
 
 ## Accesibilidad
 
-Auditoría Lighthouse (escritorio): SEO 100, Rendimiento 100, Buenas prácticas 100,
-Accesibilidad 92–93.
+Auditoría Lighthouse (escritorio): SEO 100, Rendimiento 99–100, Buenas prácticas 100,
+Accesibilidad 96.
 
 Los dos puntos que restan provienen de decisiones del diseño original y se mantienen para
 no alterar la réplica:
@@ -136,9 +163,9 @@ no alterar la réplica:
 - El azul de marca `--marca-500: #0a90fe` con texto blanco da 3,26:1, por debajo del 4,5:1
   que exige WCAG AA para texto normal. Cambiar `--marca-500` a `#0a63b8` en
   `src/estilos/tokens.css` alcanza el contraste exigido a costa de oscurecer los botones.
-- Los enlaces del pie repiten el interlineado de 16,5 px del diseño, menor que los 24 px de
-  destino táctil de WCAG 2.2. Subir `line-height` y `min-height` en
-  `PieSitio.module.css` lo corrige y estira el pie unos 60 px.
+- Los enlaces del pie repiten el interlineado del diseño, por debajo de los 24 px de destino
+  táctil de WCAG 2.2. Subir `line-height` y `min-height` en `PieSitio.module.css` lo corrige
+  y estira el pie unos 60 px.
 
 Ambos ajustes ya están escritos para `@media (prefers-contrast: more)`, de modo que quien
 active el contraste alto del sistema recibe la variante conforme.

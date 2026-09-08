@@ -6,6 +6,7 @@ import estilos from './BarraFiltros.module.css';
 interface Pestana {
   icono: string;
   etiqueta: string;
+  clave: string;
 }
 
 interface Props {
@@ -27,6 +28,7 @@ const { rotulo, elementos, marcadorBusqueda, clase } = Astro.props;
             class={estilos.pestana}
             type="button"
             role="tab"
+            data-clave-pestana={elemento.clave}
             aria-selected={indice === 0 ? 'true' : 'false'}
           >
             <Icono nombre={elemento.icono} tamano={23} grosor={1.2} clase={estilos.icono} />

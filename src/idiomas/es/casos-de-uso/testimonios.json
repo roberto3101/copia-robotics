@@ -21,6 +21,27 @@
       "cita": "“Hemos reducido riesgos en nuestras rutas y mejorado la trazabilidad de nuestras unidades. Es una herramienta clave para nuestro negocio.”",
       "autor": "Javier Rojas",
       "cargo": "Gerente de Operaciones"
+    },
+    {
+      "emblema": "industrial",
+      "organizacion": "Planta Industrial Arequipa",
+      "cita": "“Detectamos intrusiones en el perímetro antes de que lleguen a las zonas críticas. El equipo responde con información, no con suposiciones.”",
+      "autor": "Lucía Paredes",
+      "cargo": "Jefa de Seguridad Industrial"
+    },
+    {
+      "emblema": "constructor",
+      "organizacion": "Constructora del Norte",
+      "cita": "“El control de accesos en obra dejó de ser papel y radio. Ahora sabemos quién entra, cuándo y a qué frente de trabajo.”",
+      "autor": "Diego Salas",
+      "cargo": "Gerente de Proyectos"
+    },
+    {
+      "emblema": "portuario",
+      "organizacion": "Terminal Portuario Callao",
+      "cita": "“La trazabilidad de contenedores y el monitoreo de áreas restringidas se integraron sin cambiar nuestras cámaras.”",
+      "autor": "Rosa Quispe",
+      "cargo": "Coordinadora de Operaciones"
     }
   ]
 }

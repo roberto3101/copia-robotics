@@ -20,7 +20,8 @@
   "accionPrincipal": "solicitarReunion",
   "video": {
     "etiqueta": "Ver video de tecnología",
-    "detalle": "(2 min)"
+    "detalle": "(2 min)",
+    "origen": "/video/demo-tecnologia.mp4"
   },
   "atributos": [
     {

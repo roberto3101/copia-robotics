@@ -22,7 +22,7 @@ const destino = ruta('recursos', idioma);
 <section class={estilos.seccion}>
   <Contenedor clase={estilos.rejilla}>
     <div class={estilos.columna}>
-      <article class={estilos.bloque}>
+      <article class={estilos.bloque} data-ambitos={articulos.ambitos.join(' ')}>
         <EncabezadoSeccion
           titulo={articulos.titulo}
           subtitulo={articulos.subtitulo}
@@ -64,7 +64,7 @@ const destino = ruta('recursos', idioma);
         </ul>
       </article>
 
-      <article class={estilos.bloque}>
+      <article class={estilos.bloque} data-ambitos={videos.ambitos.join(' ')}>
         <EncabezadoSeccion
           titulo={videos.titulo}
           subtitulo={videos.subtitulo}
@@ -74,7 +74,14 @@ const destino = ruta('recursos', idioma);
         <ul class={estilos.tercios}>
           {
             videos.elementos.map(
-              (v: { distintivo: string; imagen: string; duracion: string; titulo: string; texto: string }) => (
+              (v: {
+                distintivo: string;
+                imagen: string;
+                duracion: string;
+                titulo: string;
+                texto: string;
+                video: string;
+              }) => (
                 <li>
                   <article class={estilos.tarjeta}>
                     <div class={estilos.lienzo}>
@@ -89,7 +96,14 @@ const destino = ruta('recursos', idioma);
                       />
                       <span class={estilos.distintivo}>{v.distintivo}</span>
                       <span class={estilos.duracion}>{v.duracion}</span>
-                      <button class={estilos.reproducir} type="button" aria-label={v.titulo}>
+                      <button
+                        class={estilos.reproducir}
+                        type="button"
+                        data-video={v.video}
+                        data-video-titulo={v.titulo}
+                        data-video-poster={`/images/${v.imagen}.webp`}
+                        aria-label={v.titulo}
+                      >
                         <Icono nombre="reproducir" tamano={19} grosor={1} />
                       </button>
                     </div>
@@ -105,7 +119,7 @@ const destino = ruta('recursos', idioma);
         </ul>
       </article>
 
-      <article class={estilos.bloque}>
+      <article class={estilos.bloque} data-ambitos={documentos.ambitos.join(' ')}>
         <EncabezadoSeccion
           titulo={documentos.titulo}
           subtitulo={documentos.subtitulo}
@@ -115,9 +129,15 @@ const destino = ruta('recursos', idioma);
         <ul class={estilos.tercios}>
           {
             documentos.elementos.map(
-              (d: { formato: string; distintivo: string; titulo: string; peso: string }) => (
+              (d: {
+                formato: string;
+                distintivo: string;
+                titulo: string;
+                peso: string;
+                archivo: string;
+              }) => (
                 <li>
-                  <a class={estilos.documento} href={destino}>
+                  <a class={estilos.documento} href={d.archivo} download>
                     <span class={[estilos.ficha, estilos[d.formato]].join(' ')}>{d.formato.toUpperCase()}</span>
                     <span class={estilos.datos}>
                       <span class={estilos.distintivoDoc}>{d.distintivo}</span>

@@ -10,7 +10,9 @@
     "astro": "astro",
     "capturar": "node herramientas/capturar.mjs",
     "secciones": "node herramientas/secciones.mjs",
-    "responsive": "node herramientas/responsive.mjs"
+    "responsive": "node herramientas/responsive.mjs",
+    "probar": "node herramientas/probar-todo.mjs",
+    "enlaces": "node herramientas/auditar-enlaces.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.1",

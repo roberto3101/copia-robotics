@@ -54,7 +54,7 @@
 .pista {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-columns: calc((100% - 42px) / 4);
   gap: 14px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -132,4 +132,10 @@
   .pista {
     grid-auto-columns: min(260px, 78vw);
   }
+}
+
+.control:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  color: var(--texto-3);
 }

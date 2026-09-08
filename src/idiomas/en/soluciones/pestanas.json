@@ -3,27 +3,33 @@
   "elementos": [
     {
       "icono": "rejilla",
-      "etiqueta": "All solutions"
+      "etiqueta": "All solutions",
+      "clave": "todas"
     },
     {
       "icono": "ciudadEscudo",
-      "etiqueta": "Urban security"
+      "etiqueta": "Urban security",
+      "clave": "urbana"
     },
     {
       "icono": "edificio",
-      "etiqueta": "Enterprise security"
+      "etiqueta": "Enterprise security",
+      "clave": "empresarial"
     },
     {
       "icono": "infraestructura",
-      "etiqueta": "Critical infrastructure"
+      "etiqueta": "Critical infrastructure",
+      "clave": "infraestructura"
     },
     {
       "icono": "mineria",
-      "etiqueta": "Industry and mining"
+      "etiqueta": "Industry and mining",
+      "clave": "industria"
     },
     {
       "icono": "cajaLogistica",
-      "etiqueta": "Logistics and transport"
+      "etiqueta": "Logistics and transport",
+      "clave": "logistica"
     }
   ]
 }

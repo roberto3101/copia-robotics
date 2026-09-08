@@ -1,0 +1,78 @@
+{
+  "antetitulo": "CONTACT",
+  "titulo": "Let's talk about your project",
+  "texto": "Tell us what you need and a specialist will reply with a proposal adapted to your operation.",
+  "campos": {
+    "nombre": {
+      "rotulo": "Full name",
+      "marcador": "María Torres",
+      "error": "Please enter your name."
+    },
+    "correo": {
+      "rotulo": "Email address",
+      "marcador": "maria@company.pe",
+      "error": "Please enter a valid email."
+    },
+    "empresa": {
+      "rotulo": "Organization",
+      "marcador": "Municipality, company or institution",
+      "error": ""
+    },
+    "telefono": {
+      "rotulo": "Phone",
+      "marcador": "+51 900 000 000",
+      "error": "Use only digits, spaces and the + sign."
+    },
+    "consulta": {
+      "rotulo": "Type of enquiry",
+      "error": "Please choose an option."
+    },
+    "mensaje": {
+      "rotulo": "Message",
+      "marcador": "Describe your need, the sector and the estimated scope.",
+      "error": "Tell us briefly what you need."
+    }
+  },
+  "opcionesConsulta": [
+    {
+      "clave": "",
+      "etiqueta": "Select an option"
+    },
+    {
+      "clave": "demostracion",
+      "etiqueta": "Request a demo"
+    },
+    {
+      "clave": "propuesta",
+      "etiqueta": "Request a proposal"
+    },
+    {
+      "clave": "alianza",
+      "etiqueta": "Partnerships and distribution"
+    },
+    {
+      "clave": "soporte",
+      "etiqueta": "Technical support"
+    },
+    {
+      "clave": "trabajo",
+      "etiqueta": "Work with us"
+    },
+    {
+      "clave": "otro",
+      "etiqueta": "Other enquiry"
+    }
+  ],
+  "consentimiento": "I agree that AI Robotics Perú may use my data to answer this enquiry.",
+  "errorConsentimiento": "We need your consent to reply.",
+  "enviar": "Send enquiry",
+  "enviando": "Sending…",
+  "exito": "Done. We opened your mail app with the enquiry ready; just hit send.",
+  "exitoRemoto": "Enquiry sent. We will reply within 48 business hours.",
+  "fallo": "We could not send the enquiry. Write to comercial@airobotics.pe.",
+  "asunto": "Enquiry from the website",
+  "canales": {
+    "titulo": "Other channels",
+    "texto": "If you prefer, write or call us directly during office hours (GMT-5)."
+  }
+}

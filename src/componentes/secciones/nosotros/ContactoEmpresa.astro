@@ -1,0 +1,185 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Antetitulo from '../../base/Antetitulo.astro';
+import Icono from '../../base/Icono.astro';
+import estilos from './ContactoEmpresa.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const contacto = contenido(idioma, 'nosotros/contacto');
+const pie = contenido(idioma, 'comunes/pie');
+const campos = contacto.campos;
+const puntoFinal = import.meta.env.PUBLIC_ENDPOINT_CONTACTO ?? '';
+---
+
+<section class={estilos.seccion} id="contacto">
+  <Contenedor clase={estilos.rejilla}>
+    <div class={estilos.discurso}>
+      <Antetitulo texto={contacto.antetitulo} />
+      <h2 class={estilos.titulo}>{contacto.titulo}</h2>
+      <p class={estilos.texto}>{contacto.texto}</p>
+
+      <div class={estilos.canales}>
+        <h3 class={estilos.tituloCanales}>{contacto.canales.titulo}</h3>
+        <p class={estilos.textoCanales}>{contacto.canales.texto}</p>
+        <ul class={estilos.listaCanales}>
+          <li>
+            <a class={estilos.canal} href={`mailto:${pie.contacto.correo}`}>
+              <Icono nombre="correo" tamano={19} grosor={1.5} />
+              {pie.contacto.correo}
+            </a>
+          </li>
+          <li>
+            <a class={estilos.canal} href={`tel:${pie.contacto.telefonoEnlace}`}>
+              <Icono nombre="telefono" tamano={19} grosor={1.5} />
+              {pie.contacto.telefono}
+            </a>
+          </li>
+          <li>
+            <span class={estilos.canal}>
+              <Icono nombre="ubicacion" tamano={19} grosor={1.5} />
+              {pie.contacto.ubicacion}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <form
+      class={estilos.formulario}
+      data-formulario-contacto
+      data-endpoint={puntoFinal}
+      data-correo={pie.contacto.correo}
+      data-asunto={contacto.asunto}
+      novalidate
+    >
+      <p class={estilos.trampa} aria-hidden="true">
+        <label for="sitio-web">No completar</label>
+        <input id="sitio-web" name="sitioWeb" type="text" tabindex="-1" autocomplete="off" />
+      </p>
+
+      <div class={estilos.par}>
+        <p class={estilos.campo}>
+          <label for="contacto-nombre">{campos.nombre.rotulo}</label>
+          <input
+            id="contacto-nombre"
+            name="nombre"
+            type="text"
+            autocomplete="name"
+            required
+            placeholder={campos.nombre.marcador}
+            data-error={campos.nombre.error}
+          />
+          <span class={estilos.aviso} data-aviso></span>
+        </p>
+        <p class={estilos.campo}>
+          <label for="contacto-correo">{campos.correo.rotulo}</label>
+          <input
+            id="contacto-correo"
+            name="correo"
+            type="email"
+            autocomplete="email"
+            required
+            placeholder={campos.correo.marcador}
+            data-error={campos.correo.error}
+          />
+          <span class={estilos.aviso} data-aviso></span>
+        </p>
+      </div>
+
+      <div class={estilos.par}>
+        <p class={estilos.campo}>
+          <label for="contacto-empresa">{campos.empresa.rotulo}</label>
+          <input
+            id="contacto-empresa"
+            name="empresa"
+            type="text"
+            autocomplete="organization"
+            placeholder={campos.empresa.marcador}
+          />
+          <span class={estilos.aviso} data-aviso></span>
+        </p>
+        <p class={estilos.campo}>
+          <label for="contacto-telefono">{campos.telefono.rotulo}</label>
+          <input
+            id="contacto-telefono"
+            name="telefono"
+            type="tel"
+            autocomplete="tel"
+            pattern="[0-9+()\s-]{6,}"
+            placeholder={campos.telefono.marcador}
+            data-error={campos.telefono.error}
+          />
+          <span class={estilos.aviso} data-aviso></span>
+        </p>
+      </div>
+
+      <p class={estilos.campo}>
+        <label for="contacto-consulta">{campos.consulta.rotulo}</label>
+        <span class={estilos.envoltorioSelector}>
+          <select id="contacto-consulta" name="consulta" required data-error={campos.consulta.error}>
+            {
+              contacto.opcionesConsulta.map((opcion: { clave: string; etiqueta: string }) => (
+                <option value={opcion.clave} disabled={opcion.clave === ''} selected={opcion.clave === ''}>
+                  {opcion.etiqueta}
+                </option>
+              ))
+            }
+          </select>
+          <Icono nombre="chevronAbajo" tamano={16} grosor={1.7} />
+        </span>
+        <span class={estilos.aviso} data-aviso></span>
+      </p>
+
+      <p class={estilos.campo}>
+        <label for="contacto-mensaje">{campos.mensaje.rotulo}</label>
+        <textarea
+          id="contacto-mensaje"
+          name="mensaje"
+          rows="4"
+          required
+          minlength="10"
+          placeholder={campos.mensaje.marcador}
+          data-error={campos.mensaje.error}></textarea>
+        <span class={estilos.aviso} data-aviso></span>
+      </p>
+
+      <p class={estilos.consentimiento}>
+        <input
+          id="contacto-consentimiento"
+          name="consentimiento"
+          type="checkbox"
+          required
+          data-error={contacto.errorConsentimiento}
+        />
+        <label for="contacto-consentimiento">{contacto.consentimiento}</label>
+        <span class={estilos.aviso} data-aviso></span>
+      </p>
+
+      <button class={estilos.enviar} type="submit" data-enviar data-enviando={contacto.enviando}>
+        <span>{contacto.enviar}</span>
+        <Icono nombre="flechaDerecha" tamano={16} grosor={1.6} />
+      </button>
+
+      <p
+        class={estilos.resultado}
+        data-resultado
+        data-exito={contacto.exito}
+        data-exito-remoto={contacto.exitoRemoto}
+        data-fallo={contacto.fallo}
+        role="status"
+        aria-live="polite"
+        hidden></p>
+    </form>
+  </Contenedor>
+</section>
+
+<script>
+  import { prepararContacto } from '../../../nucleo/contacto';
+  prepararContacto();
+  document.addEventListener('astro:page-load', prepararContacto);
+</script>

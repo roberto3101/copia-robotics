@@ -1,6 +1,7 @@
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { prepararFiltros } from './filtros';
 
 declare global {
   interface Window {
@@ -81,6 +82,7 @@ function revelarSecciones() {
 }
 
 function preparar() {
+  prepararFiltros();
   const suave = iniciarDesplazamiento();
   suave?.scrollTo(0, { immediate: true });
   anclarEnlacesInternos(suave);

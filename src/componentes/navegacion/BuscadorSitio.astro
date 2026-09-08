@@ -1,0 +1,43 @@
+---
+import Icono from '../base/Icono.astro';
+import estilos from './BuscadorSitio.module.css';
+import { contenido, type Idioma } from '../../nucleo/idiomas';
+import { construirIndice } from '../../nucleo/indice';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const busqueda = contenido(idioma, 'comunes/busqueda');
+const indice = construirIndice(idioma);
+---
+
+<dialog class={estilos.buscador} data-buscador-sitio aria-labelledby="titulo-busqueda">
+  <div class={estilos.marco}>
+    <h2 class="solo-lectores" id="titulo-busqueda">{busqueda.titulo}</h2>
+    <div class={estilos.entrada}>
+      <Icono nombre="buscar" tamano={20} grosor={1.5} />
+      <input
+        type="search"
+        data-campo-busqueda
+        placeholder={busqueda.marcador}
+        aria-label={busqueda.titulo}
+        autocomplete="off"
+      />
+      <button class={estilos.cerrar} type="button" data-cerrar-busqueda aria-label={busqueda.cerrar}>
+        <Icono nombre="cerrar" tamano={18} grosor={1.8} />
+      </button>
+    </div>
+    <ul class={estilos.resultados} data-resultados-busqueda></ul>
+    <p class={estilos.vacio} data-vacio-busqueda hidden>{busqueda.sinResultados}</p>
+    <p class={estilos.atajo}>{busqueda.atajo}</p>
+  </div>
+  <script type="application/json" data-indice-busqueda set:html={JSON.stringify(indice)} />
+</dialog>
+
+<script>
+  import { prepararBusqueda } from '../../nucleo/busqueda';
+  prepararBusqueda();
+  document.addEventListener('astro:page-load', prepararBusqueda);
+</script>

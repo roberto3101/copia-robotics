@@ -6,6 +6,8 @@ import '../estilos/base.css';
 import { ClientRouter, fade } from 'astro:transitions';
 import Cabecera from '../componentes/navegacion/Cabecera.astro';
 import PieSitio from '../componentes/navegacion/PieSitio.astro';
+import VisorVideo from '../componentes/base/VisorVideo.astro';
+import BuscadorSitio from '../componentes/navegacion/BuscadorSitio.astro';
 import { contenido, etiquetaHtml, idiomas, type Idioma } from '../nucleo/idiomas';
 import { mapaRutas, ruta, type ClaveSeccion } from '../nucleo/rutas';
 
@@ -191,10 +193,12 @@ const grafo = {
       {idioma === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
     </a>
     <Cabecera idioma={idioma} seccion={seccion} transition:persist="cabecera" />
-    <main id="contenido-principal" transition:animate={fade({ duration: '0.32s' })}>
+    <main id="contenido-principal" data-grupo-filtro transition:animate={fade({ duration: '0.32s' })}>
       <slot />
     </main>
     <PieSitio idioma={idioma} transition:persist="pie" />
+    <VisorVideo idioma={idioma} />
+    <BuscadorSitio idioma={idioma} />
     <script>
       import '../nucleo/desplazamiento';
     </script>

@@ -3,27 +3,33 @@
   "elementos": [
     {
       "icono": "rejilla",
-      "etiqueta": "Todas las soluciones"
+      "etiqueta": "Todas las soluciones",
+      "clave": "todas"
     },
     {
       "icono": "ciudadEscudo",
-      "etiqueta": "Seguridad urbana"
+      "etiqueta": "Seguridad urbana",
+      "clave": "urbana"
     },
     {
       "icono": "edificio",
-      "etiqueta": "Seguridad empresarial"
+      "etiqueta": "Seguridad empresarial",
+      "clave": "empresarial"
     },
     {
       "icono": "infraestructura",
-      "etiqueta": "Infraestructura crítica"
+      "etiqueta": "Infraestructura crítica",
+      "clave": "infraestructura"
     },
     {
       "icono": "mineria",
-      "etiqueta": "Industria y minería"
+      "etiqueta": "Industria y minería",
+      "clave": "industria"
     },
     {
       "icono": "cajaLogistica",
-      "etiqueta": "Logística y transporte"
+      "etiqueta": "Logística y transporte",
+      "clave": "logistica"
     }
   ]
 }

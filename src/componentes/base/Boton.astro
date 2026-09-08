@@ -10,6 +10,7 @@ interface Props {
   icono?: string;
   iconoInicial?: string;
   tipo?: 'button' | 'submit';
+  descargar?: boolean;
   clase?: string;
 }
 
@@ -21,6 +22,7 @@ const {
   icono = variante === 'contorno' ? undefined : 'flechaDerecha',
   iconoInicial,
   tipo = 'button',
+  descargar = false,
   clase,
 } = Astro.props;
 
@@ -34,7 +36,11 @@ const clases = [
   .join(' ');
 
 const Etiqueta = destino ? 'a' : 'button';
-const atributos = destino ? { href: destino } : { type: tipo };
+const atributos = destino
+  ? descargar
+    ? { href: destino, download: true }
+    : { href: destino }
+  : { type: tipo };
 ---
 
 <Etiqueta class={clases} {...atributos}>

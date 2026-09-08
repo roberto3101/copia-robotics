@@ -7,37 +7,55 @@
       "icono": "escudoOjo",
       "imagen": "tech-camera",
       "nombre": "Artificial intelligence",
-      "texto": "Vision that understands the environment in real time."
+      "texto": "Vision that understands the environment in real time.",
+      "categorias": [
+        "ia"
+      ]
     },
     {
       "icono": "engranajeAro",
       "imagen": "tech-drone",
       "nombre": "Drones and robotics",
-      "texto": "Autonomous platforms for surveillance and response."
+      "texto": "Autonomous platforms for surveillance and response.",
+      "categorias": [
+        "drones"
+      ]
     },
     {
       "icono": "senalCaja",
       "imagen": "tech-antenna",
       "nombre": "Communications",
-      "texto": "Secure and reliable connectivity."
+      "texto": "Secure and reliable connectivity.",
+      "categorias": [
+        "comunicaciones"
+      ]
     },
     {
       "icono": "procesador",
       "imagen": "tech-platform",
       "nombre": "Platform and software",
-      "texto": "The brain of the operation."
+      "texto": "The brain of the operation.",
+      "categorias": [
+        "plataforma"
+      ]
     },
     {
       "icono": "infraestructura",
       "imagen": "tech-infrastructure",
       "nombre": "Infrastructure",
-      "texto": "From the edge to the cloud."
+      "texto": "From the edge to the cloud.",
+      "categorias": [
+        "infraestructura"
+      ]
     },
     {
       "icono": "candadoEscudo",
       "imagen": "tech-cybersecurity",
       "nombre": "Cybersecurity",
-      "texto": "Protection at every level."
+      "texto": "Protection at every level.",
+      "categorias": [
+        "ciberseguridad"
+      ]
     }
   ]
 }

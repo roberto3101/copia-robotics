@@ -13,6 +13,7 @@ interface Props {
 const { idioma } = Astro.props;
 const destacado = contenido(idioma, 'casos-de-uso/destacado');
 const acciones = contenido(idioma, 'comunes/acciones');
+const tituloVideo = destacado.titulo.replace(/\s+/g, ' ').trim();
 ---
 
 <section class={estilos.seccion} id="caso-destacado">
@@ -32,7 +33,8 @@ const acciones = contenido(idioma, 'comunes/acciones');
           <Boton texto={acciones[destacado.accionPrincipal]} destino={ruta('nosotros', idioma)} />
           <Boton
             texto={acciones[destacado.accionSecundaria]}
-            destino={ruta('recursos', idioma)}
+            destino={destacado.archivoPdf}
+            descargar
             variante="contorno"
             iconoInicial="descargar"
             icono={undefined}
@@ -54,7 +56,14 @@ const acciones = contenido(idioma, 'comunes/acciones');
           <span>{destacado.insigniaVideo}</span>
           <span class={estilos.duracion}>{destacado.detalleVideo}</span>
         </span>
-        <button class={estilos.reproducir} type="button" aria-label={destacado.textoAlternativoVideo}>
+        <button
+          class={estilos.reproducir}
+          type="button"
+          data-video={destacado.video}
+          data-video-titulo={tituloVideo}
+          data-video-poster={`/images/${destacado.imagenVideo}.webp`}
+          aria-label={destacado.textoAlternativoVideo}
+        >
           <Icono nombre="reproducir" tamano={22} grosor={1} />
         </button>
       </div>

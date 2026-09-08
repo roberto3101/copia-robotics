@@ -24,5 +24,10 @@
       "titulo": "From data to decision:\nthe role of the ops center",
       "texto": "How to bring cameras, sensors and drones into a single platform for more efficient incident management."
     }
+  ],
+  "ambitos": [
+    "todos",
+    "articulos",
+    "noticias"
   ]
 }

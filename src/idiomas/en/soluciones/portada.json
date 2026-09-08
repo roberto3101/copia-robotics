@@ -23,7 +23,8 @@
   "accionPrincipal": "solicitarPropuesta",
   "video": {
     "etiqueta": "Watch solutions video",
-    "detalle": "(2 min)"
+    "detalle": "(2 min)",
+    "origen": "/video/demo-soluciones.mp4"
   },
   "palabrasLaterales": [
     "ONE SINGLE",

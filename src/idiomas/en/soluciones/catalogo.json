@@ -9,7 +9,14 @@
       "imagen": "case-urban",
       "nombre": "CERBERUS VISION",
       "subtitulo": "AI video surveillance",
-      "texto": "Analyzes video in real time, detects events and generates intelligent alerts."
+      "texto": "Analyzes video in real time, detects events and generates intelligent alerts.",
+      "categorias": [
+        "urbana",
+        "empresarial",
+        "infraestructura",
+        "industria",
+        "logistica"
+      ]
     },
     {
       "distintivo": "RESPOND",
@@ -17,7 +24,12 @@
       "imagen": "hero-drone-city",
       "nombre": "CERBERUS DRONE",
       "subtitulo": "Intelligent aerial surveillance",
-      "texto": "Aerial response units for event verification, patrolling and monitoring."
+      "texto": "Aerial response units for event verification, patrolling and monitoring.",
+      "categorias": [
+        "urbana",
+        "infraestructura",
+        "industria"
+      ]
     },
     {
       "distintivo": "COORDINATE",
@@ -25,7 +37,12 @@
       "imagen": "control-room",
       "nombre": "CERBERUS COMMAND",
       "subtitulo": "Operations center",
-      "texto": "Unified management of cameras, drones, incidents and resources in real time."
+      "texto": "Unified management of cameras, drones, incidents and resources in real time.",
+      "categorias": [
+        "urbana",
+        "empresarial",
+        "infraestructura"
+      ]
     },
     {
       "distintivo": "PROTECT",
@@ -33,7 +50,12 @@
       "imagen": "sector-security",
       "nombre": "CERBERUS EDGE",
       "subtitulo": "AI at the edge",
-      "texto": "Local video processing for greater speed and privacy."
+      "texto": "Local video processing for greater speed and privacy.",
+      "categorias": [
+        "empresarial",
+        "infraestructura",
+        "industria"
+      ]
     },
     {
       "distintivo": "CONNECT",
@@ -41,7 +63,14 @@
       "imagen": "tech-platform",
       "nombre": "CERBERUS INTEGRATION",
       "subtitulo": "Full integration",
-      "texto": "Connects your current infrastructure to the CERBERUS platform."
+      "texto": "Connects your current infrastructure to the CERBERUS platform.",
+      "categorias": [
+        "urbana",
+        "empresarial",
+        "infraestructura",
+        "industria",
+        "logistica"
+      ]
     },
     {
       "distintivo": "OPERATE",
@@ -49,7 +78,14 @@
       "imagen": "engineer-drone-sunset",
       "nombre": "CERBERUS OPERATIONS",
       "subtitulo": "Deployment and support",
-      "texto": "We support your project from pilot to continuous operation."
+      "texto": "We support your project from pilot to continuous operation.",
+      "categorias": [
+        "urbana",
+        "empresarial",
+        "infraestructura",
+        "industria",
+        "logistica"
+      ]
     }
   ]
 }

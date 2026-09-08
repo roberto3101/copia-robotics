@@ -3,31 +3,38 @@
   "elementos": [
     {
       "icono": "rejilla",
-      "etiqueta": "Todos los casos"
+      "etiqueta": "Todos los casos",
+      "clave": "todos"
     },
     {
       "icono": "ciudadEscudo",
-      "etiqueta": "Seguridad urbana"
+      "etiqueta": "Seguridad urbana",
+      "clave": "urbana"
     },
     {
       "icono": "edificio",
-      "etiqueta": "Seguridad empresarial"
+      "etiqueta": "Seguridad empresarial",
+      "clave": "empresarial"
     },
     {
       "icono": "mineria",
-      "etiqueta": "Industria y minería"
+      "etiqueta": "Industria y minería",
+      "clave": "industria"
     },
     {
       "icono": "casco",
-      "etiqueta": "Construcción"
+      "etiqueta": "Construcción",
+      "clave": "construccion"
     },
     {
       "icono": "cajaLogistica",
-      "etiqueta": "Logística y transporte"
+      "etiqueta": "Logística y transporte",
+      "clave": "logistica"
     },
     {
       "icono": "alertaSello",
-      "etiqueta": "Emergencias"
+      "etiqueta": "Emergencias",
+      "clave": "emergencias"
     }
   ]
 }

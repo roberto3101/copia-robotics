@@ -4,35 +4,43 @@
   "elementos": [
     {
       "icono": "rejilla",
-      "etiqueta": "All"
+      "etiqueta": "All",
+      "clave": "todos"
     },
     {
       "icono": "articulo",
-      "etiqueta": "Articles"
+      "etiqueta": "Articles",
+      "clave": "articulos"
     },
     {
       "icono": "reproducir",
-      "etiqueta": "Videos"
+      "etiqueta": "Videos",
+      "clave": "videos"
     },
     {
       "icono": "documento",
-      "etiqueta": "Documents"
+      "etiqueta": "Documents",
+      "clave": "documentos"
     },
     {
       "icono": "webinar",
-      "etiqueta": "Webinars"
+      "etiqueta": "Webinars",
+      "clave": "webinars"
     },
     {
       "icono": "casoExito",
-      "etiqueta": "Success stories"
+      "etiqueta": "Success stories",
+      "clave": "casos"
     },
     {
       "icono": "noticia",
-      "etiqueta": "News"
+      "etiqueta": "News",
+      "clave": "noticias"
     },
     {
       "icono": "guia",
-      "etiqueta": "Guides and manuals"
+      "etiqueta": "Guides and manuals",
+      "clave": "guias"
     }
   ]
 }

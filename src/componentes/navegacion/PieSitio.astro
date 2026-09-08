@@ -95,11 +95,9 @@ const destinoContacto = `${ruta('nosotros', idioma)}#contacto`;
     </div>
   </Contenedor>
 
-  <div class={estilos.marcaGrande} data-resplandor aria-label={marca.textoAlternativo}>
-    <span class={estilos.palabraMarca} aria-hidden="true">{pie.marcaGrande}</span>
-    <span
-      class={[estilos.palabraMarca, estilos.palabraMarcaEncima].join(' ')}
-      aria-hidden="true">{pie.marcaGrande}</span>
+  <div class={estilos.marcaGrande} data-resplandor aria-hidden="true">
+    <span class={estilos.palabraMarca}>{pie.marcaGrande}</span>
+    <span class={[estilos.palabraMarca, estilos.palabraMarcaEncima].join(' ')}>{pie.marcaGrande}</span>
   </div>
 </footer>
 

@@ -21,6 +21,27 @@
       "cita": "“We have reduced risk on our routes and improved traceability of our fleet. It is a key tool for our business.”",
       "autor": "Javier Rojas",
       "cargo": "Operations Manager"
+    },
+    {
+      "emblema": "industrial",
+      "organizacion": "Arequipa Industrial Plant",
+      "cita": "“We detect perimeter intrusions before they reach critical areas. The team responds with information, not guesswork.”",
+      "autor": "Lucía Paredes",
+      "cargo": "Head of Industrial Security"
+    },
+    {
+      "emblema": "constructor",
+      "organizacion": "Constructora del Norte",
+      "cita": "“Site access control is no longer paper and radio. We know who enters, when and at which work front.”",
+      "autor": "Diego Salas",
+      "cargo": "Project Manager"
+    },
+    {
+      "emblema": "portuario",
+      "organizacion": "Callao Port Terminal",
+      "cita": "“Container traceability and restricted-area monitoring were integrated without replacing our cameras.”",
+      "autor": "Rosa Quispe",
+      "cargo": "Operations Coordinator"
     }
   ]
 }

@@ -5,13 +5,19 @@ import estilos from './BotonVideo.module.css';
 interface Props {
   etiqueta: string;
   detalle?: string;
-  destino?: string;
+  origen?: string;
+  poster?: string;
   clase?: string;
 }
 
-const { etiqueta, detalle, destino, clase } = Astro.props;
-const Etiqueta = destino ? 'a' : 'button';
-const atributos = destino ? { href: destino } : { type: 'button' };
+const { etiqueta, detalle, origen, poster, clase } = Astro.props;
+const Etiqueta = 'button';
+const atributos = {
+  type: 'button',
+  'data-video': origen,
+  'data-video-titulo': etiqueta,
+  'data-video-poster': poster,
+};
 ---
 
 <Etiqueta class={[estilos.boton, clase].filter(Boolean).join(' ')} {...atributos} aria-label={etiqueta}>

@@ -21,6 +21,16 @@
       "imagen": "sector-logistics",
       "titulo": "Control de accesos",
       "detalle": "Centro logístico"
+    },
+    {
+      "imagen": "case-warehouse",
+      "titulo": "Protección de almacenes\ny centros logísticos",
+      "detalle": "Callao, Perú"
+    },
+    {
+      "imagen": "case-emergency",
+      "titulo": "Apoyo en la gestión\nde desastres naturales",
+      "detalle": "Lurín, Lima"
     }
   ]
 }

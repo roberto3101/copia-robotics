@@ -20,7 +20,8 @@
   "accionPrincipal": "solicitarPropuesta",
   "video": {
     "etiqueta": "Ver video de soluciones",
-    "detalle": "(2 min)"
+    "detalle": "(2 min)",
+    "origen": "/video/demo-soluciones.mp4"
   },
   "palabrasLaterales": [
     "UNA SOLA",

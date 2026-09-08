@@ -4,14 +4,34 @@
   "marcadorBusqueda": "Search use cases...",
   "rotuloFiltro": "All sectors",
   "opcionesFiltro": [
-    "All sectors",
-    "Urban security",
-    "Mining",
-    "Construction",
-    "Logistics",
-    "Industry",
-    "Emergencies",
-    "Enterprise security"
+    {
+      "clave": "",
+      "etiqueta": "All sectors"
+    },
+    {
+      "clave": "urbana",
+      "etiqueta": "Urban security"
+    },
+    {
+      "clave": "industria",
+      "etiqueta": "Mining"
+    },
+    {
+      "clave": "construccion",
+      "etiqueta": "Construction"
+    },
+    {
+      "clave": "logistica",
+      "etiqueta": "Logistics"
+    },
+    {
+      "clave": "empresarial",
+      "etiqueta": "Industry"
+    },
+    {
+      "clave": "emergencias",
+      "etiqueta": "Emergencies"
+    }
   ],
   "elementos": [
     {
@@ -19,56 +39,90 @@
       "imagen": "case-urban",
       "titulo": "Theft reduction in a\ncommercial district",
       "ubicacion": "Los Olivos, Lima",
-      "texto": "AI detects suspicious behavior and raises real-time alerts. Drones verify incidents and support municipal patrol units."
+      "texto": "AI detects suspicious behavior and raises real-time alerts. Drones verify incidents and support municipal patrol units.",
+      "categorias": [
+        "urbana"
+      ],
+      "sector": "urbana"
     },
     {
       "distintivo": "MINING",
       "imagen": "sector-mining",
       "titulo": "Perimeter monitoring\nat an open-pit mine",
       "ubicacion": "Cajamarca, Peru",
-      "texto": "24/7 surveillance with thermal cameras and drones to detect intrusions in critical zones. Integrated with the client's operations center."
+      "texto": "24/7 surveillance with thermal cameras and drones to detect intrusions in critical zones. Integrated with the client's operations center.",
+      "categorias": [
+        "industria"
+      ],
+      "sector": "industria"
     },
     {
       "distintivo": "CONSTRUCTION",
       "imagen": "sector-construction",
       "titulo": "Access control on\nlarge-scale sites",
       "ubicacion": "Lima, Peru",
-      "texto": "Detection of unauthorized personnel, vehicle tracking and entry control through video analytics and integration with existing systems."
+      "texto": "Detection of unauthorized personnel, vehicle tracking and entry control through video analytics and integration with existing systems.",
+      "categorias": [
+        "construccion"
+      ],
+      "sector": "construccion"
     },
     {
       "distintivo": "LOGISTICS",
       "imagen": "sector-logistics",
       "titulo": "Security on transport\nroutes",
       "ubicacion": "Panamericana Sur, Peru",
-      "texto": "Real-time fleet monitoring, detection of unscheduled stops and aerial support in risk situations."
+      "texto": "Real-time fleet monitoring, detection of unscheduled stops and aerial support in risk situations.",
+      "categorias": [
+        "logistica"
+      ],
+      "sector": "logistica"
     },
     {
       "distintivo": "INDUSTRY",
       "imagen": "sector-industry",
       "titulo": "Smart surveillance at\nan industrial plant",
       "ubicacion": "Arequipa, Peru",
-      "texto": "Intrusion detection, perimeter control and monitoring of critical zones with AI and autonomous drones."
+      "texto": "Intrusion detection, perimeter control and monitoring of critical zones with AI and autonomous drones.",
+      "categorias": [
+        "industria"
+      ],
+      "sector": "industria"
     },
     {
       "distintivo": "TOURISM AND EVENTS",
       "imagen": "case-beach-city",
       "titulo": "Safer cities during\nlarge events",
       "ubicacion": "Summer 2025, Lima",
-      "texto": "Aerial and ground monitoring for crowd management, access control and fast incident response."
+      "texto": "Aerial and ground monitoring for crowd management, access control and fast incident response.",
+      "categorias": [
+        "urbana"
+      ],
+      "sector": "urbana"
     },
     {
       "distintivo": "EMERGENCIES",
       "imagen": "case-emergency",
       "titulo": "Support in natural\ndisaster management",
       "ubicacion": "Lurín, Lima",
-      "texto": "Drones with thermal cameras to assess affected areas, identify fire outbreaks and support emergency teams."
+      "texto": "Drones with thermal cameras to assess affected areas, identify fire outbreaks and support emergency teams.",
+      "categorias": [
+        "emergencias"
+      ],
+      "sector": "emergencias"
     },
     {
       "distintivo": "ENTERPRISE SECURITY",
       "imagen": "case-warehouse",
       "titulo": "Protecting warehouses\nand logistics centers",
       "ubicacion": "Callao, Peru",
-      "texto": "Intrusion detection, inventory control in critical zones and night monitoring with AI and thermal cameras."
+      "texto": "Intrusion detection, inventory control in critical zones and night monitoring with AI and thermal cameras.",
+      "categorias": [
+        "empresarial"
+      ],
+      "sector": "empresarial"
     }
-  ]
+  ],
+  "sinResultados": "No cases match those criteria. Try another sector or change your search.",
+  "conteo": "{n} of {total} cases"
 }

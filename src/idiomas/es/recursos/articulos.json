@@ -24,5 +24,10 @@
       "titulo": "Del dato a la decisión:\nel rol del centro de operaciones",
       "texto": "Cómo integrar cámaras, sensores y drones en una plataforma única para una gestión de incidentes más eficiente."
     }
+  ],
+  "ambitos": [
+    "todos",
+    "articulos",
+    "noticias"
   ]
 }

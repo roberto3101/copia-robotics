@@ -23,11 +23,17 @@ const destino = ruta('soluciones', idioma);
       subtitulo={componentes.subtitulo}
       nota={componentes.nota}
     />
-    <ul class={estilos.rejilla}>
+    <ul class={estilos.rejilla} data-lista>
       {
         componentes.elementos.map(
-          (elemento: { icono: string; imagen: string; nombre: string; texto: string }) => (
-            <li>
+          (elemento: {
+            icono: string;
+            imagen: string;
+            nombre: string;
+            texto: string;
+            categorias: string[];
+          }) => (
+            <li data-pieza data-categorias={elemento.categorias.join(' ')}>
               <a class={estilos.tarjeta} href={destino}>
                 <img
                   class={estilos.imagen}

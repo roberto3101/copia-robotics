@@ -230,3 +230,11 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.tercios li[hidden] {
+  display: none;
+}
+
+.bloque[hidden] {
+  display: none;
+}

@@ -23,19 +23,30 @@ const acciones = contenido(idioma, 'comunes/acciones');
       <div class={estilos.filtros}>
         <label class={estilos.buscador}>
           <Icono nombre="buscar" tamano={18} grosor={1.5} />
-          <input type="search" placeholder={catalogo.marcadorBusqueda} aria-label={catalogo.marcadorBusqueda} />
+          <input
+            type="search"
+            data-buscador
+            placeholder={catalogo.marcadorBusqueda}
+            aria-label={catalogo.marcadorBusqueda}
+          />
         </label>
         <label class={estilos.selector}>
           <span class="solo-lectores">{catalogo.rotuloFiltro}</span>
-          <select>
-            {catalogo.opcionesFiltro.map((opcion: string) => <option>{opcion}</option>)}
+          <select data-selector-sector>
+            {
+              catalogo.opcionesFiltro.map((opcion: { clave: string; etiqueta: string }) => (
+                <option value={opcion.clave}>{opcion.etiqueta}</option>
+              ))
+            }
           </select>
           <Icono nombre="chevronAbajo" tamano={16} grosor={1.7} />
         </label>
       </div>
     </div>
 
-    <ul class={estilos.rejilla}>
+    <p class={estilos.conteo} data-conteo={catalogo.conteo} hidden aria-live="polite"></p>
+
+    <ul class={estilos.rejilla} data-lista>
       {
         catalogo.elementos.map(
           (caso: {
@@ -44,8 +55,15 @@ const acciones = contenido(idioma, 'comunes/acciones');
             titulo: string;
             ubicacion: string;
             texto: string;
+            sector: string;
+            categorias: string[];
           }) => (
-            <li>
+            <li
+              data-pieza
+              data-sector={caso.sector}
+              data-categorias={caso.categorias.join(' ')}
+              data-busqueda={`${caso.titulo} ${caso.ubicacion} ${caso.texto} ${caso.distintivo}`}
+            >
               <article class={estilos.tarjeta}>
                 <div class={estilos.lienzo}>
                   <img
@@ -77,5 +95,7 @@ const acciones = contenido(idioma, 'comunes/acciones');
         )
       }
     </ul>
+
+    <p class={estilos.vacio} data-sin-resultados hidden>{catalogo.sinResultados}</p>
   </Contenedor>
 </section>

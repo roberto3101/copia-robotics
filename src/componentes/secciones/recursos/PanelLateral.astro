@@ -13,6 +13,7 @@ const { idioma } = Astro.props;
 const panel = contenido(idioma, 'recursos/panel-lateral');
 const acciones = contenido(idioma, 'comunes/acciones');
 const destino = ruta('recursos', idioma);
+const contactoPie = contenido(idioma, 'comunes/pie').contacto;
 ---
 
 <aside class={estilos.panel}>
@@ -24,7 +25,13 @@ const destino = ruta('recursos', idioma);
         <p class={estilos.texto}>{panel.boletin.texto}</p>
       </div>
     </div>
-    <form class={estilos.formulario}>
+    <form
+      class={estilos.formulario}
+      data-formulario-boletin
+      data-correo={contactoPie.correo}
+      data-asunto={panel.boletin.asunto}
+      novalidate
+    >
       <label class="solo-lectores" for="correo-boletin">{panel.boletin.rotulo}</label>
       <input
         class={estilos.campo}
@@ -32,9 +39,14 @@ const destino = ruta('recursos', idioma);
         type="email"
         name="correo"
         placeholder={panel.boletin.marcador}
+        data-error={panel.boletin.error}
         required
       />
+      <span class={estilos.aviso} data-aviso-boletin></span>
       <Boton texto={acciones[panel.boletin.accion]} tipo="submit" clase={estilos.enviar} />
+      <p class={estilos.exito} data-exito-boletin role="status" aria-live="polite" hidden>
+        {panel.boletin.exito}
+      </p>
     </form>
   </section>
 
@@ -51,16 +63,29 @@ const destino = ruta('recursos', idioma);
         decoding="async"
       />
       <span class={estilos.distintivo}>{panel.destacado.distintivo}</span>
-      <button class={estilos.reproducir} type="button" aria-label={panel.destacado.nombre}>
+      <button
+        class={estilos.reproducir}
+        type="button"
+        data-video={panel.destacado.video}
+        data-video-titulo={panel.destacado.nombre}
+        data-video-poster={`/images/${panel.destacado.imagen}.webp`}
+        aria-label={panel.destacado.nombre}
+      >
         <Icono nombre="reproducir" tamano={20} grosor={1} />
       </button>
     </div>
     <h3 class={estilos.nombreDestacado}>{panel.destacado.nombre}</h3>
     <p class={estilos.texto}>{panel.destacado.texto}</p>
-    <a class={estilos.enlace} href={destino}>
+    <button
+      class={[estilos.enlace, estilos.enlaceBoton].join(' ')}
+      type="button"
+      data-video={panel.destacado.video}
+      data-video-titulo={panel.destacado.nombre}
+      data-video-poster={`/images/${panel.destacado.imagen}.webp`}
+    >
       {acciones[panel.destacado.accion]}
       <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
-    </a>
+    </button>
   </section>
 
   <section class={estilos.tarjeta}>
@@ -117,3 +142,9 @@ const destino = ruta('recursos', idioma);
     </ul>
   </section>
 </aside>
+
+<script>
+  import { prepararBoletin } from '../../../nucleo/boletin';
+  prepararBoletin();
+  document.addEventListener('astro:page-load', prepararBoletin);
+</script>

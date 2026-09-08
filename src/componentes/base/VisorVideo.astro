@@ -1,0 +1,31 @@
+---
+import Icono from './Icono.astro';
+import estilos from './VisorVideo.module.css';
+import { contenido, type Idioma } from '../../nucleo/idiomas';
+
+interface Props {
+  idioma: Idioma;
+}
+
+const { idioma } = Astro.props;
+const visor = contenido(idioma, 'comunes/visor');
+---
+
+<dialog class={estilos.visor} data-visor-video aria-labelledby="titulo-visor">
+  <div class={estilos.marco}>
+    <header class={estilos.cabecera}>
+      <h2 class={estilos.titulo} id="titulo-visor" data-titulo-visor></h2>
+      <button class={estilos.cerrar} type="button" data-cerrar-visor aria-label={visor.cerrar}>
+        <Icono nombre="cerrar" tamano={20} grosor={1.8} />
+      </button>
+    </header>
+    <video class={estilos.reproductor} data-reproductor controls playsinline preload="none"></video>
+    <p class={estilos.nota}>{visor.nota}</p>
+  </div>
+</dialog>
+
+<script>
+  import { prepararVisorVideo } from '../../nucleo/visor-video';
+  prepararVisorVideo();
+  document.addEventListener('astro:page-load', prepararVisorVideo);
+</script>

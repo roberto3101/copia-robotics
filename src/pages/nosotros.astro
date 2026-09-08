@@ -7,6 +7,7 @@ import EquipoEmpresa from '../componentes/secciones/nosotros/EquipoEmpresa.astro
 import CifrasEmpresa from '../componentes/secciones/nosotros/CifrasEmpresa.astro';
 import AlianzasEmpresa from '../componentes/secciones/nosotros/AlianzasEmpresa.astro';
 import BandaLlamada from '../componentes/secciones/BandaLlamada.astro';
+import ContactoEmpresa from '../componentes/secciones/nosotros/ContactoEmpresa.astro';
 import { contenido } from '../nucleo/idiomas';
 
 const idioma = 'es' as const;
@@ -46,6 +47,7 @@ const metadatos = contenido(idioma, 'nosotros/metadatos');
   <EquipoEmpresa idioma={idioma} />
   <CifrasEmpresa idioma={idioma} />
   <AlianzasEmpresa idioma={idioma} />
+  <ContactoEmpresa idioma={idioma} />
   <BandaLlamada
     idioma={idioma}
     paquete="nosotros"

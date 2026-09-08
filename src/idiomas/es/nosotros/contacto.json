@@ -1,0 +1,78 @@
+{
+  "antetitulo": "CONTACTO",
+  "titulo": "Conversemos sobre tu proyecto",
+  "texto": "Cuéntanos qué necesitas y un especialista te responderá con una propuesta adaptada a tu operación.",
+  "campos": {
+    "nombre": {
+      "rotulo": "Nombre y apellido",
+      "marcador": "María Torres",
+      "error": "Escribe tu nombre."
+    },
+    "correo": {
+      "rotulo": "Correo electrónico",
+      "marcador": "maria@empresa.pe",
+      "error": "Escribe un correo válido."
+    },
+    "empresa": {
+      "rotulo": "Organización",
+      "marcador": "Municipalidad, empresa o institución",
+      "error": ""
+    },
+    "telefono": {
+      "rotulo": "Teléfono",
+      "marcador": "+51 900 000 000",
+      "error": "Usa solo números, espacios y el signo +."
+    },
+    "consulta": {
+      "rotulo": "Tipo de consulta",
+      "error": "Elige una opción."
+    },
+    "mensaje": {
+      "rotulo": "Mensaje",
+      "marcador": "Describe tu necesidad, el sector y el alcance estimado.",
+      "error": "Cuéntanos brevemente qué necesitas."
+    }
+  },
+  "opcionesConsulta": [
+    {
+      "clave": "",
+      "etiqueta": "Selecciona una opción"
+    },
+    {
+      "clave": "demostracion",
+      "etiqueta": "Solicitar una demostración"
+    },
+    {
+      "clave": "propuesta",
+      "etiqueta": "Solicitar una propuesta"
+    },
+    {
+      "clave": "alianza",
+      "etiqueta": "Alianzas y distribución"
+    },
+    {
+      "clave": "soporte",
+      "etiqueta": "Soporte técnico"
+    },
+    {
+      "clave": "trabajo",
+      "etiqueta": "Trabajar con ustedes"
+    },
+    {
+      "clave": "otro",
+      "etiqueta": "Otra consulta"
+    }
+  ],
+  "consentimiento": "Acepto que AI Robotics Perú use mis datos para responder a esta consulta.",
+  "errorConsentimiento": "Necesitamos tu autorización para responderte.",
+  "enviar": "Enviar consulta",
+  "enviando": "Enviando…",
+  "exito": "Listo. Abrimos tu programa de correo con la consulta preparada; solo tienes que enviarla.",
+  "exitoRemoto": "Consulta enviada. Te responderemos en menos de 48 horas hábiles.",
+  "fallo": "No pudimos enviar la consulta. Escríbenos a comercial@airobotics.pe.",
+  "asunto": "Consulta desde el sitio web",
+  "canales": {
+    "titulo": "Otras vías",
+    "texto": "Si prefieres, escríbenos o llámanos directamente en horario de oficina (GMT-5)."
+  }
+}

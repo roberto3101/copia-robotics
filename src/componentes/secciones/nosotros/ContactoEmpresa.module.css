@@ -1,0 +1,279 @@
+.seccion {
+  background: var(--superficie-1);
+  border-bottom: 1px solid var(--linea-suave);
+  scroll-margin-top: calc(var(--alto-cabecera) + 16px);
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  align-items: start;
+  gap: 48px;
+  padding-block: 46px 52px;
+}
+
+.discurso {
+  padding-left: var(--sangria-bloque);
+}
+
+.titulo {
+  margin-top: 14px;
+  font-size: var(--texto-h2);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.texto {
+  margin-top: 12px;
+  font-size: var(--texto-cuerpo);
+  line-height: 23px;
+  color: var(--texto-2);
+}
+
+.canales {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--linea-suave);
+}
+
+.tituloCanales {
+  font-family: var(--tipografia-mono);
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-1);
+}
+
+.textoCanales {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--texto-2);
+}
+
+.listaCanales {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.canal {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: fit-content;
+  min-height: 24px;
+  font-size: var(--texto-cuerpo);
+  color: var(--texto-2);
+  transition: color var(--duracion) var(--curva);
+}
+
+.canal svg {
+  flex: none;
+  color: var(--marca-400);
+}
+
+a.canal:hover {
+  color: var(--marca-400);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px 30px 30px;
+  border: 1px solid var(--linea-suave);
+  border-radius: var(--radio-md);
+  background: var(--superficie-base);
+}
+
+.trampa {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.par {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.campo label,
+.consentimiento label {
+  font-family: var(--tipografia-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-sm);
+  background: var(--superficie-1);
+  font-size: var(--texto-cuerpo);
+  color: var(--texto-1);
+  outline: none;
+  transition:
+    border-color var(--duracion) var(--curva),
+    box-shadow var(--duracion) var(--curva);
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 108px;
+  line-height: 1.5;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+  color: var(--texto-4);
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+  border-color: var(--marca-400);
+  box-shadow: 0 0 0 3px rgba(53, 169, 238, 0.18);
+}
+
+.envoltorioSelector {
+  position: relative;
+  display: block;
+}
+
+.envoltorioSelector select {
+  appearance: none;
+  padding-right: 42px;
+  cursor: pointer;
+}
+
+.envoltorioSelector svg {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--texto-3);
+}
+
+.aviso {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: #ff8a80;
+  min-height: 0;
+}
+
+.campo:global(.con-error) input,
+.campo:global(.con-error) textarea,
+.campo:global(.con-error) select {
+  border-color: #ff8a80;
+}
+
+.consentimiento {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 10px 12px;
+}
+
+.consentimiento input {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--marca-500);
+  cursor: pointer;
+}
+
+.consentimiento label {
+  font-family: var(--tipografia);
+  font-size: 13.5px;
+  letter-spacing: 0;
+  line-height: 19px;
+  text-transform: none;
+  color: var(--texto-2);
+  cursor: pointer;
+}
+
+.consentimiento .aviso {
+  grid-column: 2;
+}
+
+.enviar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  align-self: flex-start;
+  padding: 13px 24px;
+  border-radius: var(--radio-sm);
+  background: var(--marca-500);
+  color: var(--texto-sobre-marca);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  box-shadow: var(--resplandor-marca-suave);
+  transition:
+    background-color var(--duracion) var(--curva),
+    box-shadow var(--duracion) var(--curva),
+    opacity var(--duracion) var(--curva);
+}
+
+.enviar:hover:not(:disabled) {
+  background: var(--marca-600);
+  box-shadow: var(--resplandor-marca);
+}
+
+.enviar:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.resultado {
+  padding: 13px 16px;
+  border: 1px solid var(--linea-marca);
+  border-radius: var(--radio-sm);
+  background: rgba(53, 169, 238, 0.1);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--texto-1);
+}
+
+.resultado[data-estado='fallo'] {
+  border-color: rgba(255, 138, 128, 0.55);
+  background: rgba(255, 138, 128, 0.12);
+}
+
+@media (max-width: 1023.98px) {
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .par {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .formulario {
+    padding: 22px 20px 24px;
+  }
+}

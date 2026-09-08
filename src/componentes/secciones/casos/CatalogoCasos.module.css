@@ -204,3 +204,27 @@
     flex-direction: column;
   }
 }
+
+.conteo {
+  margin-top: 14px;
+  padding-left: var(--sangria-bloque);
+  font-family: var(--tipografia-mono);
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--texto-3);
+}
+
+.vacio {
+  margin-top: 26px;
+  padding: 30px var(--sangria-bloque);
+  border: 1px dashed var(--linea);
+  border-radius: var(--radio-md);
+  text-align: center;
+  font-size: var(--texto-cuerpo);
+  color: var(--texto-2);
+}
+
+.rejilla li[hidden] {
+  display: none;
+}

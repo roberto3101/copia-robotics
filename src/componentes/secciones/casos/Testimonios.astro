@@ -18,16 +18,16 @@ const acciones = contenido(idioma, 'comunes/acciones');
     <div class={estilos.encabezado}>
       <h2 class={estilos.titulo}>{testimonios.titulo}</h2>
       <div class={estilos.controles}>
-        <button class={estilos.control} type="button" aria-label={acciones.anterior}>
+        <button class={estilos.control} type="button" data-desplazar="-1" aria-label={acciones.anterior}>
           <Icono nombre="chevronIzquierda" tamano={18} grosor={1.5} />
         </button>
-        <button class={estilos.control} type="button" aria-label={acciones.siguiente}>
+        <button class={estilos.control} type="button" data-desplazar="1" aria-label={acciones.siguiente}>
           <Icono nombre="chevronDerecha" tamano={18} grosor={1.5} />
         </button>
       </div>
     </div>
 
-    <ul class={estilos.rejilla}>
+    <ul class={estilos.rejilla} data-pista>
       {
         testimonios.elementos.map(
           (t: { emblema: string; organizacion: string; cita: string; autor: string; cargo: string }) => (
@@ -52,3 +52,9 @@ const acciones = contenido(idioma, 'comunes/acciones');
     </ul>
   </Contenedor>
 </section>
+
+<script>
+  import { prepararCarruseles } from '../../../nucleo/carrusel';
+  prepararCarruseles();
+  document.addEventListener('astro:page-load', prepararCarruseles);
+</script>

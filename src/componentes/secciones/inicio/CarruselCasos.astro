@@ -30,7 +30,7 @@ const destino = ruta('casos', idioma);
       </div>
     </div>
 
-    <ul class={estilos.pista} data-pista-casos>
+    <ul class={estilos.pista} data-pista>
       {
         casos.elementos.map((caso: { imagen: string; titulo: string; detalle: string }) => (
           <li class={estilos.diapositiva}>
@@ -61,14 +61,7 @@ const destino = ruta('casos', idioma);
 </section>
 
 <script>
-  const pista = document.querySelector('[data-pista-casos]');
-  if (pista instanceof HTMLElement) {
-    document.querySelectorAll('[data-desplazar]').forEach((boton) => {
-      boton.addEventListener('click', () => {
-        const sentido = Number((boton as HTMLElement).dataset.desplazar);
-        const paso = pista.firstElementChild?.getBoundingClientRect().width ?? 300;
-        pista.scrollBy({ left: sentido * (paso + 14), behavior: 'smooth' });
-      });
-    });
-  }
+  import { prepararCarruseles } from '../../../nucleo/carrusel';
+  prepararCarruseles();
+  document.addEventListener('astro:page-load', prepararCarruseles);
 </script>

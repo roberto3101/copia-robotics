@@ -122,3 +122,7 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.rejilla li[hidden] {
+  display: none;
+}

@@ -5,7 +5,10 @@
     "texto": "Recibe las últimas novedades, artículos y eventos en tu correo.",
     "marcador": "Tu correo electrónico",
     "rotulo": "Correo electrónico",
-    "accion": "suscribirme"
+    "accion": "suscribirme",
+    "error": "Escribe un correo válido.",
+    "exito": "Gracias. Abrimos tu correo para confirmar la suscripción.",
+    "asunto": "Suscripción al boletín"
   },
   "destacado": {
     "titulo": "Contenido destacado",
@@ -14,7 +17,8 @@
     "nombre": "CERBERUS en acción",
     "texto": "Inteligencia para un futuro más seguro.",
     "accion": "verVideo",
-    "textoAlternativo": "Video destacado de CERBERUS en acción"
+    "textoAlternativo": "Video destacado de CERBERUS en acción",
+    "video": "/video/demo-deteccion.mp4"
   },
   "eventos": {
     "icono": "calendario",
