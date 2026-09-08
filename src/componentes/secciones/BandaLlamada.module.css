@@ -176,33 +176,73 @@
 }
 
 @media (max-width: 1023.98px) {
-  .palabras .rejilla,
-  .cifras .rejilla,
+  .dispPalabras .rejilla,
+  .dispCifras .rejilla,
   .dispCompacta .rejilla {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    row-gap: 28px;
+  }
+
+  .dispPalabras .rejilla {
+    padding-block: 34px 36px;
+  }
+
+  .dispCifras .rejilla {
+    padding-block: 34px 38px;
+  }
+
+  .dispPalabras .palabras,
+  .dispCifras .cifrasLista,
+  .dispCompacta .acciones,
+  .acciones {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .palabras {
     justify-self: start;
     text-align: left;
+    font-size: 19px;
   }
 
   .cifrasLista {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-self: start;
     gap: 26px 0;
+  }
+
+  .acciones {
+    margin-top: 0;
   }
 
   .dispCompacta .acciones {
     display: flex;
+    justify-self: start;
+    align-self: start;
   }
 }
 
 @media (max-width: 559.98px) {
-  .cifrasLista {
-    grid-template-columns: minmax(0, 1fr);
+  .cifra {
+    padding-inline: 8px;
   }
 
   .cifra + .cifra::before {
     display: none;
+  }
+
+  .valor {
+    font-size: 27px;
+  }
+
+  .etiquetaCifra {
+    font-size: 14.5px;
+  }
+}
+
+@media (max-width: 359.98px) {
+  .cifrasLista {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

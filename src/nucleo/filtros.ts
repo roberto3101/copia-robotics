@@ -56,6 +56,21 @@ function aplicar(grupo: HTMLElement) {
   grupo.dispatchEvent(new CustomEvent('filtro:aplicado', { detail: { visibles } }));
 }
 
+function senalarDesplazamiento(pista: HTMLElement) {
+  const barra = pista.closest<HTMLElement>('nav');
+  if (!barra) return;
+
+  const actualizar = () => {
+    const restante = pista.scrollWidth - pista.clientWidth - pista.scrollLeft;
+    barra.toggleAttribute('data-resto-inicio', pista.scrollLeft > 4);
+    barra.toggleAttribute('data-resto-fin', restante > 4);
+  };
+
+  pista.addEventListener('scroll', actualizar, { passive: true });
+  window.addEventListener('resize', actualizar);
+  actualizar();
+}
+
 function enlazarGrupo(grupo: HTMLElement) {
   if (grupo.dataset.filtroListo) return;
   grupo.dataset.filtroListo = '1';
@@ -68,6 +83,7 @@ function enlazarGrupo(grupo: HTMLElement) {
       pestanas.forEach((otra) => otra.setAttribute('aria-selected', String(otra === pestana)));
       grupo.dataset.clave = pestana.dataset.clavePestana ?? '';
       aplicar(grupo);
+      pestana.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
       const lista = grupo.querySelector<HTMLElement>('[data-lista]');
       if (lista && window.scrollY > lista.offsetTop) {
         lista.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -76,6 +92,7 @@ function enlazarGrupo(grupo: HTMLElement) {
   });
 
   const barra = grupo.querySelector<HTMLElement>('[role="tablist"]');
+  if (barra) senalarDesplazamiento(barra);
   barra?.addEventListener('keydown', (evento) => {
     const teclas = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
     if (!teclas.includes(evento.key)) return;

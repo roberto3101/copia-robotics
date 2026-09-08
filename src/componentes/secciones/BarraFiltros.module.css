@@ -1,6 +1,35 @@
 .barra {
+  position: relative;
   background: var(--superficie-1);
   border-bottom: 1px solid var(--linea-suave);
+}
+
+.barra::before,
+.barra::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 1px;
+  z-index: 2;
+  width: 46px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duracion) var(--curva);
+}
+
+.barra::before {
+  left: var(--margen);
+  background: linear-gradient(90deg, var(--superficie-1) 14%, transparent);
+}
+
+.barra::after {
+  right: var(--margen);
+  background: linear-gradient(270deg, var(--superficie-1) 14%, transparent);
+}
+
+.barra[data-resto-inicio]::before,
+.barra[data-resto-fin]::after {
+  opacity: 1;
 }
 
 .pista {
