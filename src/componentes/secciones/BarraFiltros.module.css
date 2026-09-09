@@ -43,6 +43,13 @@
   display: none;
 }
 
+.grupoPestanas {
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-width: max-content;
+}
+
 .pestana {
   position: relative;
   display: flex;

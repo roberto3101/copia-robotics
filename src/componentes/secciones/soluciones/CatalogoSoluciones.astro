@@ -58,6 +58,7 @@ const destino = ruta('tecnologia', idioma);
                   <p class={estilos.texto}>{elemento.texto}</p>
                   <a class={estilos.enlace} href={destino}>
                     {acciones.conocerMas}
+                    <span class="solo-lectores">{` ${elemento.nombre}`}</span>
                     <Icono nombre="flechaDerecha" tamano={15} grosor={1.6} />
                   </a>
                 </div>

@@ -125,7 +125,7 @@
   }
 }
 
-@media (max-width: 1049.98px) {
+@media (max-width: 899.98px) {
   .rejilla {
     grid-template-columns: minmax(0, 1fr);
     padding-block: 34px 38px;

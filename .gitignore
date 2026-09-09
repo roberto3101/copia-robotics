@@ -12,3 +12,6 @@ herramientas/capturas/
 herramientas/cotejo/
 herramientas/referencia/
 _source/
+
+__pycache__/
+*.pyc

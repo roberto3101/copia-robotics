@@ -84,8 +84,12 @@ const acciones = contenido(idioma, 'comunes/acciones');
                     {caso.ubicacion}
                   </p>
                   <p class={estilos.texto}>{caso.texto}</p>
-                  <a class={estilos.enlace} href="#caso-destacado">
+                  <a
+                    class={estilos.enlace}
+                    href="#caso-destacado"
+                  >
                     {acciones.verCasoCompleto}
+                    <span class="solo-lectores">{` ${caso.titulo.replace(/\s+/g, ' ')}`}</span>
                     <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
                   </a>
                 </div>

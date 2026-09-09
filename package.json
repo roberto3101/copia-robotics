@@ -12,7 +12,11 @@
     "secciones": "node herramientas/secciones.mjs",
     "responsive": "node herramientas/responsive.mjs",
     "probar": "node herramientas/probar-todo.mjs",
-    "enlaces": "node herramientas/auditar-enlaces.mjs"
+    "enlaces": "node herramientas/auditar-enlaces.mjs",
+    "solapes": "node herramientas/solapes.mjs",
+    "desbordes": "node herramientas/desbordes.mjs",
+    "anclas": "node herramientas/probar-anclas.mjs",
+    "revisar": "node herramientas/probar-todo.mjs && node herramientas/probar-anclas.mjs && node herramientas/solapes.mjs && node herramientas/desbordes.mjs && node herramientas/responsive.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.1",

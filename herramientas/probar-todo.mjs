@@ -65,7 +65,12 @@ console.log('\n— DESCARGAS —');
 const docs = await p.evaluate(() => [...document.querySelectorAll('a[download]')].map((a) => a.getAttribute('href')));
 for (const d of docs) {
   const res = await fetch(BASE + d);
-  comprobar(`descarga ${d.split('/').pop()}`, res.ok, `HTTP ${res.status} · ${(Number(res.headers.get('content-length'))/1024).toFixed(1)} KB`);
+  const bytes = res.ok ? (await res.arrayBuffer()).byteLength : 0;
+  comprobar(
+    `descarga ${d.split('/').pop()}`,
+    res.ok && bytes > 1024,
+    `HTTP ${res.status} · ${(bytes / 1024).toFixed(1)} KB`
+  );
 }
 
 console.log(fallos ? `\nFALLOS: ${fallos}` : '\nTodo funcional');

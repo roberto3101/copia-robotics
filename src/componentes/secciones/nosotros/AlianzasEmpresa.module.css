@@ -5,7 +5,7 @@
 
 .rejilla {
   display: grid;
-  grid-template-columns: minmax(0, 400px) minmax(0, 1fr) minmax(0, 480px);
+  grid-template-columns: minmax(0, 400px) minmax(330px, 1fr) minmax(0, 480px);
   align-items: center;
   gap: 30px;
   padding-block: 4px 5px;
@@ -123,7 +123,7 @@
   white-space: pre-line;
 }
 
-@media (max-width: 1199.98px) {
+@media (max-width: 1399.98px) {
   .rejilla {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }

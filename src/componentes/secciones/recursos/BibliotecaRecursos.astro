@@ -53,6 +53,7 @@ const destino = ruta('recursos', idioma);
                       <p class={estilos.texto}>{a.texto}</p>
                       <a class={estilos.enlace} href={destino}>
                         {acciones.leerMas}
+                        <span class="solo-lectores">{` ${a.titulo}`}</span>
                         <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
                       </a>
                     </div>

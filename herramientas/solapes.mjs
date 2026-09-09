@@ -6,7 +6,10 @@ const RUTAS = [
   '/', '/soluciones/', '/tecnologia/', '/sectores/', '/casos-de-uso/', '/nosotros/', '/recursos/',
   '/en/', '/en/solutions/', '/en/technology/', '/en/sectors/', '/en/use-cases/', '/en/about/', '/en/resources/',
 ];
-const ANCHOS = [360, 390, 414, 480, 640, 768, 1024];
+const ANCHOS = [
+  360, 390, 414, 480, 560, 640, 720, 768, 840, 900,
+  930, 980, 1024, 1100, 1200, 1280, 1366, 1440, 1600, 1920,
+];
 
 const detectar = () => {
   const visible = (el) => {
@@ -16,10 +19,10 @@ const detectar = () => {
 
   const decorativo = (el) => el.closest('[aria-hidden="true"], svg, dialog, [data-visor-video], [data-buscador]');
 
-  const flotante = (el) => {
+  const anclado = (el) => {
     for (let n = el; n && n !== document.body; n = n.parentElement) {
       const pos = getComputedStyle(n).position;
-      if (pos === 'absolute' || pos === 'fixed' || pos === 'sticky') return true;
+      if (pos === 'fixed' || pos === 'sticky') return true;
     }
     return false;
   };
@@ -29,7 +32,7 @@ const detectar = () => {
 
   const piezas = [];
   for (const el of document.querySelectorAll('body *')) {
-    if (!conTextoPropio(el) || !visible(el) || decorativo(el) || flotante(el)) continue;
+    if (!conTextoPropio(el) || !visible(el) || decorativo(el) || anclado(el)) continue;
     const r = el.getBoundingClientRect();
     if (r.width < 4 || r.height < 4) continue;
     piezas.push({ el, r, texto: el.textContent.trim().slice(0, 42) });

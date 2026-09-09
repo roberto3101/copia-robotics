@@ -92,7 +92,8 @@ function enlazarGrupo(grupo: HTMLElement) {
   });
 
   const barra = grupo.querySelector<HTMLElement>('[role="tablist"]');
-  if (barra) senalarDesplazamiento(barra);
+  const pista = grupo.querySelector<HTMLElement>('[data-pista-filtros]');
+  if (pista) senalarDesplazamiento(pista);
   barra?.addEventListener('keydown', (evento) => {
     const teclas = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
     if (!teclas.includes(evento.key)) return;

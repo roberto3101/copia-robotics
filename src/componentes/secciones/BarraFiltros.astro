@@ -21,21 +21,23 @@ const { rotulo, elementos, marcadorBusqueda, clase } = Astro.props;
 
 <nav class={[estilos.barra, clase].filter(Boolean).join(' ')} aria-label={rotulo}>
   <Contenedor>
-    <div class={estilos.pista} role="tablist" aria-label={rotulo}>
-      {
-        elementos.map((elemento, indice) => (
-          <button
-            class={estilos.pestana}
-            type="button"
-            role="tab"
-            data-clave-pestana={elemento.clave}
-            aria-selected={indice === 0 ? 'true' : 'false'}
-          >
-            <Icono nombre={elemento.icono} tamano={23} grosor={1.2} clase={estilos.icono} />
-            <span>{elemento.etiqueta}</span>
-          </button>
-        ))
-      }
+    <div class={estilos.pista} data-pista-filtros>
+      <div class={estilos.grupoPestanas} role="tablist" aria-label={rotulo}>
+        {
+          elementos.map((elemento, indice) => (
+            <button
+              class={estilos.pestana}
+              type="button"
+              role="tab"
+              data-clave-pestana={elemento.clave}
+              aria-selected={indice === 0 ? 'true' : 'false'}
+            >
+              <Icono nombre={elemento.icono} tamano={23} grosor={1.2} clase={estilos.icono} />
+              <span>{elemento.etiqueta}</span>
+            </button>
+          ))
+        }
+      </div>
       {
         marcadorBusqueda && (
           <label class={estilos.busqueda}>

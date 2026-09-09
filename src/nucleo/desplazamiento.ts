@@ -84,9 +84,20 @@ function revelarSecciones() {
 function preparar() {
   prepararFiltros();
   const suave = iniciarDesplazamiento();
-  suave?.scrollTo(0, { immediate: true });
   anclarEnlacesInternos(suave);
   revelarSecciones();
+
+  const anclado = location.hash ? document.querySelector<HTMLElement>(location.hash) : null;
+  if (!anclado) {
+    suave?.scrollTo(0, { immediate: true });
+    return;
+  }
+
+  requestAnimationFrame(() => {
+    if (suave) suave.scrollTo(anclado, { offset: -80, immediate: true });
+    else anclado.scrollIntoView();
+    ScrollTrigger.refresh();
+  });
 }
 
 if (document.readyState === 'loading') {
