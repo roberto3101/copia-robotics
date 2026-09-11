@@ -12,7 +12,7 @@ const { idioma } = Astro.props;
 const beneficios = contenido(idioma, 'sectores/beneficios');
 ---
 
-<section class={estilos.seccion}>
+<section data-bloque="sectores/beneficios" class={estilos.seccion}>
   <Contenedor>
     <ul class={estilos.rejilla}>
       {

@@ -40,7 +40,7 @@ const textoAccion = portada.accionPrincipal
   : null;
 ---
 
-<section
+<section data-bloque={`${paquete}/portada`}
   class={[estilos.portada, estilos[altura], claseFondo].filter(Boolean).join(' ')}
   style={alturaMinima ? `--alto-portada:${alturaMinima}px` : undefined}
 >

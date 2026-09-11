@@ -97,7 +97,17 @@ function enlazar(formulario: HTMLFormElement) {
         const respuesta = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(Object.fromEntries(datos.entries())),
+          body: JSON.stringify({
+            ...Object.fromEntries(datos.entries()),
+            // La clave del desplegable ("demostracion") no dice nada en el
+            // correo; se manda también la etiqueta que vio la persona.
+            consultaEtiqueta:
+              formulario
+                .querySelector<HTMLSelectElement>('[name="consulta"]')
+                ?.selectedOptions[0]?.textContent?.trim() ?? '',
+            idioma: document.documentElement.lang.slice(0, 2) || 'es',
+            origen: window.location.pathname + window.location.hash,
+          }),
         });
         estado = respuesta.ok ? 'exitoRemoto' : 'fallo';
       } catch {

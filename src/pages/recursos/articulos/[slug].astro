@@ -1,0 +1,65 @@
+---
+import PlantillaBase from '../../../plantillas/PlantillaBase.astro';
+import Articulo from '../../../componentes/secciones/recursos/Articulo.astro';
+import BandaLlamada from '../../../componentes/secciones/BandaLlamada.astro';
+import { articulos, type Articulo as TipoArticulo } from '../../../nucleo/articulos';
+import { rutaArticulo } from '../../../nucleo/rutas';
+
+const idioma = 'es' as const;
+
+/**
+ * Una página por artículo publicado. Si el CMS no está configurado o no
+ * responde, `articulos()` devuelve una lista vacía y sencillamente no se
+ * genera ninguna: el resto del sitio compila igual.
+ */
+export async function getStaticPaths() {
+  const [lista, enIngles] = await Promise.all([articulos('es'), articulos('en')]);
+  const slugsEnIngles = new Set(enIngles.map((otro) => otro.slug));
+
+  return lista.map((articulo) => ({
+    params: { slug: articulo.slug },
+    props: {
+      articulo,
+      // Los tres más recientes que no sean este.
+      relacionados: lista.filter((otro) => otro.slug !== articulo.slug).slice(0, 3),
+      tieneTraduccion: slugsEnIngles.has(articulo.slug),
+    },
+  }));
+}
+
+interface Props {
+  articulo: TipoArticulo;
+  relacionados: TipoArticulo[];
+  tieneTraduccion: boolean;
+}
+
+const { articulo, relacionados, tieneTraduccion } = Astro.props;
+
+// Un artículo traducido suele conservar el slug. Si existe en el otro idioma
+// se declara como alternativa; si no, hreflang cae a la sección de recursos,
+// que es preferible a apuntar a una página que no le corresponde.
+const rutasPropias = {
+  es: rutaArticulo(articulo.slug, 'es'),
+  ...(tieneTraduccion ? { en: rutaArticulo(articulo.slug, 'en') } : {}),
+};
+---
+
+<PlantillaBase
+  idioma={idioma}
+  seccion="recursos"
+  titulo={articulo.seo_titulo || articulo.titulo}
+  descripcion={articulo.seo_descripcion || articulo.resumen}
+  imagenSocial={articulo.imagen_portada?.url}
+  textoAlternativoSocial={articulo.textoAlternativo}
+  imagenPrincipal={articulo.imagen}
+  rutasPropias={rutasPropias}
+>
+  <Articulo idioma={idioma} articulo={articulo} relacionados={relacionados} />
+  <BandaLlamada
+    idioma={idioma}
+    paquete="recursos"
+    imagen="/images/llamada-recursos.webp"
+    posicionImagen="50% 50%"
+    disposicion="palabras"
+  />
+</PlantillaBase>

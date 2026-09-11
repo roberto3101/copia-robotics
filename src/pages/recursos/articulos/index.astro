@@ -1,0 +1,38 @@
+---
+import PlantillaBase from '../../../plantillas/PlantillaBase.astro';
+import IndiceBlog from '../../../componentes/secciones/recursos/IndiceBlog.astro';
+import BandaLlamada from '../../../componentes/secciones/BandaLlamada.astro';
+import { articulos, temasConArticulos } from '../../../nucleo/articulos';
+import { baseArticulos } from '../../../nucleo/rutas';
+
+const idioma = 'es' as const;
+
+/*
+ * El índice del blog: todos los artículos publicados, no solo los tres que
+ * caben en la página de recursos.
+ *
+ * Si el CMS no está disponible la lista llega vacía y la página se compila
+ * igual, con su aviso de que todavía no hay nada. Mejor una sección honesta
+ * que un despliegue roto.
+ */
+const [lista, temas] = await Promise.all([articulos('es'), temasConArticulos('es')]);
+---
+
+<PlantillaBase
+  idioma={idioma}
+  seccion="recursos"
+  titulo="Artículos | AI Robotics Perú"
+  descripcion="Análisis, tendencias y experiencias sobre seguridad inteligente, videovigilancia con IA y operaciones críticas."
+  palabrasClave="blog seguridad inteligente, artículos videovigilancia IA, tendencias seguridad Perú"
+  imagenPrincipal={lista[0]?.imagen}
+  rutasPropias={{ es: baseArticulos.es, en: baseArticulos.en }}
+>
+  <IndiceBlog idioma={idioma} articulos={lista} temas={temas} />
+  <BandaLlamada
+    idioma={idioma}
+    paquete="recursos"
+    imagen="/images/llamada-recursos.webp"
+    posicionImagen="50% 50%"
+    disposicion="palabras"
+  />
+</PlantillaBase>

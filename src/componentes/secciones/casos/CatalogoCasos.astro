@@ -3,6 +3,7 @@ import Contenedor from '../../base/Contenedor.astro';
 import Icono from '../../base/Icono.astro';
 import estilos from './CatalogoCasos.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { urlImagen } from '../../../nucleo/medios';
 
 interface Props {
   idioma: Idioma;
@@ -13,7 +14,7 @@ const catalogo = contenido(idioma, 'casos-de-uso/catalogo');
 const acciones = contenido(idioma, 'comunes/acciones');
 ---
 
-<section class={estilos.seccion}>
+<section data-bloque="casos-de-uso/catalogo" class={estilos.seccion}>
   <Contenedor>
     <div class={estilos.encabezado}>
       <div class={estilos.textos}>
@@ -68,7 +69,7 @@ const acciones = contenido(idioma, 'comunes/acciones');
                 <div class={estilos.lienzo}>
                   <img
                     class={estilos.imagen}
-                    src={`/images/${caso.imagen}.webp`}
+                    src={urlImagen(caso.imagen)}
                     alt={caso.titulo.split('\n').join(' ')}
                     width="900"
                     height="560"

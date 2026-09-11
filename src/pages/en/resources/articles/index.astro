@@ -1,0 +1,30 @@
+---
+import PlantillaBase from '../../../../plantillas/PlantillaBase.astro';
+import IndiceBlog from '../../../../componentes/secciones/recursos/IndiceBlog.astro';
+import BandaLlamada from '../../../../componentes/secciones/BandaLlamada.astro';
+import { articulos, temasConArticulos } from '../../../../nucleo/articulos';
+import { baseArticulos } from '../../../../nucleo/rutas';
+
+const idioma = 'en' as const;
+
+const [lista, temas] = await Promise.all([articulos('en'), temasConArticulos('en')]);
+---
+
+<PlantillaBase
+  idioma={idioma}
+  seccion="recursos"
+  titulo="Articles | AI Robotics Perú"
+  descripcion="Analysis, trends and field experience on intelligent security, AI video surveillance and critical operations."
+  palabrasClave="intelligent security blog, AI video surveillance articles, security trends Peru"
+  imagenPrincipal={lista[0]?.imagen}
+  rutasPropias={{ es: baseArticulos.es, en: baseArticulos.en }}
+>
+  <IndiceBlog idioma={idioma} articulos={lista} temas={temas} />
+  <BandaLlamada
+    idioma={idioma}
+    paquete="recursos"
+    imagen="/images/llamada-recursos.webp"
+    posicionImagen="50% 50%"
+    disposicion="palabras"
+  />
+</PlantillaBase>

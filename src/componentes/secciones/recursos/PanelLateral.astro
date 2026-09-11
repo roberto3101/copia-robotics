@@ -4,6 +4,8 @@ import Boton from '../../base/Boton.astro';
 import estilos from './PanelLateral.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
 import { ruta } from '../../../nucleo/rutas';
+import { endpointPublico } from '../../../nucleo/cms';
+import { urlImagen } from '../../../nucleo/medios';
 
 interface Props {
   idioma: Idioma;
@@ -17,7 +19,7 @@ const contactoPie = contenido(idioma, 'comunes/pie').contacto;
 ---
 
 <aside class={estilos.panel}>
-  <section class={estilos.tarjeta}>
+  <section data-bloque="recursos/panel-lateral" class={estilos.tarjeta}>
     <div class={estilos.boletin}>
       <Icono nombre={panel.boletin.icono} tamano={44} grosor={1.2} clase={estilos.iconoBoletin} />
       <div>
@@ -28,6 +30,7 @@ const contactoPie = contenido(idioma, 'comunes/pie').contacto;
     <form
       class={estilos.formulario}
       data-formulario-boletin
+      data-endpoint={endpointPublico('boletin')}
       data-correo={contactoPie.correo}
       data-asunto={panel.boletin.asunto}
       novalidate
@@ -55,7 +58,7 @@ const contactoPie = contenido(idioma, 'comunes/pie').contacto;
     <div class={estilos.reproductor}>
       <img
         class={estilos.imagen}
-        src={`/images/${panel.destacado.imagen}.webp`}
+        src={urlImagen(panel.destacado.imagen)}
         alt={panel.destacado.textoAlternativo}
         width="900"
         height="520"
@@ -68,7 +71,7 @@ const contactoPie = contenido(idioma, 'comunes/pie').contacto;
         type="button"
         data-video={panel.destacado.video}
         data-video-titulo={panel.destacado.nombre}
-        data-video-poster={`/images/${panel.destacado.imagen}.webp`}
+        data-video-poster={urlImagen(panel.destacado.imagen)}
         aria-label={panel.destacado.nombre}
       >
         <Icono nombre="reproducir" tamano={20} grosor={1} />
@@ -81,7 +84,7 @@ const contactoPie = contenido(idioma, 'comunes/pie').contacto;
       type="button"
       data-video={panel.destacado.video}
       data-video-titulo={panel.destacado.nombre}
-      data-video-poster={`/images/${panel.destacado.imagen}.webp`}
+      data-video-poster={urlImagen(panel.destacado.imagen)}
     >
       {acciones[panel.destacado.accion]}
       <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />

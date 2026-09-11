@@ -5,6 +5,7 @@ import Boton from '../../base/Boton.astro';
 import estilos from './CasoDestacado.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
 import { ruta } from '../../../nucleo/rutas';
+import { urlImagen } from '../../../nucleo/medios';
 
 interface Props {
   idioma: Idioma;
@@ -16,7 +17,7 @@ const acciones = contenido(idioma, 'comunes/acciones');
 const tituloVideo = destacado.titulo.replace(/\s+/g, ' ').trim();
 ---
 
-<section class={estilos.seccion} id="caso-destacado">
+<section data-bloque="casos-de-uso/destacado" class={estilos.seccion} id="caso-destacado">
   <Contenedor>
     <div class={estilos.marco}>
       <div class={estilos.discurso}>
@@ -45,7 +46,7 @@ const tituloVideo = destacado.titulo.replace(/\s+/g, ' ').trim();
       <div class={estilos.reproductor}>
         <img
           class={estilos.imagen}
-          src={`/images/${destacado.imagenVideo}.webp`}
+          src={urlImagen(destacado.imagenVideo)}
           alt={destacado.textoAlternativoVideo}
           width="900"
           height="560"
@@ -61,7 +62,7 @@ const tituloVideo = destacado.titulo.replace(/\s+/g, ' ').trim();
           type="button"
           data-video={destacado.video}
           data-video-titulo={tituloVideo}
-          data-video-poster={`/images/${destacado.imagenVideo}.webp`}
+          data-video-poster={urlImagen(destacado.imagenVideo)}
           aria-label={destacado.textoAlternativoVideo}
         >
           <Icono nombre="reproducir" tamano={22} grosor={1} />

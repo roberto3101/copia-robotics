@@ -5,6 +5,7 @@ import EncabezadoSeccion from '../EncabezadoSeccion.astro';
 import estilos from './SectoresResumen.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
 import { ruta } from '../../../nucleo/rutas';
+import { urlImagen } from '../../../nucleo/medios';
 
 interface Props {
   idioma: Idioma;
@@ -15,7 +16,7 @@ const sectores = contenido(idioma, 'inicio/sectores');
 const destino = ruta('sectores', idioma);
 ---
 
-<section class={estilos.seccion}>
+<section data-bloque="inicio/sectores" class={estilos.seccion}>
   <Contenedor>
     <EncabezadoSeccion titulo={sectores.titulo} subtitulo={sectores.subtitulo} />
     <ul class={estilos.rejilla}>
@@ -26,7 +27,7 @@ const destino = ruta('sectores', idioma);
               <a class={estilos.tarjeta} href={destino}>
                 <img
                   class={estilos.imagen}
-                  src={`/images/${elemento.imagen}.webp`}
+                  src={urlImagen(elemento.imagen)}
                   alt={elemento.nombre}
                   width="900"
                   height="620"

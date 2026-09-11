@@ -1,0 +1,127 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import estilos from './Articulo.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { baseArticulos, ruta, rutaArticulo } from '../../../nucleo/rutas';
+import type { Articulo } from '../../../nucleo/articulos';
+
+interface Props {
+  idioma: Idioma;
+  articulo: Articulo;
+  relacionados: Articulo[];
+}
+
+const { idioma, articulo, relacionados } = Astro.props;
+const navegacion = contenido(idioma, 'comunes/navegacion');
+const acciones = contenido(idioma, 'comunes/acciones');
+const destinoRecursos = ruta('recursos', idioma);
+const etiquetaRecursos =
+  navegacion.elementos.find((elemento: { clave: string }) => elemento.clave === 'recursos')
+    ?.etiqueta ?? 'Recursos';
+
+const lectura =
+  idioma === 'es'
+    ? `${articulo.minutosLectura} min de lectura`
+    : `${articulo.minutosLectura} min read`;
+const tituloRelacionados = idioma === 'es' ? 'Más artículos' : 'More articles';
+---
+
+<section class={estilos.seccion}>
+  <Contenedor clase={estilos.rejilla}>
+    <article>
+      <nav class={estilos.migas} aria-label={idioma === 'es' ? 'Ruta de navegación' : 'Breadcrumb'}>
+        <a href={destinoRecursos}>{etiquetaRecursos}</a>
+        <span class={estilos.separador} aria-hidden="true">/</span>
+        <a href={baseArticulos[idioma]}>{idioma === 'es' ? 'Artículos' : 'Articles'}</a>
+        <span class={estilos.separador} aria-hidden="true">/</span>
+        <span>{articulo.titulo}</span>
+      </nav>
+
+      <header class={estilos.cabecera}>
+        {articulo.distintivo && <span class={estilos.distintivo}>{articulo.distintivo}</span>}
+        <h1 class={estilos.titulo}>{articulo.titulo}</h1>
+        {articulo.resumen && <p class={estilos.entradilla}>{articulo.resumen}</p>}
+        <div class={estilos.meta}>
+          {
+            articulo.autor?.nombre_publico && (
+              <>
+                <span class={estilos.autor}>{articulo.autor.nombre_publico}</span>
+                <span class={estilos.separador} aria-hidden="true">·</span>
+              </>
+            )
+          }
+          {
+            articulo.fechaLegible && (
+              <>
+                <time datetime={articulo.publicado_en ?? undefined}>{articulo.fechaLegible}</time>
+                <span class={estilos.separador} aria-hidden="true">·</span>
+              </>
+            )
+          }
+          <span>{lectura}</span>
+        </div>
+      </header>
+
+      <div class={estilos.lienzo}>
+        <img
+          class={estilos.portada}
+          src={articulo.imagen}
+          alt={articulo.textoAlternativo}
+          width="1200"
+          height="675"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+
+      <div class={estilos.cuerpo} set:html={articulo.html} />
+
+      {
+        articulo.etiquetas && articulo.etiquetas.length > 0 && (
+          <ul class={estilos.etiquetas}>
+            {articulo.etiquetas.map((e) => (
+              <li class={estilos.etiqueta}>{e.nombre}</li>
+            ))}
+          </ul>
+        )
+      }
+
+      <footer class={estilos.pieArticulo}>
+        <a class={estilos.volver} href={baseArticulos[idioma]}>
+          {acciones.verTodos}
+          <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
+        </a>
+      </footer>
+    </article>
+
+    {
+      relacionados.length > 0 && (
+        <aside class={estilos.aparte}>
+          <h2 class={estilos.tituloAparte}>{tituloRelacionados}</h2>
+          <ul class={estilos.relacionados}>
+            {relacionados.map((otro) => (
+              <li>
+                <a class={estilos.relacionado} href={rutaArticulo(otro.slug, idioma)}>
+                  <img
+                    class={estilos.miniatura}
+                    src={otro.imagen}
+                    alt=""
+                    width="92"
+                    height="62"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span>
+                    <span class={estilos.nombreRelacionado}>{otro.titulo}</span>
+                    <span class={estilos.fechaRelacionado}>{otro.fechaLegible}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )
+    }
+  </Contenedor>
+</section>

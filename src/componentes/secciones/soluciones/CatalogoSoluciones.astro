@@ -5,6 +5,7 @@ import EncabezadoSeccion from '../EncabezadoSeccion.astro';
 import estilos from './CatalogoSoluciones.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
 import { ruta } from '../../../nucleo/rutas';
+import { urlImagen } from '../../../nucleo/medios';
 
 interface Props {
   idioma: Idioma;
@@ -16,7 +17,7 @@ const acciones = contenido(idioma, 'comunes/acciones');
 const destino = ruta('tecnologia', idioma);
 ---
 
-<section class={estilos.seccion}>
+<section data-bloque="soluciones/catalogo" class={estilos.seccion}>
   <Contenedor>
     <EncabezadoSeccion
       titulo={catalogo.titulo}
@@ -40,7 +41,7 @@ const destino = ruta('tecnologia', idioma);
                 <div class={estilos.lienzo}>
                   <img
                     class={estilos.imagen}
-                    src={`/images/${elemento.imagen}.webp`}
+                    src={urlImagen(elemento.imagen)}
                     alt={elemento.nombre}
                     width="900"
                     height="560"

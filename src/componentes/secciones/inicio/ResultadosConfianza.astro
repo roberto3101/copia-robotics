@@ -11,7 +11,7 @@ const { idioma } = Astro.props;
 const resultados = contenido(idioma, 'inicio/resultados');
 ---
 
-<section class={estilos.seccion}>
+<section data-bloque="inicio/resultados" class={estilos.seccion}>
   <div class={estilos.fondo}>
     <img
       class={estilos.imagen}

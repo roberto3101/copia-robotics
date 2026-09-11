@@ -21,7 +21,7 @@ function enlazar(formulario: HTMLFormElement) {
     if (campo.getAttribute('aria-invalid') === 'true') validar();
   });
 
-  formulario.addEventListener('submit', (evento) => {
+  formulario.addEventListener('submit', async (evento) => {
     evento.preventDefault();
     if (exito) exito.hidden = true;
 
@@ -32,10 +32,29 @@ function enlazar(formulario: HTMLFormElement) {
       return;
     }
 
-    const destino = formulario.dataset.correo ?? '';
-    const asunto = formulario.dataset.asunto ?? '';
-    const cuerpo = `${campo.value.trim()}`;
-    window.location.href = `mailto:${destino}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+    const endpoint = formulario.dataset.endpoint;
+    if (endpoint) {
+      try {
+        await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            correo: campo.value.trim(),
+            idioma: document.documentElement.lang.slice(0, 2) || 'es',
+            origen: window.location.pathname,
+          }),
+        });
+      } catch {
+        // El alta es un extra: si la red falla no se le complica la vida al
+        // visitante con un error, y el correo no se pierde porque tampoco
+        // había nada que perder.
+      }
+    } else {
+      const destino = formulario.dataset.correo ?? '';
+      const asunto = formulario.dataset.asunto ?? '';
+      const cuerpo = `${campo.value.trim()}`;
+      window.location.href = `mailto:${destino}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+    }
 
     if (exito) exito.hidden = false;
     formulario.reset();

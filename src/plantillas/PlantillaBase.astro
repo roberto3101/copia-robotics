@@ -20,6 +20,13 @@ interface Props {
   imagenSocial?: string;
   textoAlternativoSocial?: string;
   imagenPrincipal?: string;
+  /**
+   * Rutas propias de esta página, por idioma. Las páginas de sección se
+   * identifican solas por su clave, pero una de artículo cuelga de recursos y
+   * necesita declarar su URL: sin esto todos los artículos compartirían la
+   * canónica de /recursos/ y competirían entre sí en el buscador.
+   */
+  rutasPropias?: Partial<Record<Idioma, string>>;
 }
 
 const {
@@ -31,14 +38,15 @@ const {
   imagenSocial = '/social/portada.jpg',
   textoAlternativoSocial = 'AI Robotics Perú — CERBERUS AI Defense Platform',
   imagenPrincipal,
+  rutasPropias,
 } = Astro.props;
 
 const organizacion = contenido(idioma, 'comunes/organizacion');
 const navegacion = contenido(idioma, 'comunes/navegacion');
 const origen = Astro.site ?? new URL('https://www.airobotics.pe');
-const canonica = new URL(ruta(seccion, idioma), origen).href;
+const alternas: Record<Idioma, string> = { ...mapaRutas[seccion], ...(rutasPropias ?? {}) };
+const canonica = new URL(rutasPropias?.[idioma] ?? ruta(seccion, idioma), origen).href;
 const urlImagenSocial = new URL(imagenSocial, origen).href;
-const alternas = mapaRutas[seccion];
 const etiquetaSeccion =
   navegacion.elementos.find((elemento: { clave: string }) => elemento.clave === seccion)?.etiqueta ??
   organizacion.nombreSitio;

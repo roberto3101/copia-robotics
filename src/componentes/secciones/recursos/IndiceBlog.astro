@@ -1,0 +1,150 @@
+---
+import Contenedor from '../../base/Contenedor.astro';
+import Icono from '../../base/Icono.astro';
+import estilos from './IndiceBlog.module.css';
+import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { rutaArticulo } from '../../../nucleo/rutas';
+import type { Articulo, Tema } from '../../../nucleo/articulos';
+
+interface Props {
+  idioma: Idioma;
+  articulos: Articulo[];
+  temas: Tema[];
+}
+
+const { idioma, articulos, temas } = Astro.props;
+const acciones = contenido(idioma, 'comunes/acciones');
+
+const textos =
+  idioma === 'es'
+    ? {
+        titulo: 'Artículos',
+        subtitulo: 'Análisis, tendencias y experiencias sobre seguridad inteligente.',
+        todos: 'Todos',
+        lectura: (minutos: number) => `${minutos} min de lectura`,
+        conteo: (n: number) => (n === 1 ? '1 artículo publicado' : `${n} artículos publicados`),
+        vacioTitulo: 'Todavía no hay artículos',
+        vacioTexto: 'En cuanto se publique el primero, aparecerá aquí.',
+        rotuloFiltros: 'Filtrar por tema',
+        verMas: 'Ver más artículos',
+        mostrando: 'Mostrando {visibles} de {total}',
+      }
+    : {
+        titulo: 'Articles',
+        subtitulo: 'Analysis, trends and field experience on intelligent security.',
+        todos: 'All',
+        lectura: (minutos: number) => `${minutos} min read`,
+        conteo: (n: number) => (n === 1 ? '1 published article' : `${n} published articles`),
+        vacioTitulo: 'No articles yet',
+        vacioTexto: 'As soon as the first one is published, it will show up here.',
+        rotuloFiltros: 'Filter by topic',
+        verMas: 'See more articles',
+        mostrando: 'Showing {visibles} of {total}',
+      };
+---
+
+<section class={estilos.seccion} data-indice-blog>
+  <Contenedor>
+    <header class={estilos.encabezado}>
+      <h1 class={estilos.titulo}>{textos.titulo}</h1>
+      <p class={estilos.subtitulo}>{textos.subtitulo}</p>
+      {
+        articulos.length > 0 && (
+          <p class={estilos.conteo} data-conteo-blog data-plantilla-blog={textos.mostrando}>
+            {textos.conteo(articulos.length)}
+          </p>
+        )
+      }
+    </header>
+
+    {
+      temas.length > 1 && (
+        <div class={estilos.temas} role="group" aria-label={textos.rotuloFiltros}>
+          <button class={estilos.tema} type="button" data-filtro="todos" aria-pressed="true">
+            {textos.todos}
+          </button>
+          {temas.map((tema) => (
+            <button class={estilos.tema} type="button" data-filtro={tema.slug} aria-pressed="false">
+              {tema.nombre}
+            </button>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      articulos.length === 0 ? (
+        <div class={estilos.vacio}>
+          <p class={estilos.vacioTitulo}>{textos.vacioTitulo}</p>
+          <p class={estilos.vacioTexto}>{textos.vacioTexto}</p>
+        </div>
+      ) : (
+        <ul class={estilos.rejilla} data-rejilla-articulos>
+          {articulos.map((articulo, indice) => (
+            <li
+              class={indice === 0 ? estilos.destacado : undefined}
+              data-de-temas={(articulo.categorias ?? []).map((c) => c.slug).join(' ')}
+            >
+              <a class={estilos.tarjeta} href={rutaArticulo(articulo.slug, idioma)}>
+                <div class={estilos.lienzo}>
+                  <img
+                    class={estilos.imagen}
+                    src={articulo.imagen}
+                    alt={articulo.textoAlternativo}
+                    width={indice === 0 ? 1200 : 600}
+                    height={indice === 0 ? 525 : 304}
+                    loading={indice === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                  {articulo.distintivo && (
+                    <span class={estilos.distintivo}>{articulo.distintivo}</span>
+                  )}
+                </div>
+
+                <div class={estilos.cuerpo}>
+                  <p class={estilos.meta}>
+                    {articulo.fechaLegible && (
+                      <>
+                        <time datetime={articulo.publicado_en ?? undefined}>
+                          {articulo.fechaLegible}
+                        </time>
+                        <span class={estilos.separador} aria-hidden="true">
+                          ·
+                        </span>
+                      </>
+                    )}
+                    <span>{textos.lectura(articulo.minutosLectura)}</span>
+                  </p>
+
+                  <h2 class={estilos.nombre}>{articulo.titulo}</h2>
+                  {articulo.resumen && <p class={estilos.texto}>{articulo.resumen}</p>}
+
+                  <span class={estilos.enlace}>
+                    {acciones.leerMas}
+                    <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
+                  </span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      articulos.length > 0 && (
+        <div class={estilos.pie}>
+          <button class={estilos.verMas} type="button" data-ver-mas-blog data-etiqueta-blog={textos.verMas} hidden>
+            {textos.verMas}
+          </button>
+        </div>
+      )
+    }
+  </Contenedor>
+</section>
+
+<script>
+  import { prepararIndiceBlog } from '../../../nucleo/indice-blog';
+  prepararIndiceBlog();
+  document.addEventListener('astro:page-load', prepararIndiceBlog);
+</script>

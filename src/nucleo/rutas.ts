@@ -29,6 +29,17 @@ export const paqueteDeSeccion: Record<ClaveSeccion, string> = {
   recursos: 'recursos',
 };
 
+/** Carpeta bajo la que cuelgan las páginas de artículo de cada idioma. */
+export const baseArticulos: Record<Idioma, string> = {
+  es: '/recursos/articulos/',
+  en: '/en/resources/articles/',
+};
+
+/** URL de un artículo del blog a partir de su slug. */
+export function rutaArticulo(slug: string, idioma: Idioma): string {
+  return `${baseArticulos[idioma]}${slug}/`;
+}
+
 export function ruta(clave: ClaveSeccion, idioma: Idioma): string {
   return mapaRutas[clave][idioma];
 }

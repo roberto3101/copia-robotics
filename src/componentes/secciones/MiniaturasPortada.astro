@@ -1,5 +1,6 @@
 ---
 import estilos from './MiniaturasPortada.module.css';
+import { urlImagen } from '../../nucleo/medios';
 
 interface Miniatura {
   imagen: string;
@@ -18,7 +19,7 @@ const { elementos } = Astro.props;
     elementos.map((elemento) => (
       <li>
         <img
-          src={`/images/${elemento.imagen}.webp`}
+          src={urlImagen(elemento.imagen)}
           alt={elemento.textoAlternativo}
           width="900"
           height="560"

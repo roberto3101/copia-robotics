@@ -26,7 +26,7 @@ const textoSecundario = llamada.accionSecundaria
 const esDescarga = llamada.accionSecundaria === 'descargarBrochure';
 ---
 
-<section class={[estilos.banda, estilos[`disp${disposicion[0].toUpperCase()}${disposicion.slice(1)}`]].join(' ')}>
+<section data-bloque={`${paquete}/llamada`} class={[estilos.banda, estilos[`disp${disposicion[0].toUpperCase()}${disposicion.slice(1)}`]].join(' ')}>
   <div class={estilos.fondo}>
     <img
       class={estilos.imagen}

@@ -13,7 +13,7 @@ const { idioma } = Astro.props;
 const funcionamiento = contenido(idioma, 'inicio/funcionamiento');
 ---
 
-<section class={estilos.seccion}>
+<section data-bloque="inicio/funcionamiento" class={estilos.seccion}>
   <Contenedor>
     <EncabezadoSeccion titulo={funcionamiento.titulo} subtitulo={funcionamiento.subtitulo} />
     <ol class={estilos.pasos}>

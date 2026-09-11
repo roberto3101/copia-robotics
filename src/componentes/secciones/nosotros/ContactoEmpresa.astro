@@ -4,6 +4,7 @@ import Antetitulo from '../../base/Antetitulo.astro';
 import Icono from '../../base/Icono.astro';
 import estilos from './ContactoEmpresa.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { endpointPublico } from '../../../nucleo/cms';
 
 interface Props {
   idioma: Idioma;
@@ -13,10 +14,13 @@ const { idioma } = Astro.props;
 const contacto = contenido(idioma, 'nosotros/contacto');
 const pie = contenido(idioma, 'comunes/pie');
 const campos = contacto.campos;
-const puntoFinal = import.meta.env.PUBLIC_ENDPOINT_CONTACTO ?? '';
+// El endpoint del CMS se hornea aquí. PUBLIC_ENDPOINT_CONTACTO sigue
+// funcionando como anulación manual; sin ninguno de los dos, el
+// formulario vuelve a abrir el cliente de correo.
+const puntoFinal = import.meta.env.PUBLIC_ENDPOINT_CONTACTO || endpointPublico('contacto');
 ---
 
-<section class={estilos.seccion} id="contacto">
+<section data-bloque="nosotros/contacto" class={estilos.seccion} id="contacto">
   <Contenedor clase={estilos.rejilla}>
     <div class={estilos.discurso}>
       <Antetitulo texto={contacto.antetitulo} />

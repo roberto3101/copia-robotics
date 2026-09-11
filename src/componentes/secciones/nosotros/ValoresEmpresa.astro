@@ -12,7 +12,7 @@ const { idioma } = Astro.props;
 const valores = contenido(idioma, 'nosotros/valores');
 ---
 
-<section class={estilos.seccion}>
+<section data-bloque="nosotros/valores" class={estilos.seccion}>
   <Contenedor clase={estilos.rejilla}>
     <div class={estilos.discurso}>
       <h2 class={estilos.titulo}>{valores.titulo}</h2>

@@ -1,0 +1,357 @@
+.seccion {
+  padding-block: 56px 96px;
+  background: var(--superficie-base);
+}
+
+/* ------------------------------------------------------------- encabezado */
+
+.encabezado {
+  padding-left: var(--sangria-bloque);
+  margin-bottom: 34px;
+}
+
+.titulo {
+  font-size: var(--texto-h2);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: var(--espaciado-ajustado);
+  color: var(--texto-1);
+}
+
+.subtitulo {
+  margin-top: 4px;
+  font-size: var(--texto-h3);
+  font-weight: 400;
+  line-height: 1.34;
+  color: var(--marca-300);
+}
+
+.conteo {
+  margin-top: 10px;
+  font-size: var(--texto-sm);
+  color: var(--texto-3);
+}
+
+/* ----------------------------------------------------------------- filtros */
+
+.temas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 34px;
+  padding-left: var(--sangria-bloque);
+  list-style: none;
+}
+
+.tema {
+  appearance: none;
+  padding: 7px 15px;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-pastilla);
+  background: var(--superficie-1);
+  font-family: inherit;
+  font-size: var(--texto-sm);
+  color: var(--texto-2);
+  cursor: pointer;
+  transition:
+    border-color var(--duracion-rapida) var(--curva),
+    color var(--duracion-rapida) var(--curva),
+    background-color var(--duracion-rapida) var(--curva);
+}
+
+.tema:hover {
+  border-color: var(--linea-fuerte);
+  color: var(--texto-1);
+}
+
+.tema[aria-pressed='true'] {
+  border-color: var(--linea-marca);
+  background: var(--marca-500);
+  color: var(--texto-sobre-marca);
+}
+
+/* ------------------------------------------------------------------ rejilla */
+
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  list-style: none;
+}
+
+/*
+ * El primero ocupa la fila entera y se dispone en horizontal: la foto a un
+ * lado y el texto al otro. Da un punto de entrada claro a la sección sin que
+ * una foto a todo lo ancho se coma la pantalla entera.
+ */
+.destacado {
+  grid-column: 1 / -1;
+}
+
+.destacado .tarjeta {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.destacado .lienzo {
+  height: 100%;
+}
+
+.destacado .cuerpo {
+  justify-content: center;
+  padding: 30px 34px;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--linea-suave);
+  border-radius: var(--radio-md);
+  overflow: hidden;
+  background: var(--superficie-1);
+  text-decoration: none;
+  transition:
+    border-color var(--duracion) var(--curva),
+    transform var(--duracion) var(--curva);
+}
+
+.tarjeta:hover {
+  border-color: var(--linea-marca);
+  transform: translateY(-3px);
+}
+
+.tarjeta:focus-visible {
+  outline: 2px solid var(--marca-400);
+  outline-offset: 3px;
+}
+
+.lienzo {
+  position: relative;
+  overflow: hidden;
+}
+
+.imagen {
+  display: block;
+  width: 100%;
+  aspect-ratio: 300 / 152;
+  object-fit: cover;
+}
+
+.destacado .imagen {
+  height: 100%;
+  min-height: 260px;
+  aspect-ratio: auto;
+}
+
+.distintivo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 11px;
+  border: 1px solid var(--linea-marca);
+  border-radius: var(--radio-xs);
+  background: rgba(4, 20, 34, 0.74);
+  backdrop-filter: blur(3px);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--texto-1);
+}
+
+.cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 18px 18px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--texto-3);
+}
+
+.separador {
+  color: var(--texto-4);
+}
+
+.nombre {
+  margin-top: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.28;
+  color: var(--texto-1);
+  text-wrap: balance;
+}
+
+.destacado .nombre {
+  font-size: 23px;
+  line-height: 1.22;
+}
+
+.texto {
+  margin-top: 9px;
+  font-size: 13.5px;
+  line-height: 19px;
+  color: var(--texto-2);
+}
+
+.destacado .texto {
+  font-size: var(--texto-cuerpo);
+  line-height: 1.5;
+  max-width: 58ch;
+}
+
+.enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--marca-400);
+}
+
+.tarjeta:hover .enlace {
+  color: var(--marca-300);
+}
+
+/*
+ * En el destacado el texto va centrado, asi que el enlace se pega al parrafo
+ * en vez de irse al fondo: si no, queda un hueco raro en medio de la tarjeta.
+ */
+.destacado .enlace {
+  margin-top: 18px;
+  padding-top: 0;
+}
+
+.pie {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+
+.verMas {
+  appearance: none;
+  padding: 12px 28px;
+  border: 1px solid var(--linea-marca);
+  border-radius: var(--radio-pastilla);
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--texto-cuerpo);
+  font-weight: 500;
+  color: var(--marca-300);
+  cursor: pointer;
+  transition:
+    background-color var(--duracion) var(--curva),
+    color var(--duracion) var(--curva);
+}
+
+.verMas:hover {
+  background: var(--marca-500);
+  color: var(--texto-sobre-marca);
+}
+
+.verMas:focus-visible {
+  outline: 2px solid var(--marca-400);
+  outline-offset: 3px;
+}
+
+/* -------------------------------------------------------------- sin nada */
+
+.vacio {
+  padding: 56px var(--sangria-bloque);
+  border: 1px dashed var(--linea);
+  border-radius: var(--radio-md);
+  text-align: center;
+}
+
+.vacioTitulo {
+  font-size: var(--texto-h3);
+  font-weight: 600;
+  color: var(--texto-1);
+}
+
+.vacioTexto {
+  margin-top: 8px;
+  font-size: var(--texto-cuerpo);
+  line-height: 1.5;
+  color: var(--texto-3);
+}
+
+/* --------------------------------------------------------------- respuesta */
+
+@media (max-width: 1099.98px) {
+  .rejilla {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .destacado .cuerpo {
+    padding: 22px 24px;
+  }
+}
+
+@media (max-width: 899.98px) {
+  .destacado .tarjeta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .destacado .imagen {
+    min-height: 0;
+    aspect-ratio: 16 / 7;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .seccion {
+    padding-block: 36px 64px;
+  }
+
+  .rejilla {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .destacado .imagen {
+    aspect-ratio: 300 / 152;
+  }
+
+  .destacado .cuerpo {
+    padding: 16px 18px 18px;
+  }
+
+  .destacado .nombre {
+    font-size: 19px;
+  }
+
+  .destacado .texto {
+    font-size: 13.5px;
+    line-height: 19px;
+  }
+
+  .titulo {
+    font-size: 26px;
+  }
+
+  .temas {
+    /* Los filtros se deslizan en vez de romper en varias filas. */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .temas::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tema {
+    flex: 0 0 auto;
+  }
+}

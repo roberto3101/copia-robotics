@@ -5,7 +5,9 @@ import EncabezadoSeccion from '../EncabezadoSeccion.astro';
 import PanelLateral from './PanelLateral.astro';
 import estilos from './BibliotecaRecursos.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
-import { ruta } from '../../../nucleo/rutas';
+import { baseArticulos, ruta, rutaArticulo } from '../../../nucleo/rutas';
+import { articulos as articulosPublicados } from '../../../nucleo/articulos';
+import { urlImagen } from '../../../nucleo/medios';
 
 interface Props {
   idioma: Idioma;
@@ -17,41 +19,87 @@ const videos = contenido(idioma, 'recursos/videos');
 const documentos = contenido(idioma, 'recursos/documentos');
 const acciones = contenido(idioma, 'comunes/acciones');
 const destino = ruta('recursos', idioma);
+
+/*
+ * Las tarjetas de artículo salen del CMS. Mientras no haya ninguno publicado
+ * se muestran las del JSON, que es lo que había antes: la sección nunca queda
+ * vacía y la migración puede hacerse artículo a artículo.
+ *
+ * La diferencia visible es el enlace: los del CMS llevan a su propia página;
+ * los del JSON no tienen una, así que siguen apuntando al índice de recursos.
+ */
+const publicados = await articulosPublicados(idioma);
+// El enlace de los articulos lleva al indice del blog solo cuando hay
+// articulos de verdad; si no, apuntaria a una pagina vacia.
+const destinoArticulos = publicados.length > 0 ? baseArticulos[idioma] : destino;
+const tarjetas =
+  publicados.length > 0
+    ? publicados.slice(0, 3).map((articulo) => ({
+        distintivo: articulo.distintivo,
+        imagen: articulo.imagen,
+        fecha: articulo.fechaLegible,
+        titulo: articulo.titulo,
+        texto: articulo.resumen,
+        destino: rutaArticulo(articulo.slug, idioma),
+      }))
+    : articulos.elementos.map(
+        (a: {
+          distintivo: string;
+          imagen: string;
+          fecha: string;
+          titulo: string;
+          texto: string;
+        }) => ({
+          distintivo: a.distintivo,
+          imagen: urlImagen(a.imagen),
+          fecha: a.fecha,
+          titulo: a.titulo,
+          texto: a.texto,
+          destino,
+        })
+      );
 ---
 
 <section class={estilos.seccion}>
   <Contenedor clase={estilos.rejilla}>
     <div class={estilos.columna}>
-      <article class={estilos.bloque} data-ambitos={articulos.ambitos.join(' ')}>
+      <article class={estilos.bloque} data-bloque="recursos/articulos" data-ambitos={articulos.ambitos.join(' ')}>
         <EncabezadoSeccion
           titulo={articulos.titulo}
           subtitulo={articulos.subtitulo}
           enlace={articulos.verTodos}
-          destinoEnlace={destino}
+          destinoEnlace={destinoArticulos}
         />
         <ul class={estilos.tercios}>
           {
-            articulos.elementos.map(
-              (a: { distintivo: string; imagen: string; fecha: string; titulo: string; texto: string }) => (
+            tarjetas.map(
+              (a: {
+                distintivo: string;
+                imagen: string;
+                fecha: string;
+                titulo: string;
+                texto: string;
+                destino: string;
+              }) => (
                 <li>
                   <article class={estilos.tarjeta}>
                     <div class={estilos.lienzo}>
                       <img
                         class={estilos.imagen}
-                        src={`/images/${a.imagen}.webp`}
+                        src={a.imagen}
                         alt={a.titulo.split('\n').join(' ')}
                         width="900"
                         height="520"
                         loading="lazy"
                         decoding="async"
                       />
-                      <span class={estilos.distintivo}>{a.distintivo}</span>
+                      {a.distintivo && <span class={estilos.distintivo}>{a.distintivo}</span>}
                     </div>
                     <div class={estilos.cuerpo}>
                       <span class={estilos.fecha}>{a.fecha}</span>
                       <h3 class={estilos.nombre}>{a.titulo}</h3>
                       <p class={estilos.texto}>{a.texto}</p>
-                      <a class={estilos.enlace} href={destino}>
+                      <a class={estilos.enlace} href={a.destino}>
                         {acciones.leerMas}
                         <span class="solo-lectores">{` ${a.titulo}`}</span>
                         <Icono nombre="flechaDerecha" tamano={14} grosor={1.6} />
@@ -65,7 +113,7 @@ const destino = ruta('recursos', idioma);
         </ul>
       </article>
 
-      <article class={estilos.bloque} data-ambitos={videos.ambitos.join(' ')}>
+      <article class={estilos.bloque} data-bloque="recursos/videos" data-ambitos={videos.ambitos.join(' ')}>
         <EncabezadoSeccion
           titulo={videos.titulo}
           subtitulo={videos.subtitulo}
@@ -88,7 +136,7 @@ const destino = ruta('recursos', idioma);
                     <div class={estilos.lienzo}>
                       <img
                         class={estilos.imagen}
-                        src={`/images/${v.imagen}.webp`}
+                        src={urlImagen(v.imagen)}
                         alt={v.titulo}
                         width="900"
                         height="520"
@@ -102,7 +150,7 @@ const destino = ruta('recursos', idioma);
                         type="button"
                         data-video={v.video}
                         data-video-titulo={v.titulo}
-                        data-video-poster={`/images/${v.imagen}.webp`}
+                        data-video-poster={urlImagen(v.imagen)}
                         aria-label={v.titulo}
                       >
                         <Icono nombre="reproducir" tamano={19} grosor={1} />
@@ -120,7 +168,7 @@ const destino = ruta('recursos', idioma);
         </ul>
       </article>
 
-      <article class={estilos.bloque} data-ambitos={documentos.ambitos.join(' ')}>
+      <article class={estilos.bloque} data-bloque="recursos/documentos" data-ambitos={documentos.ambitos.join(' ')}>
         <EncabezadoSeccion
           titulo={documentos.titulo}
           subtitulo={documentos.subtitulo}

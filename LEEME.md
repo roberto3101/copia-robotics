@@ -3,6 +3,10 @@
 Réplica en Astro de los siete diseños de referencia, bilingüe (español / inglés), con textos
 externalizados en JSON modular y estilos en módulos CSS por componente.
 
+El contenido se gestiona desde el CMS Codeplex: textos, artículos del blog, imágenes y el
+formulario de contacto. Los JSON de `src/idiomas/` siguen siendo la base y el respaldo —
+sin `CMS_URL` el sitio compila igual que antes. Ver **[INTEGRACION-CMS.md](INTEGRACION-CMS.md)**.
+
 [![Desplegar con Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Froberto3101%2Fcopia-robotics)
 
 ## Publicar
@@ -125,9 +129,10 @@ Todo control del sitio hace algo. Un resumen de dónde vive cada pieza:
 | Carruseles | `src/nucleo/carrusel.ts` | Desplaza casos y testimonios; deshabilita la flecha al llegar al extremo. |
 | Buscador del sitio | `src/nucleo/busqueda.ts` | Índice generado en compilación desde los JSON (`src/nucleo/indice.ts`). Se abre con la lupa o Ctrl/Cmd + K. |
 
-El formulario abre el programa de correo con la consulta compuesta. Para enviarlo a un
-servidor, define `PUBLIC_ENDPOINT_CONTACTO` con la URL que reciba el `POST` en JSON; el
-mismo módulo cambia de modo sin tocar el componente.
+El formulario y el boletín envían al CMS, que guarda la consulta y avisa por correo a los
+destinatarios configurados en el bloque `ajustes/correo`. Si el SMTP no está montado o
+falla, el mensaje queda igualmente en la bandeja del panel: no se pierde ninguno. Sin
+`CMS_URL` ni `PUBLIC_ENDPOINT_CONTACTO`, ambos vuelven a abrir el programa de correo.
 
 Los tres documentos descargables se generan con `reportlab` y `openpyxl`, y los clips de
 demostración con `ffmpeg` a partir de las imágenes del sitio. Están en `public/documentos/`
