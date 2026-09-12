@@ -10,6 +10,16 @@
   align-items: start;
 }
 
+/*
+ * Cuando no hay artículos relacionados, la columna lateral no se reserva.
+ * Antes se quedaba el hueco de 380px vacío y el artículo parecía encogido
+ * contra el borde izquierdo de una página enorme.
+ */
+.rejilla.sinAparte {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 68rem;
+}
+
 .migas {
   display: flex;
   flex-wrap: wrap;
@@ -104,13 +114,69 @@
 /*
  * El cuerpo llega como HTML del CMS, así que no se le pueden poner clases a
  * cada etiqueta: se estila por descendencia desde este contenedor.
+ *
+ * El contenedor ocupa la columna entera y la medida de lectura se aplica solo
+ * al texto. Así las fotos y los vídeos salen más anchos que el párrafo: el
+ * artículo aprovecha la página sin que las líneas se vuelvan interminables,
+ * que es lo que pasa cuando se estira el texto a pantalla completa.
  */
 .cuerpo {
-  max-width: 72ch;
   padding-left: var(--sangria-bloque);
   font-size: var(--texto-cuerpo);
   line-height: var(--interlineado-cuerpo);
   color: var(--texto-2);
+}
+
+.cuerpo > :is(p, h2, h3, h4, ul, ol, blockquote, table, dl) {
+  max-width: 74ch;
+}
+
+/* Fotos, vídeos y bloques de código se escapan de la medida del texto. */
+.cuerpo > :is(figure, pre),
+.cuerpo > p:has(> img:only-child),
+.cuerpo > .video-incrustado {
+  max-width: min(100%, 58rem);
+}
+
+.cuerpo > p:has(> img:only-child) {
+  margin-top: 1.8em;
+  margin-bottom: 1.8em;
+}
+
+/*
+ * Una foto del cuerpo se muestra a su tamaño natural, centrada, sin pasar del
+ * ancho disponible ni de un alto razonable. Estirarlas todas al 100% dejaba
+ * una imagen cuadrada ocupando media pantalla de alto.
+ */
+.cuerpo :is(p, figure) > img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 32rem;
+  margin-inline: auto;
+  border-radius: var(--radio-lg);
+  border: 1px solid var(--linea);
+}
+
+/* Vídeos de YouTube y archivos de vídeo subidos desde el panel. */
+.cuerpo .video-incrustado {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-block: 1.8em;
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  border: 1px solid var(--linea);
+  background: var(--superficie-2, #000);
+}
+
+.cuerpo .video-incrustado :is(iframe, video) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
 .cuerpo > * + * {
@@ -169,13 +235,6 @@
   color: var(--texto-1);
   font-size: var(--texto-h3);
   line-height: 1.4;
-}
-
-.cuerpo img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radio-md);
-  border: 1px solid var(--linea);
 }
 
 .cuerpo figcaption {
@@ -320,6 +379,18 @@
   height: 62px;
   border-radius: var(--radio-sm);
   object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Relleno cuando el artículo no tiene portada: la inicial de su título. */
+.miniaturaSinFoto {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--linea);
+  background: var(--superficie-2);
+  color: var(--texto-4);
+  font-size: var(--texto-h3, 1.25rem);
+  font-weight: 700;
 }
 
 .nombreRelacionado {

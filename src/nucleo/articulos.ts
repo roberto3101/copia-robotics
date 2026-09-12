@@ -17,7 +17,8 @@ export interface Articulo extends Post {
   html: string;
   fechaLegible: string;
   minutosLectura: number;
-  imagen: string;
+  /** `null` cuando el artículo no tiene portada. No se inventa ninguna. */
+  imagen: string | null;
   textoAlternativo: string;
   distintivo: string;
 }
@@ -31,30 +32,65 @@ const procesador = await createMarkdownProcessor({
 });
 
 /**
- * Fotos de reserva para los artículos que aún no tienen una propia.
+ * Vídeos escritos como línea suelta.
  *
- * Sin esto, una lista de artículos recién creados sale con la misma imagen
- * repetida en todas las tarjetas, que es de lo primero que se nota.
+ * El editor del panel tiene botones que escriben `@youtube: <url>` y
+ * `@video: <url>` en una línea propia. Eso no es markdown: sin traducirlo aquí,
+ * el visitante veía la línea en crudo mientras la vista previa del panel le
+ * había enseñado un reproductor. La previsualización mentía.
+ *
+ * Se traduce antes de pasar por el procesador de markdown, que deja pasar el
+ * HTML de bloque tal cual.
  */
-const FOTOS_DE_RESERVA = [
-  '/images/article-city-ai.webp',
-  '/images/article-drone.webp',
-  '/images/article-operations.webp',
-  '/images/city-aerial-street.webp',
-  '/images/control-room-wide.webp',
-  '/images/city-highway-night.webp',
-];
 
-/**
- * Reparte por posición en la lista, no por nombre.
- *
- * Repartir por nombre daba a veces la misma foto a dos artículos seguidos, que
- * es justo lo que se quería evitar. Por posición nunca se repiten dos juntos,
- * a cambio de que la foto de reserva de un artículo pueda cambiar si se
- * publica otro por delante. Para una foto de relleno, ese cambio no importa.
- */
-function fotoDeReserva(posicion: number): string {
-  return FOTOS_DE_RESERVA[posicion % FOTOS_DE_RESERVA.length];
+/** Saca el identificador de un vídeo de YouTube de las formas habituales. */
+function idDeYoutube(url: string): string | null {
+  const limpia = url.trim();
+  const patrones = [
+    /(?:^|\.)youtube\.com\/watch\?(?:[^#]*&)?v=([A-Za-z0-9_-]{11})/,
+    /youtu\.be\/([A-Za-z0-9_-]{11})/,
+    /youtube\.com\/embed\/([A-Za-z0-9_-]{11})/,
+    /youtube\.com\/shorts\/([A-Za-z0-9_-]{11})/,
+  ];
+  for (const patron of patrones) {
+    const encontrado = limpia.match(patron);
+    if (encontrado) return encontrado[1];
+  }
+  return null;
+}
+
+function incrustarVideos(markdown: string): string {
+  return markdown
+    .split('\n')
+    .map((linea) => {
+      const limpia = linea.trim();
+
+      if (limpia.startsWith('@youtube:')) {
+        const id = idDeYoutube(limpia.slice('@youtube:'.length));
+        // Solo se acepta un identificador de 11 caracteres del alfabeto de
+        // YouTube. Así lo que acaba dentro del `src` nunca es texto libre
+        // venido del panel. Si no encaja, se deja la línea como estaba para
+        // que el autor vea que algo no cuadró.
+        if (!id) return linea;
+        return `\n<figure class="video-incrustado"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="Vídeo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure>\n`;
+      }
+
+      if (limpia.startsWith('@vimeo:')) {
+        const id = limpia.slice('@vimeo:'.length).trim().match(/vimeo\.com\/(?:video\/)?(\d+)/);
+        if (!id) return linea;
+        return `\n<figure class="video-incrustado"><iframe src="https://player.vimeo.com/video/${id[1]}" title="Vídeo" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></figure>\n`;
+      }
+
+      if (limpia.startsWith('@video:')) {
+        const url = limpia.slice('@video:'.length).trim();
+        // Solo http(s) y sin caracteres que puedan cerrar el atributo.
+        if (!/^https?:\/\//i.test(url) || /["'<>\s]/.test(url)) return linea;
+        return `\n<figure class="video-incrustado"><video src="${url}" controls preload="metadata"></video></figure>\n`;
+      }
+
+      return linea;
+    })
+    .join('\n');
 }
 
 /** Aproxima el tiempo de lectura cuando el CMS no lo trae. */
@@ -85,17 +121,20 @@ async function aHtml(post: Post): Promise<string> {
   if (post.formato_contenido !== 'MARKDOWN') {
     return `<p>${crudo.replace(/</g, '&lt;')}</p>`;
   }
-  const { code } = await procesador.render(crudo);
+  const { code } = await procesador.render(incrustarVideos(crudo));
   return code;
 }
 
-async function adaptar(post: Post, idioma: Idioma, posicion: number): Promise<Articulo> {
+async function adaptar(post: Post, idioma: Idioma): Promise<Articulo> {
   return {
     ...post,
     html: await aHtml(post),
     fechaLegible: fechaLegible(post.publicado_en, idioma),
     minutosLectura: post.tiempo_lectura_min ?? estimarMinutos(post.contenido ?? ''),
-    imagen: post.imagen_portada?.url ?? fotoDeReserva(posicion),
+    // Sin portada no se pone ninguna. Antes se repartía una foto de archivo
+    // para que las tarjetas no salieran desnudas, y el efecto era peor: el
+    // sistema parecia inventarse imagenes que nadie habia subido.
+    imagen: post.imagen_portada?.url ?? null,
     textoAlternativo: post.imagen_portada?.texto_alt || post.titulo,
     distintivo: post.categorias?.[0]?.nombre ?? '',
   };
@@ -121,10 +160,8 @@ export async function temasConArticulos(idioma: Idioma): Promise<Tema[]> {
  */
 export async function articulos(idioma: Idioma): Promise<Articulo[]> {
   const posts = await traerPosts(idioma);
-  // Se ordena antes de adaptar para que la posición que decide la foto de
-  // reserva sea la misma en la que saldrá el artículo.
   const ordenados = [...posts].sort((a, b) =>
     (b.publicado_en ?? '').localeCompare(a.publicado_en ?? ''),
   );
-  return Promise.all(ordenados.map((post, posicion) => adaptar(post, idioma, posicion)));
+  return Promise.all(ordenados.map((post) => adaptar(post, idioma)));
 }

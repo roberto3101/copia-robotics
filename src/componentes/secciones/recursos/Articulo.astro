@@ -28,7 +28,11 @@ const tituloRelacionados = idioma === 'es' ? 'Más artículos' : 'More articles'
 ---
 
 <section class={estilos.seccion}>
-  <Contenedor clase={estilos.rejilla}>
+  <Contenedor
+    clase={[estilos.rejilla, relacionados.length === 0 && estilos.sinAparte]
+      .filter(Boolean)
+      .join(' ')}
+  >
     <article>
       <nav class={estilos.migas} aria-label={idioma === 'es' ? 'Ruta de navegación' : 'Breadcrumb'}>
         <a href={destinoRecursos}>{etiquetaRecursos}</a>
@@ -63,17 +67,22 @@ const tituloRelacionados = idioma === 'es' ? 'Más artículos' : 'More articles'
         </div>
       </header>
 
-      <div class={estilos.lienzo}>
-        <img
-          class={estilos.portada}
-          src={articulo.imagen}
-          alt={articulo.textoAlternativo}
-          width="1200"
-          height="675"
-          fetchpriority="high"
-          decoding="async"
-        />
-      </div>
+      {
+        /* Sin portada no se pinta el hueco: el artículo empieza por el texto. */
+        articulo.imagen && (
+          <div class={estilos.lienzo}>
+            <img
+              class={estilos.portada}
+              src={articulo.imagen}
+              alt={articulo.textoAlternativo}
+              width="1200"
+              height="675"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        )
+      }
 
       <div class={estilos.cuerpo} set:html={articulo.html} />
 
@@ -103,15 +112,21 @@ const tituloRelacionados = idioma === 'es' ? 'Más artículos' : 'More articles'
             {relacionados.map((otro) => (
               <li>
                 <a class={estilos.relacionado} href={rutaArticulo(otro.slug, idioma)}>
-                  <img
-                    class={estilos.miniatura}
-                    src={otro.imagen}
-                    alt=""
-                    width="92"
-                    height="62"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  {otro.imagen ? (
+                    <img
+                      class={estilos.miniatura}
+                      src={otro.imagen}
+                      alt=""
+                      width="92"
+                      height="62"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <span class={`${estilos.miniatura} ${estilos.miniaturaSinFoto}`} aria-hidden="true">
+                      {otro.titulo.trim().charAt(0).toUpperCase() || '·'}
+                    </span>
+                  )}
                   <span>
                     <span class={estilos.nombreRelacionado}>{otro.titulo}</span>
                     <span class={estilos.fechaRelacionado}>{otro.fechaLegible}</span>

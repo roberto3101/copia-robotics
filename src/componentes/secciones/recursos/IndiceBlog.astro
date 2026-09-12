@@ -58,7 +58,10 @@ const textos =
     </header>
 
     {
-      temas.length > 1 && (
+      /* Con un solo tema los filtros tambien se ensenan: si alguien crea un
+         tema y lo asigna, tiene que verlo aparecer en la web. Esconderlos
+         hasta tener dos parecia que el tema se hubiera perdido. */
+      temas.length > 0 && (
         <div class={estilos.temas} role="group" aria-label={textos.rotuloFiltros}>
           <button class={estilos.tema} type="button" data-filtro="todos" aria-pressed="true">
             {textos.todos}
@@ -86,16 +89,22 @@ const textos =
               data-de-temas={(articulo.categorias ?? []).map((c) => c.slug).join(' ')}
             >
               <a class={estilos.tarjeta} href={rutaArticulo(articulo.slug, idioma)}>
-                <div class={estilos.lienzo}>
-                  <img
-                    class={estilos.imagen}
-                    src={articulo.imagen}
-                    alt={articulo.textoAlternativo}
-                    width={indice === 0 ? 1200 : 600}
-                    height={indice === 0 ? 525 : 304}
-                    loading={indice === 0 ? 'eager' : 'lazy'}
-                    decoding="async"
-                  />
+                <div class={[estilos.lienzo, !articulo.imagen && estilos.sinFoto].filter(Boolean).join(' ')}>
+                  {articulo.imagen ? (
+                    <img
+                      class={estilos.imagen}
+                      src={articulo.imagen}
+                      alt={articulo.textoAlternativo}
+                      width={indice === 0 ? 1200 : 600}
+                      height={indice === 0 ? 525 : 304}
+                      loading={indice === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                    />
+                  ) : (
+                    <span class={estilos.inicial} aria-hidden="true">
+                      {articulo.titulo.trim().charAt(0).toUpperCase() || '·'}
+                    </span>
+                  )}
                   {articulo.distintivo && (
                     <span class={estilos.distintivo}>{articulo.distintivo}</span>
                   )}
