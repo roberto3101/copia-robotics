@@ -7,6 +7,7 @@
  */
 
 import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import remarkBreaks from 'remark-breaks';
 import { traerPosts, traerTemas, type Post, type Tema } from './cms';
 import type { Idioma } from './idiomas';
 
@@ -29,6 +30,13 @@ const procesador = await createMarkdownProcessor({
   gfm: true,
   smartypants: true,
   syntaxHighlight: 'prism',
+  // Un Enter corta la linea.
+  //
+  // El markdown de serie junta en un parrafo las lineas separadas por un solo
+  // salto, asi que quien escribia tres lineas sueltas las veia publicadas
+  // seguidas, en un parrafo corrido. Nadie espera eso cuando el editor le dice
+  // que escriba como escribiria un correo. El panel usa la misma opcion.
+  remarkPlugins: [remarkBreaks],
 });
 
 /**
