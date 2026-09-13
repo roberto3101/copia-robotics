@@ -3,6 +3,7 @@ import Contenedor from '../../base/Contenedor.astro';
 import Icono from '../../base/Icono.astro';
 import estilos from './CifrasEmpresa.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { urlImagen } from '../../../nucleo/medios';
 
 interface Props {
   idioma: Idioma;
@@ -16,7 +17,7 @@ const cifras = contenido(idioma, 'nosotros/cifras');
   <div class={estilos.fondo}>
     <img
       class={estilos.imagen}
-      src="/images/mountains-city-dusk.webp"
+      src={urlImagen(cifras.imagen ?? 'mountains-city-dusk')}
       alt={cifras.textoAlternativo}
       width="1600"
       height="700"

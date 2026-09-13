@@ -4,6 +4,7 @@ import Boton from '../../base/Boton.astro';
 import Bandera from '../../base/Bandera.astro';
 import estilos from './EquipoEmpresa.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { urlImagen } from '../../../nucleo/medios';
 import { ruta } from '../../../nucleo/rutas';
 
 interface Props {
@@ -18,7 +19,7 @@ const equipo = contenido(idioma, 'nosotros/equipo');
   <div class={estilos.fondo}>
     <img
       class={estilos.imagen}
-      src="/images/team-operations.webp"
+      src={urlImagen(equipo.imagen ?? 'team-operations')}
       alt={equipo.textoAlternativo}
       width="1400"
       height="800"

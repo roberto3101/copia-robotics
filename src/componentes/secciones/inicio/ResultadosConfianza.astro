@@ -2,6 +2,7 @@
 import Contenedor from '../../base/Contenedor.astro';
 import estilos from './ResultadosConfianza.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { urlImagen } from '../../../nucleo/medios';
 
 interface Props {
   idioma: Idioma;
@@ -15,7 +16,7 @@ const resultados = contenido(idioma, 'inicio/resultados');
   <div class={estilos.fondo}>
     <img
       class={estilos.imagen}
-      src="/images/mountains-city-dusk.webp"
+      src={urlImagen(resultados.imagen ?? 'mountains-city-dusk')}
       alt={resultados.textoAlternativo}
       width="1600"
       height="700"

@@ -2,6 +2,7 @@
 import Contenedor from '../../base/Contenedor.astro';
 import estilos from './CambioSeguridad.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { urlImagen } from '../../../nucleo/medios';
 
 interface Props {
   idioma: Idioma;
@@ -15,7 +16,7 @@ const cambio = contenido(idioma, 'inicio/cambio');
   <div class={estilos.fondo}>
     <img
       class={estilos.imagen}
-      src="/images/cambio-inicio.webp"
+      src={urlImagen(cambio.imagen ?? 'cambio-inicio')}
       alt={cambio.textoAlternativo}
       width="1900"
       height="255"

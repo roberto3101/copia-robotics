@@ -3,6 +3,7 @@ import Contenedor from '../../base/Contenedor.astro';
 import Boton from '../../base/Boton.astro';
 import estilos from './CasoExito.module.css';
 import { contenido, type Idioma } from '../../../nucleo/idiomas';
+import { urlImagen } from '../../../nucleo/medios';
 import { ruta } from '../../../nucleo/rutas';
 
 interface Props {
@@ -18,7 +19,7 @@ const acciones = contenido(idioma, 'comunes/acciones');
   <div class={estilos.fondo}>
     <img
       class={estilos.imagen}
-      src="/images/video-detection.webp"
+      src={urlImagen(caso.imagen ?? 'video-detection')}
       alt={caso.textoAlternativo}
       width="900"
       height="520"

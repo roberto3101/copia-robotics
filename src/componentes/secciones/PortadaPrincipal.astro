@@ -8,6 +8,7 @@ import Bandera from '../base/Bandera.astro';
 import ListaAtributos from './ListaAtributos.astro';
 import estilos from './PortadaPrincipal.module.css';
 import { contenido, type Idioma } from '../../nucleo/idiomas';
+import { urlImagen } from '../../nucleo/medios';
 import { ruta } from '../../nucleo/rutas';
 
 interface Props {
@@ -25,7 +26,7 @@ const lineasNota = portada.notaLateral.split('\n');
   <div class={estilos.fondo}>
     <img
       class={estilos.arte}
-      src="/images/portada-inicio.webp"
+      src={urlImagen(portada.imagen ?? 'portada-inicio')}
       alt={portada.textoAlternativo}
       width="2000"
       height="555"
