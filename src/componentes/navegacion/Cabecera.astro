@@ -21,7 +21,12 @@ const acciones = contenido(idioma, 'comunes/acciones');
 const idiomaTextos = contenido(idioma, 'comunes/idioma');
 ---
 
-<header class={estilos.cabecera} data-cabecera data-menu="cerrado">
+<header
+  data-bloque="comunes/navegacion"
+  class={estilos.cabecera}
+  data-cabecera
+  data-menu="cerrado"
+>
   <Contenedor clase={estilos.barra}>
     <Logotipo
       nombre={marca.nombre}

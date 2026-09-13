@@ -11,7 +11,12 @@ const { idioma } = Astro.props;
 const visor = contenido(idioma, 'comunes/visor');
 ---
 
-<dialog class={estilos.visor} data-visor-video aria-labelledby="titulo-visor">
+<dialog
+  data-bloque="comunes/visor"
+  class={estilos.visor}
+  data-visor-video
+  aria-labelledby="titulo-visor"
+>
   <div class={estilos.marco}>
     <header class={estilos.cabecera}>
       <h2 class={estilos.titulo} id="titulo-visor" data-titulo-visor></h2>

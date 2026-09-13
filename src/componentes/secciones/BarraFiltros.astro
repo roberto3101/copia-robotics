@@ -10,16 +10,22 @@ interface Pestana {
 }
 
 interface Props {
+  /** Que paquete de textos la rellena, para poder senalarla desde el panel. */
+  paquete: string;
   rotulo: string;
   elementos: Pestana[];
   marcadorBusqueda?: string;
   clase?: string;
 }
 
-const { rotulo, elementos, marcadorBusqueda, clase } = Astro.props;
+const { paquete, rotulo, elementos, marcadorBusqueda, clase } = Astro.props;
 ---
 
-<nav class={[estilos.barra, clase].filter(Boolean).join(' ')} aria-label={rotulo}>
+<nav
+  data-bloque={`${paquete}/pestanas`}
+  class={[estilos.barra, clase].filter(Boolean).join(' ')}
+  aria-label={rotulo}
+>
   <Contenedor>
     <div class={estilos.pista} data-pista-filtros>
       <div class={estilos.grupoPestanas} role="tablist" aria-label={rotulo}>

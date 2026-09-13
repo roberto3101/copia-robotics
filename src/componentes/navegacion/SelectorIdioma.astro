@@ -25,7 +25,12 @@ const destinos = rutasAlternas(seccion);
 const actual = opciones.find((opcion) => opcion.codigo === idioma) ?? opciones[0];
 ---
 
-<div class={estilos.selector} data-selector-idioma data-abierto="false">
+<div
+  data-bloque="comunes/idioma"
+  class={estilos.selector}
+  data-selector-idioma
+  data-abierto="false"
+>
   <button
     class={estilos.disparador}
     type="button"

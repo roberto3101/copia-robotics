@@ -13,7 +13,12 @@ const busqueda = contenido(idioma, 'comunes/busqueda');
 const indice = construirIndice(idioma);
 ---
 
-<dialog class={estilos.buscador} data-buscador-sitio aria-labelledby="titulo-busqueda">
+<dialog
+  data-bloque="comunes/busqueda"
+  class={estilos.buscador}
+  data-buscador-sitio
+  aria-labelledby="titulo-busqueda"
+>
   <div class={estilos.marco}>
     <h2 class="solo-lectores" id="titulo-busqueda">{busqueda.titulo}</h2>
     <div class={estilos.entrada}>

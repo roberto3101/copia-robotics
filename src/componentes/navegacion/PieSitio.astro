@@ -17,9 +17,9 @@ const pie = contenido(idioma, 'comunes/pie');
 const destinoContacto = `${ruta('nosotros', idioma)}#contacto`;
 ---
 
-<footer class={estilos.pie}>
+<footer data-bloque="comunes/pie" class={estilos.pie}>
   <Contenedor clase={estilos.rejilla}>
-    <div class={estilos.identidad}>
+    <div data-bloque="comunes/marca" class={estilos.identidad}>
       <Logotipo
         nombre={marca.nombre}
         pais={marca.pais}
